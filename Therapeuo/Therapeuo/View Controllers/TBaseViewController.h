@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TBaseViewController : UIViewController
+@interface TBaseViewController : UIViewController <UITextFieldDelegate>
 
 - (void)spinnerShow;
 - (void)spinnerHide;
+
+@property (nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
