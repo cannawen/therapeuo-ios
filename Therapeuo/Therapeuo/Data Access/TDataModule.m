@@ -7,6 +7,7 @@
 //
 
 #import <Blindside.h>
+#import <ReactiveCocoa.h>
 #import "TDataModule.h"
 #import "TNetworkManager.h"
 #import "TPersistenceManager.h"
@@ -42,10 +43,14 @@
         _networkManager = networkManager;
         _persistenceManager = persistenceManager;
         [_persistenceManager readDoctorSuccess:^(Doctor *result) {
-            _doctor = result;
+            self.doctor = result;
         } failure:nil];
     }
     return self;
+}
+
+- (RACSignal *)freshDoctorDataSignal {
+    return RACObserve(self, doctor);
 }
 
 - (void)registerWithName:(NSString *)name
@@ -56,19 +61,20 @@
     [self.networkManager registerWithName:name
                                     email:email
                                  password:password
-                                  success:^(Doctor *result) {
-                                      [self.persistenceManager writeDoctor:result success:^(id _) {
-                                          self.doctor = result;
-                                      } failure:^(NSError *error) {
-                                          if (failure) {
-                                              failure(error);
-                                          }
-                                      }];
-                                  } failure:^(NSError *error) {
-                                      if (failure) {
-                                          failure(error);
-                                      }
-                                  }];
+                                  success:
+     ^(Doctor *result) {
+         [self.persistenceManager writeDoctor:result success:^(id _) {
+             self.doctor = result;
+         } failure:^(NSError *error) {
+             if (failure) {
+                 failure(error);
+             }
+         }];
+     } failure:^(NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 #pragma mark -
