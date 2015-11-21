@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -227,8 +227,26 @@
                     <view key="view" contentMode="scaleToFill" id="xJW-Se-uFP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-JO-aa1">
+                                <rect key="frame" x="10" y="74" width="580" height="516"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Ml-hB-ayk">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tqa-WF-Yzr" firstAttribute="top" secondItem="yLl-JO-aa1" secondAttribute="bottom" constant="10" id="0g3-Qf-spU"/>
+                            <constraint firstItem="yLl-JO-aa1" firstAttribute="top" secondItem="Y8Y-HV-4is" secondAttribute="bottom" constant="10" id="7Hl-0N-WgE"/>
+                            <constraint firstItem="yLl-JO-aa1" firstAttribute="leading" secondItem="xJW-Se-uFP" secondAttribute="leading" constant="10" id="hiy-P4-G8t"/>
+                            <constraint firstAttribute="trailing" secondItem="yLl-JO-aa1" secondAttribute="trailing" constant="10" id="x8b-AC-sCk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GJw-fg-jRl">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="jXY-mF-cMY">
@@ -238,6 +256,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="yLl-JO-aa1" id="MkH-AB-Doo"/>
                         <segue destination="6eU-H0-13I" kind="push" identifier="CaseViewControllerSegue" id="RfD-Yo-UEk"/>
                     </connections>
                 </viewController>
