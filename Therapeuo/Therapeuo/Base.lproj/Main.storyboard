@@ -83,27 +83,32 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-za-Tio">
                                         <rect key="frame" x="0.0" y="55" width="83" height="30"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-IG-n8U">
                                         <rect key="frame" x="0.0" y="110" width="83" height="30"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j8n-M2-YZL">
                                         <rect key="frame" x="0.0" y="0.0" width="83" height="30"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls4-pH-CeY">
                                         <rect key="frame" x="0.0" y="165" width="83" height="30"/>
+                                        <animations/>
                                         <state key="normal" title="register"/>
                                         <connections>
                                             <action selector="registerButtonTapped:" destination="xu0-Of-p6m" eventType="touchUpInside" id="Bxh-G6-PHl"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ls4-pH-CeY" secondAttribute="bottom" id="1t5-0V-nbf"/>
@@ -165,7 +170,7 @@
                                 <animations/>
                                 <state key="normal" title="My Profile"/>
                                 <connections>
-                                    <segue destination="wLw-8S-ryU" kind="push" id="Kk7-Nt-MiZ"/>
+                                    <segue destination="wLw-8S-ryU" kind="push" identifier="doctorProfile" id="Kk7-Nt-MiZ"/>
                                 </connections>
                             </button>
                         </subviews>

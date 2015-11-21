@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Doctor;
 
 @interface DoctorProfileViewController : UIViewController
+
+-(void)configureWithDoctor:(Doctor *)doctor;
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "DoctorProfileViewController.h"
+#import "Doctor.h"
 
 @interface DoctorProfileViewController ()
+
+@property (nonatomic, strong) Doctor *doctor;
 
 @end
 
@@ -16,7 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.title = self.doctor.name;
+}
+
+-(void)configureWithDoctor:(Doctor *)doctor {
+    self.doctor = doctor;
 }
 
 - (void)didReceiveMemoryWarning {

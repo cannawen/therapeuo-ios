@@ -10,4 +10,18 @@
 
 @interface Doctor : NSObject
 
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *location;
+@property (nonatomic, readonly) BOOL available;
+@property (nonatomic, readonly) BOOL assisting;
+@property (nonatomic, readonly) NSString *device;
+
+// TODO figure out type for location either string or long/lat
++ (instancetype) doctorWithName:(NSString *)name
+                       location:(NSString *)location
+                      available:(BOOL)available
+                      assisting:(BOOL)assisting
+                         device:(NSString *)device;
+
+
 @end
