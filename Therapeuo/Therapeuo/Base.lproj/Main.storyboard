@@ -55,7 +55,7 @@
                                 <rect key="frame" x="10" y="470" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="2si-aK-2H7" id="3MK-aH-Vce"/>
                                 </connections>
@@ -76,16 +76,34 @@
                                     <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYn-Hv-hfB">
+                                <rect key="frame" x="398" y="64" width="192" height="30"/>
+                                <state key="normal" title="Login with test@doctor.com"/>
+                                <connections>
+                                    <action selector="temp_loginWithTest:" destination="2si-aK-2H7" eventType="touchUpInside" id="H63-64-WR4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL1-dj-STS">
+                                <rect key="frame" x="389" y="94" width="201" height="30"/>
+                                <state key="normal" title="Login with test2@doctor.com"/>
+                                <connections>
+                                    <action selector="temp_loginWithTest2:" destination="2si-aK-2H7" eventType="touchUpInside" id="Vm6-ZF-aGh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iYn-Hv-hfB" firstAttribute="top" secondItem="RGK-k7-ZTh" secondAttribute="bottom" id="1H1-tf-jFj"/>
                             <constraint firstItem="3cU-w0-ekF" firstAttribute="top" secondItem="p6I-Yc-ORA" secondAttribute="bottom" constant="20" id="32G-ZW-CMg"/>
+                            <constraint firstAttribute="trailing" secondItem="uL1-dj-STS" secondAttribute="trailing" constant="10" id="69m-Hh-O2E"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="10" id="KAU-V7-qfq"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" id="O10-Kk-BxE"/>
                             <constraint firstItem="SHy-X1-9GG" firstAttribute="centerY" secondItem="akf-Qs-tNZ" secondAttribute="centerY" id="PwV-95-NgY"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="10" id="X2r-K9-EpD"/>
+                            <constraint firstAttribute="trailing" secondItem="iYn-Hv-hfB" secondAttribute="trailing" constant="10" id="Y4w-CR-970"/>
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="trailing" secondItem="9hL-9C-QO1" secondAttribute="trailing" id="eRo-Hr-3CI"/>
+                            <constraint firstItem="uL1-dj-STS" firstAttribute="top" secondItem="iYn-Hv-hfB" secondAttribute="bottom" id="hUE-nq-FYD"/>
                             <constraint firstItem="SHy-X1-9GG" firstAttribute="centerX" secondItem="akf-Qs-tNZ" secondAttribute="centerX" id="i74-5A-zuW"/>
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="leading" secondItem="9hL-9C-QO1" secondAttribute="leading" id="m7y-GA-NFm"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="oHy-mP-ZXs"/>
@@ -127,6 +145,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_blurred" translatesAutoresizingMaskIntoConstraints="NO" id="I3z-cR-dZv" userLabel="Logo Blurred">
+                                <rect key="frame" x="216" y="120" width="169" height="169"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="37Q-OT-Xfe">
+                                <rect key="frame" x="216" y="120" width="169" height="169"/>
+                                <animations/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-q3-J5X">
                                 <rect key="frame" x="10" y="420" width="580" height="160"/>
                                 <subviews>
@@ -134,19 +159,28 @@
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xu0-Of-p6m" id="vhc-ZB-23M"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-za-Tio" customClass="ThemedTextField">
                                         <rect key="frame" x="0.0" y="40" width="580" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xu0-Of-p6m" id="3hy-Ni-Ur1"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-IG-n8U" customClass="ThemedTextField">
                                         <rect key="frame" x="0.0" y="80" width="580" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xu0-Of-p6m" id="WmK-yK-tgN"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls4-pH-CeY" customClass="ThemedButton">
                                         <rect key="frame" x="0.0" y="130" width="580" height="30"/>
@@ -183,10 +217,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="37Q-OT-Xfe">
-                                <rect key="frame" x="216" y="120" width="169" height="169"/>
-                                <animations/>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -197,6 +227,8 @@
                             <constraint firstItem="QWO-q3-J5X" firstAttribute="leading" secondItem="rLM-jc-dVP" secondAttribute="leading" constant="10" id="fkR-Oy-5qy"/>
                             <constraint firstItem="3Ae-Ig-wnu" firstAttribute="top" secondItem="QWO-q3-J5X" secondAttribute="bottom" constant="20" id="jka-aB-Ftm"/>
                             <constraint firstItem="37Q-OT-Xfe" firstAttribute="top" secondItem="rK5-jG-RIx" secondAttribute="bottom" constant="56" id="nW6-j8-tb1"/>
+                            <constraint firstItem="I3z-cR-dZv" firstAttribute="centerY" secondItem="37Q-OT-Xfe" secondAttribute="centerY" id="svd-PZ-xEP"/>
+                            <constraint firstItem="I3z-cR-dZv" firstAttribute="centerX" secondItem="37Q-OT-Xfe" secondAttribute="centerX" id="ug3-3C-kCN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -209,6 +241,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="c6T-za-Tio" id="FZO-9c-ZJM"/>
+                        <outlet property="formBottomConstraint" destination="jka-aB-Ftm" id="43U-Wm-Zc3"/>
+                        <outlet property="logoBlurredImageView" destination="I3z-cR-dZv" id="wov-7Q-x1x"/>
+                        <outlet property="logoImageView" destination="37Q-OT-Xfe" id="JQj-dt-fg5"/>
                         <outlet property="nameTextField" destination="j8n-M2-YZL" id="2IH-DA-lmQ"/>
                         <outlet property="passwordTextField" destination="TuY-IG-n8U" id="vMi-Mf-ozX"/>
                     </connections>

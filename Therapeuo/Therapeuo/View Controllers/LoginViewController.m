@@ -27,6 +27,12 @@
 
 @implementation LoginViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
@@ -36,8 +42,6 @@
         }
     } failure:nil];
     self.originalLoginBottomConstraintConstant = self.loginBottomConstraint.constant;
-    UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
-    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -48,6 +52,12 @@
 - (void)backgroundTapped:(id)sender {
     [self.view endEditing:YES];
 }
+
+- (void)moveToHome {
+    [self performSegueWithIdentifier:@"caseController" sender:self];
+}
+
+#pragma mark - IBActions
 
 - (IBAction)loginButtonTapped:(id)sender {
     NSString *email = self.emailTextField.text;
@@ -65,8 +75,16 @@
      }];
 }
 
-- (void)moveToHome {
-    [self performSegueWithIdentifier:@"caseController" sender:self];
+- (IBAction)temp_loginWithTest:(id)sender {
+    self.emailTextField.text = @"test@doctor.com";
+    self.passwordTextField.text = @"thing";
+    [self loginButtonTapped:sender];
+}
+
+- (IBAction)temp_loginWithTest2:(id)sender {
+    self.emailTextField.text = @"test2@doctor.com";
+    self.passwordTextField.text = @"thing";
+    [self loginButtonTapped:sender];
 }
 
 #pragma mark - UITextFieldDelegate
