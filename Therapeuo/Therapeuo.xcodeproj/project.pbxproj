@@ -13,7 +13,6 @@
 		1786DECE1C00C6A7002DE686 /* TSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DECC1C00C6A7002DE686 /* TSessionManager.m */; };
 		1786DED11C00C994002DE686 /* TBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED01C00C994002DE686 /* TBaseModel.m */; };
 		1786DED41C00D2F5002DE686 /* TDataModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED31C00D2F5002DE686 /* TDataModule.m */; };
-		1786DED71C00D350002DE686 /* TDataModule+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED61C00D350002DE686 /* TDataModule+Helpers.m */; };
 		1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED91C00D40B002DE686 /* TPersistenceManager.m */; };
 		1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */; };
 		1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEE01C00F48B002DE686 /* TBaseViewController.m */; };
@@ -75,8 +74,6 @@
 		1786DED01C00C994002DE686 /* TBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBaseModel.m; path = Models/TBaseModel.m; sourceTree = "<group>"; };
 		1786DED21C00D2F5002DE686 /* TDataModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDataModule.h; sourceTree = "<group>"; };
 		1786DED31C00D2F5002DE686 /* TDataModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDataModule.m; sourceTree = "<group>"; };
-		1786DED51C00D350002DE686 /* TDataModule+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TDataModule+Helpers.h"; sourceTree = "<group>"; };
-		1786DED61C00D350002DE686 /* TDataModule+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TDataModule+Helpers.m"; sourceTree = "<group>"; };
 		1786DED81C00D40B002DE686 /* TPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPersistenceManager.h; sourceTree = "<group>"; };
 		1786DED91C00D40B002DE686 /* TPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPersistenceManager.m; sourceTree = "<group>"; };
 		1786DEDB1C00D524002DE686 /* TDataAccessProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDataAccessProtocols.h; sourceTree = "<group>"; };
@@ -169,8 +166,6 @@
 			children = (
 				1786DED21C00D2F5002DE686 /* TDataModule.h */,
 				1786DED31C00D2F5002DE686 /* TDataModule.m */,
-				1786DED51C00D350002DE686 /* TDataModule+Helpers.h */,
-				1786DED61C00D350002DE686 /* TDataModule+Helpers.m */,
 				1786DEC91C00C6A7002DE686 /* TNetworkManager.h */,
 				1786DECA1C00C6A7002DE686 /* TNetworkManager.m */,
 				1786DEDB1C00D524002DE686 /* TDataAccessProtocols.h */,
@@ -574,7 +569,6 @@
 				1786DECD1C00C6A7002DE686 /* TNetworkManager.m in Sources */,
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
 				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,
-				1786DED71C00D350002DE686 /* TDataModule+Helpers.m in Sources */,
 				1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */,
 				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
 				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,

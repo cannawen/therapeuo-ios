@@ -7,7 +7,7 @@
 //
 
 #import "RegistrationViewController.h"
-#import "TDataModule+Helpers.h"
+#import "TDataModule.h"
 
 #import "Doctor.h"
 

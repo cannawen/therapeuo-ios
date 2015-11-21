@@ -9,7 +9,7 @@
 #import <Blindside.h>
 #import "TModule.h"
 #import "AppDelegate.h"
-#import "TDataModule+Helpers.h"
+#import "TDataModule.h"
 
 @interface AppDelegate ()
 @end

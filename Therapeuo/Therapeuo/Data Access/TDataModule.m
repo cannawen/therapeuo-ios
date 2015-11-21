@@ -11,7 +11,7 @@
 #import "TDataModule.h"
 #import "TNetworkManager.h"
 #import "TPersistenceManager.h"
-
+#import "AppDelegate.h"
 #import "Doctor.h"
 #import "Case.h"
 
@@ -35,6 +35,11 @@
             [TNetworkManager class],
             [TPersistenceManager class],
             nil];;
+}
+
++ (instancetype)sharedInstance {
+    AppDelegate *appDelegate = ((AppDelegate *)[UIApplication sharedApplication].delegate);
+    return [appDelegate.injector getInstance:[self class]];
 }
 
 - (instancetype)initWithNetworkManager:(TNetworkManager *)networkManager

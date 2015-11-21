@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "ThemedTextField.h"
 #import "ThemedButton.h"
-#import "TDataModule+Helpers.h"
+#import "TDataModule.h"
 #import "TAlertHelper.h"
 #import "TConstants.h"
 

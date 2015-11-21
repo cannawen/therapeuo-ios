@@ -8,7 +8,7 @@
 
 #import "DoctorProfileViewController.h"
 #import "Doctor.h"
-#import "TDataModule+Helpers.h"
+#import "TDataModule.h"
 #import "ThemedTextField.h"
 #import "UIColor+Theme.h"
 

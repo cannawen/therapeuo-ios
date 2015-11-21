@@ -8,8 +8,7 @@
 
 #import "CaseListViewController.h"
 #import "DoctorProfileViewController.h"
-
-#import "TDataModule+Helpers.h"
+#import "TDataModule.h"
 
 #import "Doctor.h"
 #import "Case.h"
@@ -73,6 +72,7 @@
     self.collectionView.backgroundColor = [UIColor clearColor];
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([CaseListCell class]) bundle:[NSBundle bundleForClass:[self class]]];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([CaseListCell class])];
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,6 +102,20 @@
         
         [vc configureWithDoctor];
     }
+}
+
+#pragma mark - IBActions
+
+- (IBAction)logoutButtonTapped:(id)sender {
+    TDataModule *dataModule = [TDataModule sharedInstance];
+    [dataModule logoutDoctorWithId:dataModule.doctor.doctorId
+                                             success:nil
+                                             failure:nil];
+    [dataModule flushAllSuccess:^(id result) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } failure:^(NSError *error) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - <UICollectionViewDataSource>
