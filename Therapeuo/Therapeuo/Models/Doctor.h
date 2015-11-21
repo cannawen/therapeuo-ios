@@ -6,9 +6,9 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TBaseModel.h"
 
-@interface Doctor : NSObject
+@interface Doctor : TBaseModel
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *location;

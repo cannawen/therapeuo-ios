@@ -6,8 +6,8 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TBaseModel.h"
 
-@interface PatientMessage : NSObject
+@interface PatientMessage : TBaseModel
 
 @end
