@@ -19,6 +19,9 @@
 @implementation RegistrationViewController
 
 - (IBAction)registerButtonTapped:(id)sender {
+    NSString *name = self.nameTextField.text;
+    NSString *email = self.emailTextField.text;
+    NSString *password = self.passwordTextField.text;
     //TODO: Steven to make network call
 }
 
