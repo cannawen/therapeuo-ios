@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 @class Doctor;
 
-@interface DoctorProfileViewController : UIViewController
+@interface DoctorProfileViewController<UIAlertViewDelegate> : UIViewController
 
--(void)configureWithDoctor:(Doctor *)doctor;
+-(void)configureWithDoctor;
 
 @end

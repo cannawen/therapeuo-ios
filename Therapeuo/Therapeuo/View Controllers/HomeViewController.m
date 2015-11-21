@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 #import "DoctorProfileViewController.h"
-
+#import "TDataModule+Helpers.h"
 #import "Doctor.h"
 
 @interface HomeViewController ()
@@ -36,15 +36,8 @@
     if ([identifier isEqualToString:@"doctorProfile"]) {
         DoctorProfileViewController *vc = (DoctorProfileViewController *)segue.destinationViewController;
         
-        [vc configureWithDoctor:[self getDoctor]];
+        [vc configureWithDoctor];
     }
-}
-
-
-// TODO: Find how we're getting the doctor ex) dependency inject factory, user context
--(Doctor *)getDoctor {
-    Doctor *doctor = [Doctor doctorWithName:@"John Smith" location:@"1 Main Street" available:YES assisting:NO device:@"iPhone"];
-    return doctor;
 }
 
 @end

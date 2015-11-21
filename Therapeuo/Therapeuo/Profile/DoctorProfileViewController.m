@@ -8,6 +8,7 @@
 
 #import "DoctorProfileViewController.h"
 #import "Doctor.h"
+#import "TDataModule+Helpers.h"
 
 @interface DoctorProfileViewController ()
 
@@ -58,8 +59,15 @@ typedef void (^ SaveBlock)(BOOL);
     self.deviceLabel.text = self.doctor.device;
 }
 
--(void)configureWithDoctor:(Doctor *)doctor {
-    self.doctor = doctor;
+-(void)configureWithDoctor {
+    
+    [[TDataModule sharedInstance] readDoctorSuccess:^(id result) {
+        self.doctor = (Doctor *)result;
+        [self initializeUI];
+    } failure:^(NSError *error) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Unable to get profile" message:@"Could not get profile" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,30 +88,39 @@ typedef void (^ SaveBlock)(BOOL);
 - (void)setIsEditingProfile:(BOOL)isEditing {
     _isEditingProfile = !_isEditingProfile;
     if (!_isEditingProfile) {
+        
         [self saveProfile:^(BOOL didSave) {
-            if (didSave) {
-                [self setProfileEditMode:NO];
-                self.navigationItem.rightBarButtonItem = nil;
-                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(didSelectEditButton)];
-            } else {
-                
-            }
+            [self setProfileEditMode:NO];
+            self.navigationItem.rightBarButtonItem = nil;
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(didSelectEditButton)];
         }];
     }
 }
 
 - (void)saveProfile:(SaveBlock)saveBlock {
     
+    Doctor *doctor = [Doctor doctorWithID:self.doctor.doctorId name:self.nameField.text location:@"agaweg" available:self.availableSwitch.on assisting:self.assistingSwitch.on device:self.deviceLabel.text];
+    
+    
+    [[TDataModule sharedInstance] updateDoctor:doctor success:^(id result) {
+        // remove spinner
+        [self setProfileEditMode:NO];
+        saveBlock(YES);
+    } failure:^(NSError *error) {
+        [self initializeUI];
+    }];
     // block-based save call
     
 //     assume success
-    // remove spinner
-     [self setProfileEditMode:NO];
-    saveBlock(YES);
+
     // else error
     // initialize
+}
 
-    
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

@@ -23,26 +23,30 @@
 
 @implementation Doctor
 
-+ (instancetype)doctorWithName:(NSString *)name
++ (instancetype)doctorWithID:(NSString *)doctorID
+                        name:(NSString *)name
                       location:(NSString *)location
                      available:(BOOL)available
                      assisting:(BOOL)assisting
                         device:(NSString *)device {
-    return [[Doctor alloc] initWith:name
+    
+    return [[Doctor alloc] initWithID:doctorID
+                                 name:name
                            location:location
                           available:available
                           assisting:assisting
                              device:device];
-    
 }
 
-- (instancetype)initWith:(NSString *)name
-                location:(NSString *)location
-               available:(BOOL)available
-               assisting:(BOOL)assisting
-                  device:(NSString *)device {
+- (instancetype)initWithID:(NSString *)doctorID
+                      name:name
+                  location:(NSString *)location
+                 available:(BOOL)available
+                 assisting:(BOOL)assisting
+                    device:(NSString *)device {
     self = [super init];
     if (self) {
+        _doctorId = doctorID;
         _name = name;
         _location = location;
         _available = available;
