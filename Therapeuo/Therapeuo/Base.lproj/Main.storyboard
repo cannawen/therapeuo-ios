@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2si-aK-2H7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="M2c-AM-IZ6">
+            <objects>
+                <navigationController id="RbY-4A-JKs" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BM5-HN-ymY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2si-aK-2H7" kind="relationship" relationship="rootViewController" id="obF-mi-fvS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBX-Ov-PJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-291" y="485"/>
+        </scene>
+        <!--Login View Controller-->
         <scene sceneID="dWV-Uv-Dve">
             <objects>
-                <viewController id="2si-aK-2H7" sceneMemberID="viewController">
+                <viewController id="2si-aK-2H7" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RGK-k7-ZTh"/>
                         <viewControllerLayoutGuide type="bottom" id="3cU-w0-ekF"/>
@@ -17,21 +33,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA">
+                                <rect key="frame" x="272" y="340" width="57" height="30"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-c1-0Yb">
                                 <rect key="frame" x="281" y="285" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="c0P-b9-Rq5" kind="push" id="q5r-Sy-5Pn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="p6I-Yc-ORA" firstAttribute="centerX" secondItem="SEE-c1-0Yb" secondAttribute="centerX" id="9NA-3b-BTP"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerY" secondItem="NEb-AS-6rI" secondAttribute="centerY" id="JrV-Ug-NYF"/>
+                            <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="25" id="KAU-V7-qfq"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="yTG-qF-G6F"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TNe-Km-nBy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m77-pW-z14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="362" y="485"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="nJj-gJ-Zcn">
+            <objects>
+                <viewController id="xu0-Of-p6m" customClass="RegistrationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rK5-jG-RIx"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ae-Ig-wnu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rLM-jc-dVP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qF8-IN-Rwy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27o-d7-qdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="1211"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="TID-Vt-2GW">
+            <objects>
+                <viewController id="c0P-b9-Rq5" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mmY-bm-cQg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ebI-cr-eBy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t28-lD-LD6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="opy-bA-p9P"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5VZ-Sg-Mnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="483"/>
         </scene>
     </scenes>
 </document>

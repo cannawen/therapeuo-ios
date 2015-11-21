@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
-		179E8AB11C00A994005E492F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AB01C00A994005E492F /* MasterViewController.m */; };
-		179E8AB41C00A994005E492F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AB31C00A994005E492F /* DetailViewController.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
 		179E8AB91C00A994005E492F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB81C00A994005E492F /* Assets.xcassets */; };
 		179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */; };
@@ -18,6 +16,9 @@
 		179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AD11C00A995005E492F /* TherapeuoUITests.m */; };
 		179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CasesViewController.m */; };
 		179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* ProfileViewController.m */; };
+		B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ECF1C00BF35008EDA02 /* HomeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
@@ -47,10 +48,6 @@
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		179E8AAD1C00A994005E492F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		179E8AAF1C00A994005E492F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		179E8AB01C00A994005E492F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		179E8AB21C00A994005E492F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		179E8AB31C00A994005E492F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		179E8AB61C00A994005E492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		179E8AB81C00A994005E492F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		179E8ABB1C00A994005E492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +64,12 @@
 		179E8AEA1C00AA27005E492F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.release.xcconfig"; sourceTree = "<group>"; };
 		A4A264045B78BC0161C92BD7 /* Pods-Therapeuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.debug.xcconfig"; sourceTree = "<group>"; };
+		B0662ECE1C00BF35008EDA02 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = "View Controllers/HomeViewController.h"; sourceTree = "<group>"; };
+		B0662ECF1C00BF35008EDA02 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = "View Controllers/HomeViewController.m"; sourceTree = "<group>"; };
+		B0662ED21C00BF5D008EDA02 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
+		B0662ED31C00BF5D008EDA02 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/LoginViewController.m"; sourceTree = "<group>"; };
+		B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
@@ -134,15 +137,12 @@
 				179E8AAD1C00A994005E492F /* AppDelegate.m */,
 				179E8AB81C00A994005E492F /* Assets.xcassets */,
 				179E8AE51C00AA27005E492F /* Cases */,
-				179E8AB21C00A994005E492F /* DetailViewController.h */,
-				179E8AB31C00A994005E492F /* DetailViewController.m */,
 				179E8ABD1C00A994005E492F /* Info.plist */,
 				179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */,
 				179E8AB51C00A994005E492F /* Main.storyboard */,
-				179E8AAF1C00A994005E492F /* MasterViewController.h */,
-				179E8AB01C00A994005E492F /* MasterViewController.m */,
 				179E8AE81C00AA27005E492F /* Profile */,
 				179E8AA91C00A994005E492F /* Supporting Files */,
+				B0662ED11C00BF3A008EDA02 /* View Controllers */,
 			);
 			path = Therapeuo;
 			sourceTree = "<group>";
@@ -198,6 +198,19 @@
 				8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B0662ED11C00BF3A008EDA02 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B0662ECE1C00BF35008EDA02 /* HomeViewController.h */,
+				B0662ECF1C00BF35008EDA02 /* HomeViewController.m */,
+				B0662ED21C00BF5D008EDA02 /* LoginViewController.h */,
+				B0662ED31C00BF5D008EDA02 /* LoginViewController.m */,
+				B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */,
+				B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		BFDB3CBADC57D3E2370AE3DA /* Frameworks */ = {
@@ -407,13 +420,14 @@
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
 				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,
 				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
+				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,
 				179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */,
-				179E8AB11C00A994005E492F /* MasterViewController.m in Sources */,
+				B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */,
 				D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */,
+				B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */,
 				D3796E151C00BBBA007E2888 /* PatientCase.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
 				179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */,
-				179E8AB41C00A994005E492F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
