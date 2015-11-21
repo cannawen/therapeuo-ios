@@ -11,6 +11,4 @@
 
 @interface TNetworkManager : NSObject <TNetworkProtocol>
 
-+ (instancetype)sharedInstance;
-
 @end

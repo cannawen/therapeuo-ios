@@ -10,6 +10,6 @@
 
 @interface TDataModule (Helpers)
 
-
++ (instancetype)sharedInstance;
 
 @end
