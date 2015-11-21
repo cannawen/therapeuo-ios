@@ -38,6 +38,8 @@
 		B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EF21C0109FD008EDA02 /* CaseViewController.m */; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 		D35C6C2B1C011E2600000697 /* PatientCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C2A1C011E2600000697 /* PatientCase.m */; };
+		D35C6C2E1C01238000000697 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C2D1C01238000000697 /* Message.m */; };
+		D35C6C311C0125E200000697 /* Case.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C301C0125E200000697 /* Case.m */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
 /* End PBXBuildFile section */
@@ -123,6 +125,10 @@
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35C6C291C011E2600000697 /* PatientCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientCase.h; path = Models/PatientCase.h; sourceTree = "<group>"; };
 		D35C6C2A1C011E2600000697 /* PatientCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientCase.m; path = Models/PatientCase.m; sourceTree = "<group>"; };
+		D35C6C2C1C01238000000697 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = Models/Message.h; sourceTree = "<group>"; };
+		D35C6C2D1C01238000000697 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = Models/Message.m; sourceTree = "<group>"; };
+		D35C6C2F1C0125E200000697 /* Case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Case.h; path = Models/Case.h; sourceTree = "<group>"; };
+		D35C6C301C0125E200000697 /* Case.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Case.m; path = Models/Case.m; sourceTree = "<group>"; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
 		D3796E0D1C00BBBA007E2888 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = "<group>"; };
@@ -368,6 +374,10 @@
 				1786DED01C00C994002DE686 /* TBaseModel.m */,
 				D35C6C291C011E2600000697 /* PatientCase.h */,
 				D35C6C2A1C011E2600000697 /* PatientCase.m */,
+				D35C6C2C1C01238000000697 /* Message.h */,
+				D35C6C2D1C01238000000697 /* Message.m */,
+				D35C6C2F1C0125E200000697 /* Case.h */,
+				D35C6C301C0125E200000697 /* Case.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -570,6 +580,7 @@
 				1786DEE71C011378002DE686 /* CaseListCell.m in Sources */,
 				1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,
+				D35C6C2E1C01238000000697 /* Message.m in Sources */,
 				1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */,
 				1786DED41C00D2F5002DE686 /* TDataModule.m in Sources */,
 				1786DEC71C00C6A0002DE686 /* TModule.m in Sources */,
@@ -578,6 +589,7 @@
 				B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
 				D35C6C2B1C011E2600000697 /* PatientCase.m in Sources */,
+				D35C6C311C0125E200000697 /* Case.m in Sources */,
 				179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */,
 				1786DECE1C00C6A7002DE686 /* TSessionManager.m in Sources */,
 			);

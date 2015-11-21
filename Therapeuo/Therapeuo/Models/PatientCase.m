@@ -7,16 +7,12 @@
 //
 
 #import "PatientCase.h"
-#import "Patient.h"
-#import "Doctor.h"
+#import "Case.h"
 
 @interface PatientCase ()
 
-@property (nonatomic, strong) Patient *patient;
-@property (nonatomic, strong) NSArray *doctors;
-@property (nonatomic, strong) Doctor *primaryDoctor;
-@property (nonatomic, assign) BOOL open;
-@property (nonatomic, strong) NSString *notes;
+@property (nonatomic, strong) Case *patientCase;
+@property (nonatomic, strong) NSArray *messages;
 
 @end
 

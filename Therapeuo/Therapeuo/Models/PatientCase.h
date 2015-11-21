@@ -7,16 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Patient;
-@class Doctor;
+@class Case;
 
 @interface PatientCase : NSObject
 
-@property (nonatomic, readonly) Patient *patient;
-@property (nonatomic, readonly) NSArray *doctors;
-@property (nonatomic, readonly) Doctor *primaryDoctor;
-@property (nonatomic, readonly) BOOL open;
-@property (nonatomic, readonly) NSString *notes;
-
+@property (nonatomic, readonly) Case *patientCase;
+@property (nonatomic, readonly) NSArray *messages;
 
 @end
