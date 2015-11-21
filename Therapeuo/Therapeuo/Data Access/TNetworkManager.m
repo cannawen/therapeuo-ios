@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 
 #import <Blindside.h>
+#import "MTLJSONAdapter.h"
 #import "TNetworkManager.h"
 #import "TSessionManager.h"
+
+#import "Doctor.h"
 
 @interface TNetworkManager ()
 
@@ -53,15 +56,34 @@
     [self.sessionManager POST:@"doctors/register"
                   parameters:params
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                         //cast to object here
-                         if (success) {
-                             success(responseObject);
-                         }
+                         [self parseModelClass:Doctor.class
+                              fromJsonResponse:responseObject
+                                       success:success
+                                       failure:failure];
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                          if (failure) {
                              failure(error);
                          }
                      }];
 }
+
+- (void)parseModelClass:(Class)modelClass
+       fromJsonResponse:(NSDictionary *)jsonResponse
+                success:(SuccssBlock)success
+                failure:(FailureBlock)failure {
+    NSError *error = nil;
+    id model = [MTLJSONAdapter modelOfClass:modelClass fromJSONDictionary:jsonResponse error:&error];
+    if (!error) {
+        if (success) {
+            success(model);
+        }
+    } else {
+        failure(error);
+    }
+}
+
+//Steve - user later to construct json
+//NSError *error = nil;
+//NSDictionary *JSONDictionary = [MTLJSONAdapter JSONDictionaryFromModel:user error:&error];
 
 @end

@@ -23,6 +23,8 @@
 - (instancetype)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
     if (self) {
+        self.requestSerializer = [AFHTTPRequestSerializer serializer];
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
         [self.securityPolicy setAllowInvalidCertificates:YES];
         [self.securityPolicy setValidatesDomainName:NO];
     }
