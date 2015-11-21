@@ -95,6 +95,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls4-pH-CeY">
                                         <rect key="frame" x="0.0" y="165" width="83" height="30"/>
                                         <state key="normal" title="register"/>
+                                        <connections>
+                                            <action selector="registerButtonTapped:" destination="xu0-Of-p6m" eventType="touchUpInside" id="Bxh-G6-PHl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,6 +125,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="qF8-IN-Rwy"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="c6T-za-Tio" id="FZO-9c-ZJM"/>
+                        <outlet property="nameTextField" destination="j8n-M2-YZL" id="2IH-DA-lmQ"/>
+                        <outlet property="passwordTextField" destination="TuY-IG-n8U" id="vMi-Mf-ozX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27o-d7-qdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
