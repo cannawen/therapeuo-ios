@@ -65,7 +65,7 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     [self keyboardWillShowWithHeight:[self keyboardHeightFromNotification:notification]
-                    activeTextField:self.activeField];
+                     activeTextField:self.activeField];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {

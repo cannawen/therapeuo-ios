@@ -35,6 +35,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_blurred" translatesAutoresizingMaskIntoConstraints="NO" id="SHy-X1-9GG" userLabel="Logo Blurred Image View">
+                                <rect key="frame" x="216" y="164" width="169" height="169"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="akf-Qs-tNZ">
                                 <rect key="frame" x="216" y="164" width="169" height="169"/>
                                 <animations/>
@@ -75,8 +78,10 @@
                             <constraint firstItem="3cU-w0-ekF" firstAttribute="top" secondItem="p6I-Yc-ORA" secondAttribute="bottom" constant="20" id="32G-ZW-CMg"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="10" id="KAU-V7-qfq"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" id="O10-Kk-BxE"/>
+                            <constraint firstItem="SHy-X1-9GG" firstAttribute="centerY" secondItem="akf-Qs-tNZ" secondAttribute="centerY" id="PwV-95-NgY"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="10" id="X2r-K9-EpD"/>
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="trailing" secondItem="9hL-9C-QO1" secondAttribute="trailing" id="eRo-Hr-3CI"/>
+                            <constraint firstItem="SHy-X1-9GG" firstAttribute="centerX" secondItem="akf-Qs-tNZ" secondAttribute="centerX" id="i74-5A-zuW"/>
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="leading" secondItem="9hL-9C-QO1" secondAttribute="leading" id="m7y-GA-NFm"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="oHy-mP-ZXs"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="top" secondItem="RGK-k7-ZTh" secondAttribute="bottom" constant="100" id="oXM-D7-3Cq"/>
@@ -94,6 +99,8 @@
                     <connections>
                         <outlet property="emailTextField" destination="d4n-u2-oPT" id="lD9-nT-Pzv"/>
                         <outlet property="loginBottomConstraint" destination="KAU-V7-qfq" id="xwk-Df-FQt"/>
+                        <outlet property="logoBlurredImageView" destination="SHy-X1-9GG" id="WGo-WJ-acv"/>
+                        <outlet property="logoImageView" destination="akf-Qs-tNZ" id="oFE-d6-CRV"/>
                         <outlet property="passwordTextField" destination="9hL-9C-QO1" id="w1D-UV-XbH"/>
                         <outlet property="registerButton" destination="p6I-Yc-ORA" id="wne-zd-EVa"/>
                         <segue destination="c0P-b9-Rq5" kind="push" identifier="authToHome" id="Vog-PP-E4t"/>
@@ -425,5 +432,6 @@
     </scenes>
     <resources>
         <image name="logo" width="169" height="169"/>
+        <image name="logo_blurred" width="169" height="169"/>
     </resources>
 </document>

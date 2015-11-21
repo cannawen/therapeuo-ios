@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBottomConstraint;
 @property (nonatomic) CGFloat originalLoginBottomConstraintConstant;
 @property (weak, nonatomic) IBOutlet ThemedButton *registerButton;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoBlurredImageView;
 
 @end
 
@@ -66,13 +68,22 @@
         [UIView animateWithDuration:animationDuration animations:^{
             CGFloat registerButtonHeight = CGRectGetHeight(self.registerButton.bounds);
             self.loginBottomConstraint.constant = height - registerButtonHeight;
+            self.logoImageView.alpha = 0.0f;
+            self.logoBlurredImageView.alpha = 1.0f;
             [self.view layoutIfNeeded];
         }];
     }
 }
 
 - (void)keyboardWillHideWithHeight:(CGFloat)height {
-    self.loginBottomConstraint.constant = self.originalLoginBottomConstraintConstant;
+    if (self.loginBottomConstraint.constant != self.originalLoginBottomConstraintConstant) {
+        [UIView animateWithDuration:animationDuration animations:^{
+            self.loginBottomConstraint.constant = self.originalLoginBottomConstraintConstant;
+            self.logoImageView.alpha = 1.0f;
+            self.logoBlurredImageView.alpha = 0.0f;
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 @end
