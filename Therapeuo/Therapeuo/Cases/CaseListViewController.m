@@ -12,6 +12,8 @@
 #import "TDataModule+Helpers.h"
 
 #import "Doctor.h"
+#import "Case.h"
+#import "VerboseCase.h"
 
 #import "CaseListCell.h"
 
@@ -76,8 +78,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     Doctor *doctor = [TDataModule sharedInstance].doctor;
-    [[TDataModule sharedInstance] fetchCaseForDoctorWithId:doctor.doctorId success:^(id result) {
-        
+    __weak TDataModule *weakDataModule = [TDataModule sharedInstance];
+    [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctor.doctorId success:^(NSArray *results) {
+        Case *currentCase = [results firstObject];
+        [weakDataModule fetchVerboseCaseWithId:currentCase.caseId
+                                       success:
+         ^(VerboseCase *result) {
+             
+         } failure:nil];
     } failure:nil];
 }
 

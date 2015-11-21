@@ -12,6 +12,9 @@
 #import "TSessionManager.h"
 
 #import "Doctor.h"
+#import "Case.h"
+
+#import "NSArray+PivotalCore.h"
 
 @interface TNetworkManager ()
 
@@ -131,15 +134,25 @@
                      }];
 }
 
-- (void)fetchCaseForDoctorWithId:(NSString *)doctorId
-                         success:(SuccssBlock)success
-                         failure:(FailureBlock)failure {
+- (void)fetchCasesForDoctorWithId:(NSString *)doctorId
+                          success:(SuccssBlock)success
+                          failure:(FailureBlock)failure {
     [self.sessionManager GET:[NSString stringWithFormat:@"doctors/%@/cases", doctorId]
                   parameters:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                          NSLog(@"Fetch doctor cases success");
+                         NSArray *cases = [responseObject map:^Case *(NSDictionary *caseJsonResponse) {
+                             NSError *error = nil;
+                             return [MTLJSONAdapter modelOfClass:Case.class fromJSONDictionary:caseJsonResponse error:&error];
+                         }];
+                         if (success) {
+                             success(cases);
+                         }
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                          NSLog(@"Fetch doctor cases failed");
+                         if (failure) {
+                             failure(error);
+                         }
                      }];
 }
 

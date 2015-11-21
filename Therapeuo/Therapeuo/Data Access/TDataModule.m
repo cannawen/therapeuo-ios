@@ -13,6 +13,7 @@
 #import "TPersistenceManager.h"
 
 #import "Doctor.h"
+#import "Case.h"
 
 @interface TDataModule ()
 
@@ -62,11 +63,7 @@
                                   success:
      ^(Doctor *result) {
          [self storeDoctor:result success:success failure:failure];
-     } failure:^(NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+     } failure:failure];
 }
 
 - (void)loginWithEmail:(NSString *)email
@@ -78,11 +75,7 @@
                                 success:
      ^(Doctor *result) {
          [self storeDoctor:result success:success failure:failure];
-     } failure:^(NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+     } failure:failure];
 }
 
 - (void)fetchDoctorWithId:(NSString *)doctorId
@@ -90,11 +83,7 @@
                   failure:(FailureBlock)failure {
     [self.networkManager fetchDoctorWithId:doctorId success:^(Doctor* result) {
         [self storeDoctor:result success:success failure:failure];
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
+    } failure:failure];
 }
 
 - (void)updateDoctor:(Doctor *)doctor
@@ -102,11 +91,7 @@
              failure:(FailureBlock)failure {
     [self.networkManager updateDoctor:doctor success:^(id result) {
         [self storeDoctor:doctor success:success failure:failure];
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
+    } failure:failure];
 }
 
 - (void)storeDoctor:(Doctor *)doctor
@@ -117,11 +102,21 @@
         if (success) {
             success(doctor);
         }
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
+    } failure:failure];
+}
+
+- (void)fetchVerboseCaseWithId:(NSString *)caseId
+                       success:(SuccssBlock)success
+                       failure:(FailureBlock)failure {
+    __weak TNetworkManager *weakNetworkManager = self.networkManager;
+    [self.networkManager fetchCaseWithId:caseId success:^(Case *resultCase) {
+        [weakNetworkManager fetchDoctorWithId:resultCase.primaryDoctorId success:^(Doctor *resultDoctor) {
+            // add doctor
+            [weakNetworkManager fetchMessagesForCaseWithId:resultCase.caseId success:^(id result) {
+                // add message
+            } failure:failure];
+        } failure:failure];
+    } failure:failure];
 }
 
 - (void)logoutDoctorWithId:(NSString *)doctorId
@@ -132,11 +127,7 @@
         if (success) {
             success(nil);
         }
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
+    } failure:failure];
 }
 
 #pragma mark - <TPersistenceProtocol>

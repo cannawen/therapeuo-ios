@@ -6,16 +6,16 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-@class Patient;
-@class Doctor;
+#import "TBaseModel.h"
 
-@interface Case : NSObject
+@interface Case : TBaseModel
 
-@property (nonatomic, readonly) Patient *patient;
-@property (nonatomic, readonly) NSArray *doctors;
-@property (nonatomic, readonly) Doctor *primaryDoctor;
+@property (nonatomic, readonly) NSString *caseId;
+@property (nonatomic, readonly) NSArray *doctorIds;
 @property (nonatomic, readonly) BOOL open;
+@property (nonatomic, readonly) NSString *patientId;
+@property (nonatomic, readonly) NSString *primaryDoctorId;
+
 @property (nonatomic, readonly) NSString *notes;
 
 @end

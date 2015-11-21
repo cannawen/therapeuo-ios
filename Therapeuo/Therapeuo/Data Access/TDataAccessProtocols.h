@@ -20,9 +20,9 @@
 - (void)updateDoctor:(Doctor *)doctor
              success:(SuccssBlock)success
              failure:(FailureBlock)failure;
-- (void)fetchCaseForDoctorWithId:(NSString *)doctorId
-                         success:(SuccssBlock)success
-                         failure:(FailureBlock)failure;
+- (void)fetchCasesForDoctorWithId:(NSString *)doctorId
+                          success:(SuccssBlock)success
+                          failure:(FailureBlock)failure;
 - (void)fetchCaseWithId:(NSString *)caseId
                 success:(SuccssBlock)success
                 failure:(FailureBlock)failure;

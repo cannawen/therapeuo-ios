@@ -32,6 +32,7 @@ PODS:
   - Mantle (2.0.5):
     - Mantle/extobjc (= 2.0.5)
   - Mantle/extobjc (2.0.5)
+  - PivotalCoreKit/Foundation/Core (0.3.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -48,14 +49,25 @@ DEPENDENCIES:
   - AFNetworking (= 2.6.3)
   - Blindside
   - Mantle (= 2.0.5)
+  - PivotalCoreKit/Foundation/Core (from `https://github.com/pivotal/PivotalCoreKit.git`)
   - ReactiveCocoa (= 2.5)
   - YapDatabase
+
+EXTERNAL SOURCES:
+  PivotalCoreKit:
+    :git: https://github.com/pivotal/PivotalCoreKit.git
+
+CHECKOUT OPTIONS:
+  PivotalCoreKit:
+    :commit: 703d2adccb149be842f55915160471dd0ff99e55
+    :git: https://github.com/pivotal/PivotalCoreKit.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Blindside: 70df36cf7acfe5640c4a86eea590ff025adbc105
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
+  PivotalCoreKit: 1ac73311d636d3ea6478fdc2a994979d970f2990
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YapDatabase: 00e5a5d1b5dba1bd540ef644576233b5612e6122
 
