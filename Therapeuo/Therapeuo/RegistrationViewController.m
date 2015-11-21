@@ -11,6 +11,8 @@
 
 #import "Doctor.h"
 
+#import "TAlertHelper.h"
+
 @interface RegistrationViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -29,10 +31,10 @@
     [[TDataModule sharedInstance] registerWithName:name
                                              email:email
                                           password:password
-                                           success:^(id result) {
-                                               // currently no parsing models
+                                           success:^(Doctor *result) {
+
                                            } failure:^(NSError *error) {
-                                               
+                                               [TAlertHelper showDefaultError];
                                            }];
     
 //    NSLog(@"%@", [TDataModule sharedInstance].doctor);

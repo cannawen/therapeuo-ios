@@ -15,6 +15,7 @@
 		1786DED41C00D2F5002DE686 /* TDataModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED31C00D2F5002DE686 /* TDataModule.m */; };
 		1786DED71C00D350002DE686 /* TDataModule+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED61C00D350002DE686 /* TDataModule+Helpers.m */; };
 		1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED91C00D40B002DE686 /* TPersistenceManager.m */; };
+		1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */; };
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
@@ -27,10 +28,10 @@
 		B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ECF1C00BF35008EDA02 /* HomeViewController.m */; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
-		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; settings = {ASSET_TAGS = (); }; };
-		B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */; settings = {ASSET_TAGS = (); }; };
-		B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */; settings = {ASSET_TAGS = (); }; };
-		B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */; settings = {ASSET_TAGS = (); }; };
+		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; };
+		B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */; };
+		B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */; };
+		B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
@@ -73,6 +74,8 @@
 		1786DED81C00D40B002DE686 /* TPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPersistenceManager.h; sourceTree = "<group>"; };
 		1786DED91C00D40B002DE686 /* TPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPersistenceManager.m; sourceTree = "<group>"; };
 		1786DEDB1C00D524002DE686 /* TDataAccessProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDataAccessProtocols.h; sourceTree = "<group>"; };
+		1786DEDC1C00F0FF002DE686 /* TAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAlertHelper.h; sourceTree = "<group>"; };
+		1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAlertHelper.m; sourceTree = "<group>"; };
 		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -278,9 +281,11 @@
 		B0662EDA1C00C788008EDA02 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B0662EDB1C00C794008EDA02 /* Views */,
-				B0662EE51C00CF2A008EDA02 /* Constants.h */,
 				B0662EEA1C00D0DD008EDA02 /* Categories */,
+				B0662EE51C00CF2A008EDA02 /* Constants.h */,
+				1786DEDC1C00F0FF002DE686 /* TAlertHelper.h */,
+				1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */,
+				B0662EDB1C00C794008EDA02 /* Views */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
 				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,
 				1786DED71C00D350002DE686 /* TDataModule+Helpers.m in Sources */,
+				1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */,
 				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
 				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,
 				179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */,
