@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1786DEAB1C00BF64002DE686 /* TSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEAA1C00BF64002DE686 /* TSessionManager.m */; };
+		1786DEAE1C00BFC2002DE686 /* TModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEAD1C00BFC2002DE686 /* TModule.m */; };
+		1786DEB11C00C06A002DE686 /* TNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEB01C00C06A002DE686 /* TNetworkManager.m */; };
+		1786DEB41C00C152002DE686 /* TConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEB31C00C152002DE686 /* TConstants.m */; };
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
@@ -44,6 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1786DEA91C00BF64002DE686 /* TSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSessionManager.h; sourceTree = "<group>"; };
+		1786DEAA1C00BF64002DE686 /* TSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSessionManager.m; sourceTree = "<group>"; };
+		1786DEAC1C00BFC2002DE686 /* TModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TModule.h; sourceTree = "<group>"; };
+		1786DEAD1C00BFC2002DE686 /* TModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TModule.m; sourceTree = "<group>"; };
+		1786DEAF1C00C06A002DE686 /* TNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNetworkManager.h; sourceTree = "<group>"; };
+		1786DEB01C00C06A002DE686 /* TNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNetworkManager.m; sourceTree = "<group>"; };
+		1786DEB21C00C152002DE686 /* TConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TConstants.h; sourceTree = "<group>"; };
+		1786DEB31C00C152002DE686 /* TConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TConstants.m; sourceTree = "<group>"; };
 		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +119,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1786DEA81C00BF64002DE686 /* Data Access */ = {
+			isa = PBXGroup;
+			children = (
+				1786DEAF1C00C06A002DE686 /* TNetworkManager.h */,
+				1786DEB01C00C06A002DE686 /* TNetworkManager.m */,
+				1786DEA91C00BF64002DE686 /* TSessionManager.h */,
+				1786DEAA1C00BF64002DE686 /* TSessionManager.m */,
+			);
+			path = "Data Access";
+			sourceTree = "<group>";
+		};
 		179E8A9D1C00A994005E492F = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +449,7 @@
 				D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */,
 				B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */,
 				D3796E151C00BBBA007E2888 /* PatientCase.m in Sources */,
+				1786DEAB1C00BF64002DE686 /* TSessionManager.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
 				179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */,
 			);

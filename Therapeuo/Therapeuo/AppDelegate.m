@@ -6,6 +6,8 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
+#import <Blindside.h>
+#import "TModule.h"
 #import "AppDelegate.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
@@ -14,6 +16,19 @@
 
 @implementation AppDelegate
 
+- (id<BSModule>)module {
+    if (!_module) {
+        _module = [[TModule alloc] init];
+    }
+    return _module;
+}
+
+- (id<BSInjector>)injector {
+    if (!_injector) {
+        _injector = [Blindside injectorWithModule:self.module];
+    }
+    return _injector;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
