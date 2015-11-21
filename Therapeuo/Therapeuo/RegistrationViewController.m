@@ -27,13 +27,14 @@
     NSString *name = self.nameTextField.text;
     NSString *email = self.emailTextField.text;
     NSString *password = self.passwordTextField.text;
-    //TODO: Steven to make network call
+    [self spinnerShow];
     [[TDataModule sharedInstance] registerWithName:name
                                              email:email
                                           password:password
                                            success:^(Doctor *result) {
-
+                                               [self spinnerHide];
                                            } failure:^(NSError *error) {
+                                               [self spinnerHide];
                                                [TAlertHelper showDefaultError];
                                            }];
     

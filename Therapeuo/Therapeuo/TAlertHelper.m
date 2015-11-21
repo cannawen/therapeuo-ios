@@ -14,7 +14,7 @@
     [[[UIAlertView alloc] initWithTitle:@"Oops!"
                                 message:@"Something went wrong, please try again later."
                                delegate:nil
-                      cancelButtonTitle:@""
+                      cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
 }
 

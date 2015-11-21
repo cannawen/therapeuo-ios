@@ -16,6 +16,7 @@
 		1786DED71C00D350002DE686 /* TDataModule+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED61C00D350002DE686 /* TDataModule+Helpers.m */; };
 		1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DED91C00D40B002DE686 /* TPersistenceManager.m */; };
 		1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */; };
+		1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEE01C00F48B002DE686 /* TBaseViewController.m */; };
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
@@ -76,6 +77,8 @@
 		1786DEDB1C00D524002DE686 /* TDataAccessProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDataAccessProtocols.h; sourceTree = "<group>"; };
 		1786DEDC1C00F0FF002DE686 /* TAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAlertHelper.h; sourceTree = "<group>"; };
 		1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAlertHelper.m; sourceTree = "<group>"; };
+		1786DEDF1C00F48B002DE686 /* TBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBaseViewController.h; path = "View Controllers/TBaseViewController.h"; sourceTree = "<group>"; };
+		1786DEE01C00F48B002DE686 /* TBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBaseViewController.m; path = "View Controllers/TBaseViewController.m"; sourceTree = "<group>"; };
 		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				B0662ED31C00BF5D008EDA02 /* LoginViewController.m */,
 				B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */,
 				B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */,
+				1786DEDF1C00F48B002DE686 /* TBaseViewController.h */,
+				1786DEE01C00F48B002DE686 /* TBaseViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */,
 				1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,
+				1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */,
 				D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */,
 				B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */,
 				1786DED41C00D2F5002DE686 /* TDataModule.m in Sources */,
