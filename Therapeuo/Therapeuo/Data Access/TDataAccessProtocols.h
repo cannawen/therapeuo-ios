@@ -20,6 +20,9 @@
 - (void)updateDoctor:(Doctor *)doctor
              success:(SuccssBlock)success
              failure:(FailureBlock)failure;
+- (void)fetchCaseForDoctorWithId:(NSString *)doctorId
+                         success:(SuccssBlock)success
+                         failure:(FailureBlock)failure;
 @end
 
 @protocol TPersistenceProtocol <NSObject>

@@ -9,6 +9,10 @@
 #import "CaseListViewController.h"
 #import "DoctorProfileViewController.h"
 
+#import "TDataModule+Helpers.h"
+
+#import "Doctor.h"
+
 #import "CaseListCell.h"
 
 @interface TempCaseClass : NSObject
@@ -67,6 +71,14 @@
     self.collectionView.backgroundColor = [UIColor clearColor];
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([CaseListCell class]) bundle:[NSBundle bundleForClass:[self class]]];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([CaseListCell class])];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    Doctor *doctor = [TDataModule sharedInstance].doctor;
+    [[TDataModule sharedInstance] fetchCaseForDoctorWithId:doctor.doctorId success:^(id result) {
+        
+    } failure:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

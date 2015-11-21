@@ -116,20 +116,40 @@
         }
     }
     [self.sessionManager PUT:[NSString stringWithFormat:@"doctors/%@", doctor.doctorId]
-                   parameters:params
-                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                          NSLog(@"Update doctor success with status: %@", responseObject[@"success"]);
-                          [self parseModelClass:Doctor.class
-                               fromJsonResponse:responseObject[@"doctor"]
-                                        success:success
-                                        failure:failure];
-                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                          NSLog(@"Update doctor failed with error: %@", error);
-                          if (failure) {
-                              failure(error);
-                          }
-                      }];
+                  parameters:params
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Update doctor success with status: %@", responseObject[@"success"]);
+                         [self parseModelClass:Doctor.class
+                              fromJsonResponse:responseObject[@"doctor"]
+                                       success:success
+                                       failure:failure];
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Update doctor failed with error: %@", error);
+                         if (failure) {
+                             failure(error);
+                         }
+                     }];
 }
+
+- (void)fetchCaseForDoctorWithId:(NSString *)doctorId
+                         success:(SuccssBlock)success
+                         failure:(FailureBlock)failure {
+    [self.sessionManager GET:[NSString stringWithFormat:@"doctors/%@/cases", doctorId]
+                  parameters:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Fetching doctor cases success");
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Fetching doctor cases failed");
+                     }];
+}
+
+//you can GET an individual case: `curl https://therapeuo.herokuapp.com/cases/<id>`
+//
+//​[4:40]
+//and messages: `curl https://therapeuo.herokuapp.com/cases/<id>/messages`
+//
+
+//curl -X DELETE https://therapeuo.herokuapp.com/doctors/<id>/logout` does 'log out'. returns 204 on success
 
 - (void)parseModelClass:(Class)modelClass
        fromJsonResponse:(NSDictionary *)jsonResponse
