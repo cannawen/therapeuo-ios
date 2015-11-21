@@ -111,7 +111,6 @@
 		B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemedButton.m; sourceTree = "<group>"; };
 		B0662EE21C00CD6C008EDA02 /* ThemedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemedTextField.h; sourceTree = "<group>"; };
 		B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemedTextField.m; sourceTree = "<group>"; };
-		B0662EE51C00CF2A008EDA02 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B0662EE61C00CFD2008EDA02 /* UIColor+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Theme.h"; sourceTree = "<group>"; };
 		B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
 		B0662EEB1C00D0F6008EDA02 /* UIFont+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Theme.h"; sourceTree = "<group>"; };
@@ -277,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				B0662EEA1C00D0DD008EDA02 /* Categories */,
-				B0662EE51C00CF2A008EDA02 /* Constants.h */,
 				1786DEDC1C00F0FF002DE686 /* TAlertHelper.h */,
 				1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */,
 				B0662EDB1C00C794008EDA02 /* Views */,

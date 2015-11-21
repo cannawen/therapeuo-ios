@@ -8,15 +8,18 @@
 
 #import "LoginViewController.h"
 #import "ThemedTextField.h"
-
+#import "ThemedButton.h"
 #import "TDataModule+Helpers.h"
-
 #import "TAlertHelper.h"
+#import "TConstants.h"
 
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet ThemedTextField *emailTextField;
 @property (weak, nonatomic) IBOutlet ThemedTextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBottomConstraint;
+@property (nonatomic) CGFloat originalLoginBottomConstraintConstant;
+@property (weak, nonatomic) IBOutlet ThemedButton *registerButton;
 
 @end
 
@@ -30,6 +33,7 @@
             [self moveToHome];
         }
     } failure:nil];
+    self.originalLoginBottomConstraintConstant = self.loginBottomConstraint.constant;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -57,5 +61,18 @@
     [self performSegueWithIdentifier:@"caseController" sender:self];
 }
 
+- (void)keyboardWillShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField {
+    if (self.loginBottomConstraint.constant == self.originalLoginBottomConstraintConstant) {
+        [UIView animateWithDuration:animationDuration animations:^{
+            CGFloat registerButtonHeight = CGRectGetHeight(self.registerButton.bounds);
+            self.loginBottomConstraint.constant = height - registerButtonHeight;
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
+- (void)keyboardWillHideWithHeight:(CGFloat)height {
+    self.loginBottomConstraint.constant = self.originalLoginBottomConstraintConstant;
+}
 
 @end

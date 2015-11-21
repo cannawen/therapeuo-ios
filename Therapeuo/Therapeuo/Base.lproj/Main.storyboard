@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -35,20 +35,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="akf-Qs-tNZ">
+                                <rect key="frame" x="216" y="164" width="169" height="169"/>
+                                <animations/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-u2-oPT" customClass="ThemedTextField">
+                                <rect key="frame" x="10" y="430" width="580" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-9C-QO1" customClass="ThemedTextField">
                                 <rect key="frame" x="10" y="470" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA" customClass="ThemedButton">
-                                <rect key="frame" x="10" y="550" width="580" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-c1-0Yb" customClass="ThemedButton">
                                 <rect key="frame" x="10" y="510" width="580" height="30"/>
                                 <animations/>
@@ -58,30 +60,24 @@
                                     <segue destination="qC7-If-3ch" kind="push" identifier="caseController" id="pSr-gH-mqU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-u2-oPT" customClass="ThemedTextField">
-                                <rect key="frame" x="10" y="430" width="580" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA" customClass="ThemedButton">
+                                <rect key="frame" x="10" y="550" width="580" height="30"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="akf-Qs-tNZ">
-                                <rect key="frame" x="216" y="164" width="169" height="169"/>
-                                <animations/>
-                            </imageView>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3cU-w0-ekF" firstAttribute="top" secondItem="p6I-Yc-ORA" secondAttribute="bottom" constant="20" id="32G-ZW-CMg"/>
-                            <constraint firstItem="p6I-Yc-ORA" firstAttribute="centerX" secondItem="SEE-c1-0Yb" secondAttribute="centerX" id="9NA-3b-BTP"/>
-                            <constraint firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" constant="20" id="I7J-Cb-6BD"/>
-                            <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerY" secondItem="NEb-AS-6rI" secondAttribute="centerY" id="JrV-Ug-NYF"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="10" id="KAU-V7-qfq"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" id="O10-Kk-BxE"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="10" id="X2r-K9-EpD"/>
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="trailing" secondItem="9hL-9C-QO1" secondAttribute="trailing" id="eRo-Hr-3CI"/>
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="leading" secondItem="9hL-9C-QO1" secondAttribute="leading" id="m7y-GA-NFm"/>
-                            <constraint firstItem="SEE-c1-0Yb" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="20" id="njB-3A-q09"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="oHy-mP-ZXs"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="top" secondItem="RGK-k7-ZTh" secondAttribute="bottom" constant="100" id="oXM-D7-3Cq"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="top" secondItem="d4n-u2-oPT" secondAttribute="bottom" constant="10" id="tMz-Mn-pfy"/>
@@ -90,24 +86,17 @@
                             <constraint firstAttribute="trailing" secondItem="p6I-Yc-ORA" secondAttribute="trailing" constant="10" id="x0u-Sv-km5"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="leading" secondItem="SEE-c1-0Yb" secondAttribute="leading" id="xCV-JB-GFU"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="top" secondItem="9hL-9C-QO1" secondAttribute="bottom" constant="10" id="xjm-OJ-xoY"/>
-                            <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="yTG-qF-G6F"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="I7J-Cb-6BD"/>
-                                <exclude reference="JrV-Ug-NYF"/>
-                                <exclude reference="njB-3A-q09"/>
-                                <exclude reference="yTG-qF-G6F"/>
-                                <exclude reference="9NA-3b-BTP"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="TNe-Km-nBy">
                         <barButtonItem key="backBarButtonItem" title=" " id="w4p-Qo-9Za"/>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="d4n-u2-oPT" id="lD9-nT-Pzv"/>
+                        <outlet property="loginBottomConstraint" destination="KAU-V7-qfq" id="xwk-Df-FQt"/>
                         <outlet property="passwordTextField" destination="9hL-9C-QO1" id="w1D-UV-XbH"/>
+                        <outlet property="registerButton" destination="p6I-Yc-ORA" id="wne-zd-EVa"/>
+                        <segue destination="c0P-b9-Rq5" kind="push" identifier="authToHome" id="Vog-PP-E4t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m77-pW-z14" userLabel="First Responder" sceneMemberID="firstResponder"/>

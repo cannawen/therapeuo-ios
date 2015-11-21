@@ -53,23 +53,23 @@
 
 - (void)registerKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidHide:)
-                                                 name:UIKeyboardDidHideNotification
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
                                                object:nil];
 }
 
-- (void)keyboardDidShow:(NSNotification *)notification {
-    [self keyboardDidShowWithHeight:[self keyboardHeightFromNotification:notification]
+- (void)keyboardWillShow:(NSNotification *)notification {
+    [self keyboardWillShowWithHeight:[self keyboardHeightFromNotification:notification]
                     activeTextField:self.activeField];
 }
 
-- (void)keyboardDidHide:(NSNotification *)notification {
-    [self keyboardDidHideWithHeight:[self keyboardHeightFromNotification:notification]];
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self keyboardWillHideWithHeight:[self keyboardHeightFromNotification:notification]];
 }
 
 - (CGFloat)keyboardHeightFromNotification:(NSNotification *)notification {
@@ -80,7 +80,7 @@
 
 #pragma mark - Methods to override for custom behaviour
 
-- (void)keyboardDidShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField {
+- (void)keyboardWillShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField {
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
@@ -96,7 +96,7 @@
     }
 }
 
-- (void)keyboardDidHideWithHeight:(CGFloat)height {
+- (void)keyboardWillHideWithHeight:(CGFloat)height {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
