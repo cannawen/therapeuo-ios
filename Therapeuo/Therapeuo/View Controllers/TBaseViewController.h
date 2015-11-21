@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TBaseViewController : UIViewController <UITextFieldDelegate>
+@interface TBaseViewController : UIViewController <UITextFieldDelegate> // Must call super if child VC also implementing UITextFieldDelegate for keyboard scrolling to work
 
+#pragma mark - Spinner
 - (void)spinnerShow;
 - (void)spinnerHide;
 
-@property (nonatomic) IBOutlet UIScrollView *scrollView;
+#pragma mark - Keyboard Methods
+- (void)keyboardDidShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField;
+- (void)keyboardDidHideWithHeight:(CGFloat)height;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView; //Connect IBOutlet for default behaviour
 
 @end
