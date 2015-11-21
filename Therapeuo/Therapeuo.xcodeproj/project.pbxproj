@@ -25,6 +25,9 @@
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
 		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; settings = {ASSET_TAGS = (); }; };
+		B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */; settings = {ASSET_TAGS = (); }; };
+		B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */; settings = {ASSET_TAGS = (); }; };
+		B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */; settings = {ASSET_TAGS = (); }; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
@@ -88,6 +91,13 @@
 		B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		B0662EDC1C00C7B7008EDA02 /* ThemedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemedButton.h; sourceTree = "<group>"; };
 		B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemedButton.m; sourceTree = "<group>"; };
+		B0662EE21C00CD6C008EDA02 /* ThemedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemedTextField.h; sourceTree = "<group>"; };
+		B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemedTextField.m; sourceTree = "<group>"; };
+		B0662EE51C00CF2A008EDA02 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B0662EE61C00CFD2008EDA02 /* UIColor+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Theme.h"; sourceTree = "<group>"; };
+		B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
+		B0662EEB1C00D0F6008EDA02 /* UIFont+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Theme.h"; sourceTree = "<group>"; };
+		B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Theme.m"; sourceTree = "<group>"; };
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
@@ -252,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				B0662EDB1C00C794008EDA02 /* Views */,
+				B0662EE51C00CF2A008EDA02 /* Constants.h */,
+				B0662EEA1C00D0DD008EDA02 /* Categories */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -261,8 +273,21 @@
 			children = (
 				B0662EDC1C00C7B7008EDA02 /* ThemedButton.h */,
 				B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */,
+				B0662EE21C00CD6C008EDA02 /* ThemedTextField.h */,
+				B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B0662EEA1C00D0DD008EDA02 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B0662EE61C00CFD2008EDA02 /* UIColor+Theme.h */,
+				B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */,
+				B0662EEB1C00D0F6008EDA02 /* UIFont+Theme.h */,
+				B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		BFDB3CBADC57D3E2370AE3DA /* Frameworks */ = {
@@ -471,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */,
 				1786DECD1C00C6A7002DE686 /* TNetworkManager.m in Sources */,
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
 				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,
@@ -478,6 +504,7 @@
 				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,
 				179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */,
 				B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */,
+				B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,
 				D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */,
 				B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */,
@@ -485,6 +512,7 @@
 				1786DEC71C00C6A0002DE686 /* TModule.m in Sources */,
 				1786DEC61C00C6A0002DE686 /* TConstants.m in Sources */,
 				B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */,
+				B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
 				179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */,
 				1786DECE1C00C6A7002DE686 /* TSessionManager.m in Sources */,

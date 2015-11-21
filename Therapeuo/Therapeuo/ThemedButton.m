@@ -7,6 +7,8 @@
 //
 
 #import "ThemedButton.h"
+#import "UIColor+Theme.h"
+#import "UIFont+Theme.h"
 
 @implementation ThemedButton
 
@@ -16,7 +18,7 @@
     [self setContentEdgeInsets:UIEdgeInsetsMake(15.0, 25.0, 15.0, 25.0)];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
-    self.titleLabel.font = [UIFont systemFontOfSize:18];
+    self.titleLabel.font = [UIFont themeFontStandardSize];
 }
 
 - (void)setEnabled:(BOOL)enabled {
@@ -27,7 +29,7 @@
 - (void)updateColors {
     UIColor *backgroundColor;
     if (self.enabled) {
-        backgroundColor = [UIColor colorWithRed:51/255.0f green:153/255.0f blue:1 alpha:1];
+        backgroundColor = [UIColor themeBlueColor];
     } else {
         backgroundColor = [UIColor colorWithRed:232/255.0f green:232/255.0 blue:232/255.0f alpha:1];
     }
