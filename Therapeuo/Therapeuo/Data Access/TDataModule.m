@@ -49,6 +49,8 @@
     return self;
 }
 
+#pragma mark - <TNetworkProtocol>
+
 - (void)registerWithName:(NSString *)name
                    email:(NSString *)email
                 password:(NSString *)password
@@ -120,6 +122,17 @@
             failure(error);
         }
     }];
+}
+
+#pragma mark - <TPersistenceProtocol>
+
+- (void)readDoctorSuccess:(SuccssBlock)success
+                  failure:(FailureBlock)failure {
+    if (_doctor) {
+        success(_doctor);
+    } else {
+        [self.persistenceManager readDoctorSuccess:success failure:failure];
+    }
 }
 
 #pragma mark -
