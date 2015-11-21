@@ -10,6 +10,8 @@
 
 @interface UIFont (Theme)
 
++ (UIFont *)themeFontSmallSize;
 + (UIFont *)themeFontStandardSize;
++ (UIFont *)themeFontLargeSize;
 
 @end

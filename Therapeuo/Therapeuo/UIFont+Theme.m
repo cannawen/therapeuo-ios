@@ -10,8 +10,16 @@
 
 @implementation UIFont (Theme)
 
++ (UIFont *)themeFontSmallSize {
+    return [self themeFontWithSize:14];
+}
+
 + (UIFont *)themeFontStandardSize {
     return [self themeFontWithSize:18];
+}
+
++ (UIFont *)themeFontLargeSize {
+    return [self themeFontWithSize:22];
 }
 
 #pragma mark - Private
