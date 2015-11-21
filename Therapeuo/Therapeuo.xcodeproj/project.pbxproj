@@ -19,6 +19,10 @@
 		179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CasesViewController.m */; };
 		179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* ProfileViewController.m */; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
+		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
+		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
+		D3796E151C00BBBA007E2888 /* PatientCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E101C00BBBA007E2888 /* PatientCase.m */; };
+		D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E121C00BBBA007E2888 /* PatientMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,14 @@
 		8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.release.xcconfig"; sourceTree = "<group>"; };
 		A4A264045B78BC0161C92BD7 /* Pods-Therapeuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
+		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
+		D3796E0D1C00BBBA007E2888 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = "<group>"; };
+		D3796E0E1C00BBBA007E2888 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/Patient.m; sourceTree = "<group>"; };
+		D3796E0F1C00BBBA007E2888 /* PatientCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientCase.h; path = Models/PatientCase.h; sourceTree = "<group>"; };
+		D3796E101C00BBBA007E2888 /* PatientCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientCase.m; path = Models/PatientCase.m; sourceTree = "<group>"; };
+		D3796E111C00BBBA007E2888 /* PatientMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientMessage.h; path = Models/PatientMessage.h; sourceTree = "<group>"; };
+		D3796E121C00BBBA007E2888 /* PatientMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientMessage.m; path = Models/PatientMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,7 @@
 		179E8AA81C00A994005E492F /* Therapeuo */ = {
 			isa = PBXGroup;
 			children = (
+				D3796E0A1C00BBAB007E2888 /* Models */,
 				179E8AAC1C00A994005E492F /* AppDelegate.h */,
 				179E8AAD1C00A994005E492F /* AppDelegate.m */,
 				179E8AB81C00A994005E492F /* Assets.xcassets */,
@@ -193,6 +206,21 @@
 				C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3796E0A1C00BBAB007E2888 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3796E0B1C00BBBA007E2888 /* Doctor.h */,
+				D3796E0C1C00BBBA007E2888 /* Doctor.m */,
+				D3796E0D1C00BBBA007E2888 /* Patient.h */,
+				D3796E0E1C00BBBA007E2888 /* Patient.m */,
+				D3796E0F1C00BBBA007E2888 /* PatientCase.h */,
+				D3796E101C00BBBA007E2888 /* PatientCase.m */,
+				D3796E111C00BBBA007E2888 /* PatientMessage.h */,
+				D3796E121C00BBBA007E2888 /* PatientMessage.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,8 +405,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
+				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,
+				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
 				179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */,
 				179E8AB11C00A994005E492F /* MasterViewController.m in Sources */,
+				D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */,
+				D3796E151C00BBBA007E2888 /* PatientCase.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
 				179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */,
 				179E8AB41C00A994005E492F /* DetailViewController.m in Sources */,
