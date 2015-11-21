@@ -22,7 +22,7 @@
 
 - (void)configure:(id)binder {
     //Networking
-    [binder bind:kBaseUrlKey toInstance:[NSURL URLWithString:@"google.ca"]];
+    [binder bind:kBaseUrlKey toInstance:[NSURL URLWithString:@"https://therapeuo.herokuapp.com"]];
     [binder bind:[TSessionManager class] withScope:[BSSingleton scope]];
     [binder bind:[TNetworkManager class] withScope:[BSSingleton scope]];
     [binder bind:[TPersistenceManager class] withScope:[BSSingleton scope]];
