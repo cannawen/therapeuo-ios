@@ -46,25 +46,25 @@
 
 - (void)registerWithName:(NSString *)name
                    email:(NSString *)email
-                 password:(NSString *)password
-                  success:(SuccssBlock)success
-                  failure:(FailureBlock)failure {
+                password:(NSString *)password
+                 success:(SuccssBlock)success
+                 failure:(FailureBlock)failure {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:name forKey:@"name"];
     [params setValue:email forKey:@"email"];
     [params setValue:password forKey:@"password"];
     [self.sessionManager POST:@"doctors/register"
-                  parameters:params
-                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                         [self parseModelClass:Doctor.class
-                              fromJsonResponse:responseObject
-                                       success:success
-                                       failure:failure];
-                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                         if (failure) {
-                             failure(error);
-                         }
-                     }];
+                   parameters:params
+                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                          [self parseModelClass:Doctor.class
+                               fromJsonResponse:responseObject
+                                        success:success
+                                        failure:failure];
+                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          if (failure) {
+                              failure(error);
+                          }
+                      }];
 }
 
 - (void)parseModelClass:(Class)modelClass

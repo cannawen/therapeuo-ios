@@ -1,5 +1,5 @@
 //
-//  TNetworkManager.h
+//  TPersistenceManager.h
 //  Therapeuo
 //
 //  Created by Dev Floater 111 on 2015-11-21.
@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TDataAccessProtocols.h"
 
-@interface TNetworkManager : NSObject <TNetworkProtocol>
-
-+ (instancetype)sharedInstance;
+@interface TPersistenceManager : NSObject
 
 @end
