@@ -6,8 +6,8 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TBaseViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : TBaseViewController
 
 @end

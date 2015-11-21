@@ -33,25 +33,12 @@
                                           password:password
                                            success:^(Doctor *result) {
                                                [self spinnerHide];
+                                               UIViewController *loginViewController = [self.navigationController.childViewControllers firstObject];
+                                               [loginViewController performSegueWithIdentifier:@"authToHome" sender:self];
                                            } failure:^(NSError *error) {
                                                [self spinnerHide];
                                                [TAlertHelper showDefaultError];
                                            }];
-    
-//    NSLog(@"%@", [TDataModule sharedInstance].doctor);
-    
-//    [[TDataModule sharedInstance] loginWithEmail:@"c"
-//                                        password:@"c"
-//                                         success:nil
-//                                         failure:nil];
-    
-//    [[TDataModule sharedInstance] updateDoctor:[TDataModule sharedInstance].doctor
-//                                       success:nil
-//                                       failure:nil];
-    
-//    [[TDataModule sharedInstance] fetchDoctorWithId:[TDataModule sharedInstance].doctor.doctorId
-//                                            success:nil
-//                                            failure:nil];
 }
 
 @end
