@@ -11,4 +11,10 @@
 
 @interface TNetworkManager : NSObject
 
+- (void)registerWithEmail:(NSString *)email
+                     name:(NSString *)name
+                 password:(NSString *)password
+                  success:(SuccssBlock)success
+                  failure:(FailureBlock)failure;
+
 @end
