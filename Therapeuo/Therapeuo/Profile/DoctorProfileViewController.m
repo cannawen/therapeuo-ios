@@ -1,18 +1,18 @@
 //
-//  ProfileViewController.m
+//  DoctorProfileViewController.m
 //  Therapeuo
 //
 //  Created by Dev Floater 111 on 2015-11-21.
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "DoctorProfileViewController.h"
 
-@interface ProfileViewController ()
+@interface DoctorProfileViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation DoctorProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

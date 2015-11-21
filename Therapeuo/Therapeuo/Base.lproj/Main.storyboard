@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -12,6 +12,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BM5-HN-ymY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="2si-aK-2H7" kind="relationship" relationship="rootViewController" id="obF-mi-fvS"/>
@@ -35,6 +36,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA">
                                 <rect key="frame" x="272" y="340" width="57" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Register"/>
                                 <connections>
                                     <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
@@ -42,12 +44,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-c1-0Yb">
                                 <rect key="frame" x="281" y="285" width="38" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="c0P-b9-Rq5" kind="push" id="q5r-Sy-5Pn"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="centerX" secondItem="SEE-c1-0Yb" secondAttribute="centerX" id="9NA-3b-BTP"/>
@@ -118,6 +122,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Qg-Mh-XTa" firstAttribute="centerY" secondItem="rLM-jc-dVP" secondAttribute="centerY" id="BwN-pv-GcK"/>
@@ -146,13 +151,56 @@
                     <view key="view" contentMode="scaleToFill" id="t28-lD-LD6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lK8-qk-dCS">
+                                <rect key="frame" x="97" y="248" width="43" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cases"/>
+                                <connections>
+                                    <action selector="actionDidSelectCasesButton:" destination="c0P-b9-Rq5" eventType="touchUpInside" id="An7-Du-8A0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZr-85-HGI">
+                                <rect key="frame" x="291" y="248" width="69" height="30"/>
+                                <animations/>
+                                <state key="normal" title="My Profile"/>
+                                <connections>
+                                    <segue destination="wLw-8S-ryU" kind="push" id="Kk7-Nt-MiZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="opy-bA-p9P"/>
+                    <connections>
+                        <outlet property="caseButton" destination="lK8-qk-dCS" id="SjN-te-FPQ"/>
+                        <outlet property="myProfileButton" destination="KZr-85-HGI" id="uF4-pu-lOS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VZ-Sg-Mnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1009" y="483"/>
+        </scene>
+        <!--Doctor Profile View Controller-->
+        <scene sceneID="LBo-Yz-Dk9">
+            <objects>
+                <viewController id="wLw-8S-ryU" customClass="DoctorProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IVh-8T-NDt"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ly-bk-psE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TxG-1p-tFG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cxy-2r-fut"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AaS-dT-z6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="483"/>
         </scene>
     </scenes>
 </document>
