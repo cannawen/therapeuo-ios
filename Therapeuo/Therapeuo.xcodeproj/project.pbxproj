@@ -37,6 +37,7 @@
 		B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */; };
 		B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EF21C0109FD008EDA02 /* CaseViewController.m */; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
+		D35C6C2B1C011E2600000697 /* PatientCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C2A1C011E2600000697 /* PatientCase.m */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
 /* End PBXBuildFile section */
@@ -120,6 +121,8 @@
 		B0662EF11C0109FD008EDA02 /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
 		B0662EF21C0109FD008EDA02 /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D35C6C291C011E2600000697 /* PatientCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientCase.h; path = Models/PatientCase.h; sourceTree = "<group>"; };
+		D35C6C2A1C011E2600000697 /* PatientCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientCase.m; path = Models/PatientCase.m; sourceTree = "<group>"; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
 		D3796E0D1C00BBBA007E2888 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = "<group>"; };
@@ -363,6 +366,8 @@
 				D3796E0E1C00BBBA007E2888 /* Patient.m */,
 				1786DECF1C00C994002DE686 /* TBaseModel.h */,
 				1786DED01C00C994002DE686 /* TBaseModel.m */,
+				D35C6C291C011E2600000697 /* PatientCase.h */,
+				D35C6C2A1C011E2600000697 /* PatientCase.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */,
 				B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
+				D35C6C2B1C011E2600000697 /* PatientCase.m in Sources */,
 				179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */,
 				1786DECE1C00C6A7002DE686 /* TSessionManager.m in Sources */,
 			);
