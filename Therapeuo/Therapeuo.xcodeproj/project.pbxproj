@@ -33,13 +33,11 @@
 		B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */; };
 		B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */; };
 		B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */; };
-		B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */; settings = {ASSET_TAGS = (); }; };
-		B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EF21C0109FD008EDA02 /* CaseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */; };
+		B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EF21C0109FD008EDA02 /* CaseViewController.m */; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
-		D3796E151C00BBBA007E2888 /* PatientCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E101C00BBBA007E2888 /* PatientCase.m */; };
-		D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E121C00BBBA007E2888 /* PatientMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,10 +123,6 @@
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
 		D3796E0D1C00BBBA007E2888 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = "<group>"; };
 		D3796E0E1C00BBBA007E2888 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/Patient.m; sourceTree = "<group>"; };
-		D3796E0F1C00BBBA007E2888 /* PatientCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientCase.h; path = Models/PatientCase.h; sourceTree = "<group>"; };
-		D3796E101C00BBBA007E2888 /* PatientCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientCase.m; path = Models/PatientCase.m; sourceTree = "<group>"; };
-		D3796E111C00BBBA007E2888 /* PatientMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientMessage.h; path = Models/PatientMessage.h; sourceTree = "<group>"; };
-		D3796E121C00BBBA007E2888 /* PatientMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientMessage.m; path = Models/PatientMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,10 +368,6 @@
 				D3796E0C1C00BBBA007E2888 /* Doctor.m */,
 				D3796E0D1C00BBBA007E2888 /* Patient.h */,
 				D3796E0E1C00BBBA007E2888 /* Patient.m */,
-				D3796E0F1C00BBBA007E2888 /* PatientCase.h */,
-				D3796E101C00BBBA007E2888 /* PatientCase.m */,
-				D3796E111C00BBBA007E2888 /* PatientMessage.h */,
-				D3796E121C00BBBA007E2888 /* PatientMessage.m */,
 				1786DECF1C00C994002DE686 /* TBaseModel.h */,
 				1786DED01C00C994002DE686 /* TBaseModel.m */,
 			);
@@ -581,10 +571,8 @@
 				1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,
 				1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */,
-				D3796E161C00BBBA007E2888 /* PatientMessage.m in Sources */,
 				B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */,
 				1786DED41C00D2F5002DE686 /* TDataModule.m in Sources */,
-				D3796E151C00BBBA007E2888 /* PatientCase.m in Sources */,
 				1786DEC71C00C6A0002DE686 /* TModule.m in Sources */,
 				1786DEC61C00C6A0002DE686 /* TConstants.m in Sources */,
 				B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */,
