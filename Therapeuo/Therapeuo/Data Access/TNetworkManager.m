@@ -41,13 +41,17 @@
     return self;
 }
 
-- (void)registerWithEmail:(NSString *)email
-                     name:(NSString *)name
+- (void)registerWithName:(NSString *)name
+                   email:(NSString *)email
                  password:(NSString *)password
                   success:(SuccssBlock)success
                   failure:(FailureBlock)failure {
-    [self.sessionManager PUT:@""
-                  parameters:nil
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:name forKey:@"name"];
+    [params setValue:email forKey:@"email"];
+    [params setValue:password forKey:@"password"];
+    [self.sessionManager POST:@"doctors/register"
+                  parameters:params
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                          //cast to object here
                          if (success) {

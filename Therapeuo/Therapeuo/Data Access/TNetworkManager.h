@@ -13,10 +13,10 @@
 
 + (instancetype)sharedInstance;
 
-- (void)registerWithEmail:(NSString *)email
-                     name:(NSString *)name
-                 password:(NSString *)password
-                  success:(SuccssBlock)success
-                  failure:(FailureBlock)failure;
+- (void)registerWithName:(NSString *)name
+                   email:(NSString *)email
+                password:(NSString *)password
+                 success:(SuccssBlock)success
+                 failure:(FailureBlock)failure;
 
 @end

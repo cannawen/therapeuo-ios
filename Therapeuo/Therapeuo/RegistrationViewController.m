@@ -24,8 +24,8 @@
     NSString *email = self.emailTextField.text;
     NSString *password = self.passwordTextField.text;
     //TODO: Steven to make network call
-    [[TNetworkManager sharedInstance] registerWithEmail:email
-                                                   name:name
+    [[TNetworkManager sharedInstance] registerWithName:name
+                                                 email:email
                                                password:password
                                                 success:^(id result) {
                                                     // currently no parsing models
