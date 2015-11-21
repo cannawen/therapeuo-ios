@@ -23,6 +23,15 @@
 - (void)fetchCaseForDoctorWithId:(NSString *)doctorId
                          success:(SuccssBlock)success
                          failure:(FailureBlock)failure;
+- (void)fetchCaseWithId:(NSString *)caseId
+                success:(SuccssBlock)success
+                failure:(FailureBlock)failure;
+- (void)fetchMessagesForCaseWithId:(NSString *)caseId
+                           success:(SuccssBlock)success
+                           failure:(FailureBlock)failure;
+- (void)logoutDoctorWithId:(NSString *)doctorId
+                   success:(SuccssBlock)success
+                   failure:(FailureBlock)failure;
 @end
 
 @protocol TPersistenceProtocol <NSObject>

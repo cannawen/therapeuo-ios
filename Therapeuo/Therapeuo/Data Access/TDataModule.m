@@ -124,6 +124,21 @@
     }];
 }
 
+- (void)logoutDoctorWithId:(NSString *)doctorId
+                   success:(SuccssBlock)success
+                   failure:(FailureBlock)failure {
+    [self.networkManager logoutDoctorWithId:doctorId success:^(id _) {
+        [self.persistenceManager flushAllSuccess:nil failure:nil];
+        if (success) {
+            success(nil);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 #pragma mark - <TPersistenceProtocol>
 
 - (void)readDoctorSuccess:(SuccssBlock)success

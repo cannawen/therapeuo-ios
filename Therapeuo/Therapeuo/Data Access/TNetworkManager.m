@@ -137,19 +137,47 @@
     [self.sessionManager GET:[NSString stringWithFormat:@"doctors/%@/cases", doctorId]
                   parameters:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                         NSLog(@"Fetching doctor cases success");
+                         NSLog(@"Fetch doctor cases success");
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                         NSLog(@"Fetching doctor cases failed");
+                         NSLog(@"Fetch doctor cases failed");
                      }];
 }
 
-//you can GET an individual case: `curl https://therapeuo.herokuapp.com/cases/<id>`
-//
-//​[4:40]
-//and messages: `curl https://therapeuo.herokuapp.com/cases/<id>/messages`
-//
+- (void)fetchCaseWithId:(NSString *)caseId
+                success:(SuccssBlock)success
+                failure:(FailureBlock)failure {
+    [self.sessionManager GET:[NSString stringWithFormat:@"cases/%@", caseId]
+                  parameters:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Fetch case success");
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Fetch case failed");
+                     }];
+}
 
-//curl -X DELETE https://therapeuo.herokuapp.com/doctors/<id>/logout` does 'log out'. returns 204 on success
+- (void)fetchMessagesForCaseWithId:(NSString *)caseId
+                           success:(SuccssBlock)success
+                           failure:(FailureBlock)failure {
+    [self.sessionManager GET:[NSString stringWithFormat:@"cases/%@/messages", caseId]
+                  parameters:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Fetch case success");
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Fetch case failed");
+                     }];
+}
+
+- (void)logoutDoctorWithId:(NSString *)doctorId
+                   success:(SuccssBlock)success
+                   failure:(FailureBlock)failure {
+    [self.sessionManager DELETE:[NSString stringWithFormat:@"doctors/%@/logout", doctorId]
+                     parameters:nil
+                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                            NSLog(@"Logout successful");
+                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                            NSLog(@"Logout failed");
+                        }];
+}
 
 - (void)parseModelClass:(Class)modelClass
        fromJsonResponse:(NSDictionary *)jsonResponse
