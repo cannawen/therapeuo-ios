@@ -1,18 +1,18 @@
 //
-//  CasesViewController.m
+//  CaseViewController.m
 //  Therapeuo
 //
-//  Created by Dev Floater 111 on 2015-11-21.
+//  Created by Canna Wen on 2015-11-21.
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import "CasesViewController.h"
+#import "CaseViewController.h"
 
-@interface CasesViewController ()
+@interface CaseViewController ()
 
 @end
 
-@implementation CasesViewController
+@implementation CaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

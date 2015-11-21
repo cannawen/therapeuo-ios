@@ -24,7 +24,7 @@
 		179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */; };
 		179E8AC71C00A995005E492F /* TherapeuoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AC61C00A995005E492F /* TherapeuoTests.m */; };
 		179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AD11C00A995005E492F /* TherapeuoUITests.m */; };
-		179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CasesViewController.m */; };
+		179E8AEB1C00AA27005E492F /* CaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CaseListViewController.m */; };
 		179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* DoctorProfileViewController.m */; };
 		B0662ED01C00BF35008EDA02 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ECF1C00BF35008EDA02 /* HomeViewController.m */; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
@@ -33,6 +33,8 @@
 		B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */; };
 		B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */; };
 		B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */; };
+		B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */; settings = {ASSET_TAGS = (); }; };
+		B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EF21C0109FD008EDA02 /* CaseViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
@@ -93,8 +95,8 @@
 		179E8ACD1C00A995005E492F /* TherapeuoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TherapeuoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AD11C00A995005E492F /* TherapeuoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TherapeuoUITests.m; sourceTree = "<group>"; };
 		179E8AD31C00A995005E492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		179E8AE61C00AA27005E492F /* CasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasesViewController.h; sourceTree = "<group>"; };
-		179E8AE71C00AA27005E492F /* CasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasesViewController.m; sourceTree = "<group>"; };
+		179E8AE61C00AA27005E492F /* CaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaseListViewController.h; path = Cases/CaseListViewController.h; sourceTree = "<group>"; };
+		179E8AE71C00AA27005E492F /* CaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaseListViewController.m; path = Cases/CaseListViewController.m; sourceTree = "<group>"; };
 		179E8AE91C00AA27005E492F /* DoctorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileViewController.h; sourceTree = "<group>"; };
 		179E8AEA1C00AA27005E492F /* DoctorProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileViewController.m; sourceTree = "<group>"; };
 		8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,10 @@
 		B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
 		B0662EEB1C00D0F6008EDA02 /* UIFont+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Theme.h"; sourceTree = "<group>"; };
 		B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Theme.m"; sourceTree = "<group>"; };
+		B0662EEE1C0107A3008EDA02 /* ThemedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemedLabel.h; sourceTree = "<group>"; };
+		B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemedLabel.m; sourceTree = "<group>"; };
+		B0662EF11C0109FD008EDA02 /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
+		B0662EF21C0109FD008EDA02 /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
@@ -197,7 +203,6 @@
 				179E8AAC1C00A994005E492F /* AppDelegate.h */,
 				179E8AAD1C00A994005E492F /* AppDelegate.m */,
 				179E8AB81C00A994005E492F /* Assets.xcassets */,
-				179E8AE51C00AA27005E492F /* Cases */,
 				1786DEC81C00C6A7002DE686 /* Data Access */,
 				179E8ABD1C00A994005E492F /* Info.plist */,
 				179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */,
@@ -241,15 +246,6 @@
 			path = TherapeuoUITests;
 			sourceTree = "<group>";
 		};
-		179E8AE51C00AA27005E492F /* Cases */ = {
-			isa = PBXGroup;
-			children = (
-				179E8AE61C00AA27005E492F /* CasesViewController.h */,
-				179E8AE71C00AA27005E492F /* CasesViewController.m */,
-			);
-			path = Cases;
-			sourceTree = "<group>";
-		};
 		179E8AE81C00AA27005E492F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,12 +267,11 @@
 		B0662ED11C00BF3A008EDA02 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B0662ECE1C00BF35008EDA02 /* HomeViewController.h */,
-				B0662ECF1C00BF35008EDA02 /* HomeViewController.m */,
-				B0662ED21C00BF5D008EDA02 /* LoginViewController.h */,
-				B0662ED31C00BF5D008EDA02 /* LoginViewController.m */,
-				B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */,
-				B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */,
+				B0662EF71C010A34008EDA02 /* Login */,
+				B0662EF61C010A2F008EDA02 /* Home */,
+				B0662EF81C010A3C008EDA02 /* Registration */,
+				B0662EF51C010A17008EDA02 /* Case List */,
+				B0662EF41C010A0D008EDA02 /* Case */,
 				1786DEDF1C00F48B002DE686 /* TBaseViewController.h */,
 				1786DEE01C00F48B002DE686 /* TBaseViewController.m */,
 			);
@@ -302,6 +297,8 @@
 				B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */,
 				B0662EE21C00CD6C008EDA02 /* ThemedTextField.h */,
 				B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */,
+				B0662EEE1C0107A3008EDA02 /* ThemedLabel.h */,
+				B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -315,6 +312,51 @@
 				B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		B0662EF41C010A0D008EDA02 /* Case */ = {
+			isa = PBXGroup;
+			children = (
+				B0662EF11C0109FD008EDA02 /* CaseViewController.h */,
+				B0662EF21C0109FD008EDA02 /* CaseViewController.m */,
+			);
+			name = Case;
+			sourceTree = "<group>";
+		};
+		B0662EF51C010A17008EDA02 /* Case List */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AE61C00AA27005E492F /* CaseListViewController.h */,
+				179E8AE71C00AA27005E492F /* CaseListViewController.m */,
+			);
+			name = "Case List";
+			sourceTree = "<group>";
+		};
+		B0662EF61C010A2F008EDA02 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B0662ECE1C00BF35008EDA02 /* HomeViewController.h */,
+				B0662ECF1C00BF35008EDA02 /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		B0662EF71C010A34008EDA02 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B0662ED21C00BF5D008EDA02 /* LoginViewController.h */,
+				B0662ED31C00BF5D008EDA02 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		B0662EF81C010A3C008EDA02 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */,
+				B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */,
+			);
+			name = Registration;
 			sourceTree = "<group>";
 		};
 		BFDB3CBADC57D3E2370AE3DA /* Frameworks */ = {
@@ -531,8 +573,10 @@
 				1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */,
 				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
 				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,
-				179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */,
+				179E8AEB1C00AA27005E492F /* CaseListViewController.m in Sources */,
+				B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */,
 				B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */,
+				B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */,
 				B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */,
 				1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,
