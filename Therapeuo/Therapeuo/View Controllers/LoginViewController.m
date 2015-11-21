@@ -7,8 +7,12 @@
 //
 
 #import "LoginViewController.h"
+#import "ThemedTextField.h"
 
 @interface LoginViewController ()
+
+@property (weak, nonatomic) IBOutlet ThemedTextField *emailTextField;
+@property (weak, nonatomic) IBOutlet ThemedTextField *passwordTextField;
 
 @end
 
@@ -23,5 +27,13 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
+
+- (IBAction)loginButtonTapped:(id)sender {
+    NSString *email = self.emailTextField.text;
+    NSString *password = self.passwordTextField.text;
+    //TODO network call
+    [self performSegueWithIdentifier:@"loginSegue" sender:self];
+}
+
 
 @end
