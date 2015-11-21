@@ -18,6 +18,7 @@
 		179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AD11C00A995005E492F /* TherapeuoUITests.m */; };
 		179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CasesViewController.m */; };
 		179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* ProfileViewController.m */; };
+		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,9 @@
 		179E8AE71C00AA27005E492F /* CasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasesViewController.m; sourceTree = "<group>"; };
 		179E8AE91C00AA27005E492F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		179E8AEA1C00AA27005E492F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.release.xcconfig"; sourceTree = "<group>"; };
+		A4A264045B78BC0161C92BD7 /* Pods-Therapeuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.debug.xcconfig"; sourceTree = "<group>"; };
+		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +99,8 @@
 				179E8AC51C00A995005E492F /* TherapeuoTests */,
 				179E8AD01C00A995005E492F /* TherapeuoUITests */,
 				179E8AA71C00A994005E492F /* Products */,
+				A623F2B9FE93C0B21360C6D5 /* Pods */,
+				BFDB3CBADC57D3E2370AE3DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +178,23 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		A623F2B9FE93C0B21360C6D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4A264045B78BC0161C92BD7 /* Pods-Therapeuo.debug.xcconfig */,
+				8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BFDB3CBADC57D3E2370AE3DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 179E8AD61C00A995005E492F /* Build configuration list for PBXNativeTarget "Therapeuo" */;
 			buildPhases = (
+				F687D961A70E2DC3CB5DECBE /* Check Pods Manifest.lock */,
 				179E8AA21C00A994005E492F /* Sources */,
 				179E8AA31C00A994005E492F /* Frameworks */,
 				179E8AA41C00A994005E492F /* Resources */,
+				40A62A179BCEFCCB10B40D51 /* Embed Pods Frameworks */,
+				CD7B16252D6F4DDA2D2E150E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,6 +322,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40A62A179BCEFCCB10B40D51 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD7B16252D6F4DDA2D2E150E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F687D961A70E2DC3CB5DECBE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		179E8AA21C00A994005E492F /* Sources */ = {
@@ -445,6 +520,7 @@
 		};
 		179E8AD71C00A995005E492F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4A264045B78BC0161C92BD7 /* Pods-Therapeuo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Therapeuo/Info.plist;
@@ -456,6 +532,7 @@
 		};
 		179E8AD81C00A995005E492F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C6AE8234556C588F77FC586 /* Pods-Therapeuo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Therapeuo/Info.plist;
@@ -532,6 +609,7 @@
 				179E8AD81C00A995005E492F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		179E8AD91C00A995005E492F /* Build configuration list for PBXNativeTarget "TherapeuoTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +618,7 @@
 				179E8ADB1C00A995005E492F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		179E8ADC1C00A995005E492F /* Build configuration list for PBXNativeTarget "TherapeuoUITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +627,7 @@
 				179E8ADE1C00A995005E492F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

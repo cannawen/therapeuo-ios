@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
+workspace 'io.dumpling.Therapeuo'
+
+target 'Therapeuo' do
+  pod 'Blindside'
+  pod 'ReactiveCocoa', '2.5'
+  pod 'AFNetworking', '2.6.3'
+  pod 'Mantle', '2.0.5'
+  pod 'YapDatabase'
+end
