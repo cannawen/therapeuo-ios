@@ -9,6 +9,8 @@
 #import "RegistrationViewController.h"
 #import "TDataModule+Helpers.h"
 
+#import "Doctor.h"
+
 @interface RegistrationViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -32,6 +34,21 @@
                                            } failure:^(NSError *error) {
                                                
                                            }];
+    
+//    NSLog(@"%@", [TDataModule sharedInstance].doctor);
+    
+//    [[TDataModule sharedInstance] loginWithEmail:@"c"
+//                                        password:@"c"
+//                                         success:nil
+//                                         failure:nil];
+    
+//    [[TDataModule sharedInstance] updateDoctor:[TDataModule sharedInstance].doctor
+//                                       success:nil
+//                                       failure:nil];
+    
+//    [[TDataModule sharedInstance] fetchDoctorWithId:[TDataModule sharedInstance].doctor.doctorId
+//                                            success:nil
+//                                            failure:nil];
 }
 
 @end

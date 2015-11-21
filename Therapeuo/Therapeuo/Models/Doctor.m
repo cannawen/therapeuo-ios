@@ -11,6 +11,7 @@
 @interface Doctor ()
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *doctorId;
 @property (nonatomic, assign) BOOL assisting;
@@ -57,6 +58,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"name" : @"name",
+             @"password" : @"password",
              @"email" : @"email",
              @"doctorId" : @"_id",
              @"assisting" : @"assisting",

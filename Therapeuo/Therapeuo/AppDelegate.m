@@ -10,6 +10,8 @@
 #import "TModule.h"
 #import "AppDelegate.h"
 
+#import "TDataModule+Helpers.h"
+
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
@@ -31,6 +33,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [TDataModule sharedInstance]; // calling this to at least load from persistence
     // Override point for customization after application launch.
     return YES;
 }

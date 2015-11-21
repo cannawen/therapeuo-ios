@@ -63,18 +63,67 @@
                                  password:password
                                   success:
      ^(Doctor *result) {
-         [self.persistenceManager writeDoctor:result success:^(id _) {
-             self.doctor = result;
-         } failure:^(NSError *error) {
-             if (failure) {
-                 failure(error);
-             }
-         }];
+         [self storeDoctor:result success:success failure:failure];
      } failure:^(NSError *error) {
          if (failure) {
              failure(error);
          }
      }];
+}
+
+- (void)loginWithEmail:(NSString *)email
+              password:(NSString *)password
+               success:(SuccssBlock)success
+               failure:(FailureBlock)failure {
+    [self.networkManager loginWithEmail:email
+                               password:password
+                                success:
+     ^(Doctor *result) {
+         [self storeDoctor:result success:success failure:failure];
+     } failure:^(NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+- (void)fetchDoctorWithId:(NSString *)doctorId
+                  success:(SuccssBlock)success
+                  failure:(FailureBlock)failure {
+    [self.networkManager fetchDoctorWithId:doctorId success:^(Doctor* result) {
+        [self storeDoctor:result success:success failure:failure];
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+- (void)updateDoctor:(Doctor *)doctor
+             success:(SuccssBlock)success
+             failure:(FailureBlock)failure {
+    [self.networkManager updateDoctor:doctor success:^(id result) {
+        [self storeDoctor:doctor success:success failure:failure];
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+- (void)storeDoctor:(Doctor *)doctor
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure {
+    [self.persistenceManager writeDoctor:doctor success:^(id _) {
+        self.doctor = doctor;
+        if (success) {
+            success(doctor);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
 }
 
 #pragma mark -

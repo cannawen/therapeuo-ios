@@ -49,11 +49,82 @@
     [self.sessionManager POST:@"doctors/register"
                    parameters:params
                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                          NSLog(@"Registration success");
                           [self parseModelClass:Doctor.class
                                fromJsonResponse:responseObject
                                         success:success
                                         failure:failure];
                       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          NSLog(@"Registration failed with error: %@", error);
+                          if (failure) {
+                              failure(error);
+                          }
+                      }];
+}
+
+- (void)loginWithEmail:(NSString *)email
+              password:(NSString *)password
+               success:(SuccssBlock)success
+               failure:(FailureBlock)failure {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:email forKey:@"email"];
+    [params setValue:password forKey:@"password"];
+    [self.sessionManager POST:@"doctors/login"
+                   parameters:params
+                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                          NSLog(@"Log-in success with status: %@", responseObject[@"success"]);
+                          [self parseModelClass:Doctor.class
+                               fromJsonResponse:responseObject[@"doctor"]
+                                        success:success
+                                        failure:failure];
+                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          NSLog(@"Log-in failed with error: %@", error);
+                          if (failure) {
+                              failure(error);
+                          }
+                      }];
+}
+
+- (void)fetchDoctorWithId:(NSString *)doctorId
+                  success:(SuccssBlock)success
+                  failure:(FailureBlock)failure {
+    [self.sessionManager GET:[NSString stringWithFormat:@"doctors/%@", doctorId]
+                  parameters:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Fetching doctor success");
+                         [self parseModelClass:Doctor.class
+                              fromJsonResponse:responseObject
+                                       success:success
+                                       failure:failure];
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Fetching doctor failed with error: %@", error);
+                         if (failure) {
+                             failure(error);
+                         }
+                     }];
+}
+
+- (void)updateDoctor:(Doctor *)doctor
+             success:(SuccssBlock)success
+             failure:(FailureBlock)failure {
+    NSError *error = nil;
+    NSDictionary *params = [MTLJSONAdapter JSONDictionaryFromModel:doctor error:&error];
+    if (error) {
+        NSLog(@"Failed to construct JSON for updating doctor: %@", doctor);
+        if (failure) {
+            failure(error);
+        }
+    }
+    [self.sessionManager PUT:[NSString stringWithFormat:@"doctors/%@", doctor.doctorId]
+                   parameters:params
+                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                          NSLog(@"Update doctor success with status: %@", responseObject[@"success"]);
+                          [self parseModelClass:Doctor.class
+                               fromJsonResponse:responseObject[@"doctor"]
+                                        success:success
+                                        failure:failure];
+                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          NSLog(@"Update doctor failed with error: %@", error);
                           if (failure) {
                               failure(error);
                           }
@@ -71,12 +142,9 @@
             success(model);
         }
     } else {
+        NSLog(@"Failed to parse class: %@", NSStringFromClass(modelClass));
         failure(error);
     }
 }
-
-//Steve - user later to construct json
-//NSError *error = nil;
-//NSDictionary *JSONDictionary = [MTLJSONAdapter JSONDictionaryFromModel:user error:&error];
 
 @end
