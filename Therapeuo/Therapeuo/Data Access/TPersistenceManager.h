@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TDataAccessProtocols.h"
 
-@interface TPersistenceManager : NSObject
+@interface TPersistenceManager : NSObject <TPersistenceProtocol>
 
 @end

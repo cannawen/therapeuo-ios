@@ -19,11 +19,11 @@
 @property (nonatomic, readonly) NSString *device;
 
 // TODO figure out type for location either string or long/lat
-+ (instancetype) doctorWithName:(NSString *)name
-                       location:(NSString *)location
-                      available:(BOOL)available
-                      assisting:(BOOL)assisting
-                         device:(NSString *)device;
++ (instancetype)doctorWithName:(NSString *)name
+                      location:(NSString *)location
+                     available:(BOOL)available
+                     assisting:(BOOL)assisting
+                        device:(NSString *)device;
 
 
 @end
