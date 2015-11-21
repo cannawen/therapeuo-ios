@@ -21,10 +21,11 @@
 // TODO figure out type for location either string or long/lat
 + (instancetype)doctorWithID:(NSString *)doctorID
                         name:(NSString *)name
-                      location:(NSString *)location
-                     available:(BOOL)available
-                     assisting:(BOOL)assisting
-                        device:(NSString *)device;
+                       email:(NSString *)email
+                    location:(NSString *)location
+                   available:(BOOL)available
+                   assisting:(BOOL)assisting
+                      device:(NSString *)device;
 
 
 @end

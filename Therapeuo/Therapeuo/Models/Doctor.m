@@ -25,6 +25,7 @@
 
 + (instancetype)doctorWithID:(NSString *)doctorID
                         name:(NSString *)name
+                       email:(NSString *)email
                       location:(NSString *)location
                      available:(BOOL)available
                      assisting:(BOOL)assisting
@@ -32,6 +33,7 @@
     
     return [[Doctor alloc] initWithID:doctorID
                                  name:name
+                                email:email
                            location:location
                           available:available
                           assisting:assisting
@@ -39,7 +41,8 @@
 }
 
 - (instancetype)initWithID:(NSString *)doctorID
-                      name:name
+                      name:(NSString *)name
+                     email:(NSString *)email
                   location:(NSString *)location
                  available:(BOOL)available
                  assisting:(BOOL)assisting
@@ -48,6 +51,7 @@
     if (self) {
         _doctorId = doctorID;
         _name = name;
+        _email = email;
         _location = location;
         _available = available;
         _assisting = assisting;

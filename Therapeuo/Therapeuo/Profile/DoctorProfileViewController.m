@@ -9,16 +9,18 @@
 #import "DoctorProfileViewController.h"
 #import "Doctor.h"
 #import "TDataModule+Helpers.h"
+#import "ThemedTextField.h"
+#import "UIColor+Theme.h"
 
 @interface DoctorProfileViewController ()
 
 @property (nonatomic, strong) Doctor *doctor;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *locationField;
+@property (weak, nonatomic) IBOutlet ThemedTextField *nameField;
+@property (weak, nonatomic) IBOutlet ThemedTextField *locationField;
 @property (weak, nonatomic) IBOutlet UISwitch *availableSwitch;
+@property (weak, nonatomic) IBOutlet ThemedTextField *emailField;
 
 @property (weak, nonatomic) IBOutlet UISwitch *assistingSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 
 @property (nonatomic, strong) UIBarButtonItem *editButton;
 @property (nonatomic, assign) BOOL isEditingProfile;
@@ -35,10 +37,14 @@ typedef void (^ SaveBlock)(BOOL);
     _isEditingProfile = NO;
     
     // Default disabled - change if adding edit ability
+    self.availableSwitch.tintColor = [UIColor themeBlueColor];
+    self.assistingSwitch.tintColor = [UIColor themeBlueColor];
+    self.availableSwitch.onTintColor = [UIColor themeBlueColor];
+    self.assistingSwitch.onTintColor = [UIColor themeBlueColor];
+    
     [self initializeUI];
     
     [self setProfileEditMode:NO];
-    self.deviceLabel.text = self.doctor.device;
     
     self.editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(didSelectEditButton)];
     self.navigationItem.rightBarButtonItem = self.editButton;
@@ -54,9 +60,9 @@ typedef void (^ SaveBlock)(BOOL);
 - (void)initializeUI {
     self.nameField.text = self.doctor.name;
     self.locationField.text = self.doctor.location;
+    self.emailField.text = self.doctor.email;
     self.availableSwitch.on = self.doctor.available;
     self.assistingSwitch.on = self.doctor.assisting;
-    self.deviceLabel.text = self.doctor.device;
 }
 
 -(void)configureWithDoctor {
@@ -99,12 +105,13 @@ typedef void (^ SaveBlock)(BOOL);
 
 - (void)saveProfile:(SaveBlock)saveBlock {
     
-    Doctor *doctor = [Doctor doctorWithID:self.doctor.doctorId name:self.nameField.text location:@"agaweg" available:self.availableSwitch.on assisting:self.assistingSwitch.on device:self.deviceLabel.text];
-    
+    Doctor *doctor = [Doctor doctorWithID:self.doctor.doctorId name:self.nameField.text email:self.emailField.text location:self.locationField.text available:self.availableSwitch.on assisting:self.assistingSwitch.on device:@""];
     
     [[TDataModule sharedInstance] updateDoctor:doctor success:^(id result) {
         // remove spinner
         [self setProfileEditMode:NO];
+        self.doctor = doctor;
+        self.title = doctor.name;
         saveBlock(YES);
     } failure:^(NSError *error) {
         [self initializeUI];
