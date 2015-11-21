@@ -7,6 +7,7 @@
 //
 
 #import "RegistrationViewController.h"
+#import "TNetworkManager.h"
 
 @interface RegistrationViewController ()
 
@@ -23,6 +24,14 @@
     NSString *email = self.emailTextField.text;
     NSString *password = self.passwordTextField.text;
     //TODO: Steven to make network call
+    [[TNetworkManager sharedInstance] registerWithEmail:email
+                                                   name:name
+                                               password:password
+                                                success:^(id result) {
+                                                    // currently no parsing models
+                                                } failure:^(NSError *error) {
+                                                    
+                                                }];
 }
 
 @end
