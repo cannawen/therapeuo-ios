@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
+		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
+		179E8AB11C00A994005E492F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AB01C00A994005E492F /* MasterViewController.m */; };
+		179E8AB41C00A994005E492F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AB31C00A994005E492F /* DetailViewController.m */; };
+		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
+		179E8AB91C00A994005E492F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB81C00A994005E492F /* Assets.xcassets */; };
+		179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */; };
+		179E8AC71C00A995005E492F /* TherapeuoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AC61C00A995005E492F /* TherapeuoTests.m */; };
+		179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AD11C00A995005E492F /* TherapeuoUITests.m */; };
+		179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CasesViewController.m */; };
+		179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* ProfileViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		179E8AC31C00A995005E492F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 179E8A9E1C00A994005E492F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 179E8AA51C00A994005E492F;
+			remoteInfo = Therapeuo;
+		};
+		179E8ACE1C00A995005E492F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 179E8A9E1C00A994005E492F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 179E8AA51C00A994005E492F;
+			remoteInfo = Therapeuo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		179E8AAD1C00A994005E492F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		179E8AAF1C00A994005E492F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		179E8AB01C00A994005E492F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		179E8AB21C00A994005E492F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		179E8AB31C00A994005E492F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		179E8AB61C00A994005E492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		179E8AB81C00A994005E492F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		179E8ABB1C00A994005E492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		179E8ABD1C00A994005E492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		179E8AC21C00A995005E492F /* TherapeuoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TherapeuoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		179E8AC61C00A995005E492F /* TherapeuoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TherapeuoTests.m; sourceTree = "<group>"; };
+		179E8AC81C00A995005E492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		179E8ACD1C00A995005E492F /* TherapeuoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TherapeuoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		179E8AD11C00A995005E492F /* TherapeuoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TherapeuoUITests.m; sourceTree = "<group>"; };
+		179E8AD31C00A995005E492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		179E8AE61C00AA27005E492F /* CasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasesViewController.h; sourceTree = "<group>"; };
+		179E8AE71C00AA27005E492F /* CasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasesViewController.m; sourceTree = "<group>"; };
+		179E8AE91C00AA27005E492F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		179E8AEA1C00AA27005E492F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		179E8AA31C00A994005E492F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179E8ABF1C00A995005E492F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179E8ACA1C00A995005E492F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		179E8A9D1C00A994005E492F = {
+			isa = PBXGroup;
+			children = (
+				179E8AA81C00A994005E492F /* Therapeuo */,
+				179E8AC51C00A995005E492F /* TherapeuoTests */,
+				179E8AD01C00A995005E492F /* TherapeuoUITests */,
+				179E8AA71C00A994005E492F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		179E8AA71C00A994005E492F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AA61C00A994005E492F /* Therapeuo.app */,
+				179E8AC21C00A995005E492F /* TherapeuoTests.xctest */,
+				179E8ACD1C00A995005E492F /* TherapeuoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		179E8AA81C00A994005E492F /* Therapeuo */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AAC1C00A994005E492F /* AppDelegate.h */,
+				179E8AAD1C00A994005E492F /* AppDelegate.m */,
+				179E8AB81C00A994005E492F /* Assets.xcassets */,
+				179E8AE51C00AA27005E492F /* Cases */,
+				179E8AB21C00A994005E492F /* DetailViewController.h */,
+				179E8AB31C00A994005E492F /* DetailViewController.m */,
+				179E8ABD1C00A994005E492F /* Info.plist */,
+				179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */,
+				179E8AB51C00A994005E492F /* Main.storyboard */,
+				179E8AAF1C00A994005E492F /* MasterViewController.h */,
+				179E8AB01C00A994005E492F /* MasterViewController.m */,
+				179E8AE81C00AA27005E492F /* Profile */,
+				179E8AA91C00A994005E492F /* Supporting Files */,
+			);
+			path = Therapeuo;
+			sourceTree = "<group>";
+		};
+		179E8AA91C00A994005E492F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AAA1C00A994005E492F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		179E8AC51C00A995005E492F /* TherapeuoTests */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AC61C00A995005E492F /* TherapeuoTests.m */,
+				179E8AC81C00A995005E492F /* Info.plist */,
+			);
+			path = TherapeuoTests;
+			sourceTree = "<group>";
+		};
+		179E8AD01C00A995005E492F /* TherapeuoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AD11C00A995005E492F /* TherapeuoUITests.m */,
+				179E8AD31C00A995005E492F /* Info.plist */,
+			);
+			path = TherapeuoUITests;
+			sourceTree = "<group>";
+		};
+		179E8AE51C00AA27005E492F /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AE61C00AA27005E492F /* CasesViewController.h */,
+				179E8AE71C00AA27005E492F /* CasesViewController.m */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		179E8AE81C00AA27005E492F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				179E8AE91C00AA27005E492F /* ProfileViewController.h */,
+				179E8AEA1C00AA27005E492F /* ProfileViewController.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		179E8AA51C00A994005E492F /* Therapeuo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 179E8AD61C00A995005E492F /* Build configuration list for PBXNativeTarget "Therapeuo" */;
+			buildPhases = (
+				179E8AA21C00A994005E492F /* Sources */,
+				179E8AA31C00A994005E492F /* Frameworks */,
+				179E8AA41C00A994005E492F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Therapeuo;
+			productName = Therapeuo;
+			productReference = 179E8AA61C00A994005E492F /* Therapeuo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		179E8AC11C00A995005E492F /* TherapeuoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 179E8AD91C00A995005E492F /* Build configuration list for PBXNativeTarget "TherapeuoTests" */;
+			buildPhases = (
+				179E8ABE1C00A995005E492F /* Sources */,
+				179E8ABF1C00A995005E492F /* Frameworks */,
+				179E8AC01C00A995005E492F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				179E8AC41C00A995005E492F /* PBXTargetDependency */,
+			);
+			name = TherapeuoTests;
+			productName = TherapeuoTests;
+			productReference = 179E8AC21C00A995005E492F /* TherapeuoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		179E8ACC1C00A995005E492F /* TherapeuoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 179E8ADC1C00A995005E492F /* Build configuration list for PBXNativeTarget "TherapeuoUITests" */;
+			buildPhases = (
+				179E8AC91C00A995005E492F /* Sources */,
+				179E8ACA1C00A995005E492F /* Frameworks */,
+				179E8ACB1C00A995005E492F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				179E8ACF1C00A995005E492F /* PBXTargetDependency */,
+			);
+			name = TherapeuoUITests;
+			productName = TherapeuoUITests;
+			productReference = 179E8ACD1C00A995005E492F /* TherapeuoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		179E8A9E1C00A994005E492F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Dumpling;
+				TargetAttributes = {
+					179E8AA51C00A994005E492F = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					179E8AC11C00A995005E492F = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 179E8AA51C00A994005E492F;
+					};
+					179E8ACC1C00A995005E492F = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 179E8AA51C00A994005E492F;
+					};
+				};
+			};
+			buildConfigurationList = 179E8AA11C00A994005E492F /* Build configuration list for PBXProject "Therapeuo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 179E8A9D1C00A994005E492F;
+			productRefGroup = 179E8AA71C00A994005E492F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				179E8AA51C00A994005E492F /* Therapeuo */,
+				179E8AC11C00A995005E492F /* TherapeuoTests */,
+				179E8ACC1C00A995005E492F /* TherapeuoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		179E8AA41C00A994005E492F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */,
+				179E8AB91C00A994005E492F /* Assets.xcassets in Resources */,
+				179E8AB71C00A994005E492F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179E8AC01C00A995005E492F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179E8ACB1C00A995005E492F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		179E8AA21C00A994005E492F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
+				179E8AEB1C00AA27005E492F /* CasesViewController.m in Sources */,
+				179E8AB11C00A994005E492F /* MasterViewController.m in Sources */,
+				179E8AAB1C00A994005E492F /* main.m in Sources */,
+				179E8AEC1C00AA27005E492F /* ProfileViewController.m in Sources */,
+				179E8AB41C00A994005E492F /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179E8ABE1C00A995005E492F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179E8AC71C00A995005E492F /* TherapeuoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179E8AC91C00A995005E492F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		179E8AC41C00A995005E492F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 179E8AA51C00A994005E492F /* Therapeuo */;
+			targetProxy = 179E8AC31C00A995005E492F /* PBXContainerItemProxy */;
+		};
+		179E8ACF1C00A995005E492F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 179E8AA51C00A994005E492F /* Therapeuo */;
+			targetProxy = 179E8ACE1C00A995005E492F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		179E8AB51C00A994005E492F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				179E8AB61C00A994005E492F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		179E8ABA1C00A994005E492F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				179E8ABB1C00A994005E492F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		179E8AD41C00A995005E492F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		179E8AD51C00A995005E492F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		179E8AD71C00A995005E492F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Therapeuo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.Therapeuo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		179E8AD81C00A995005E492F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Therapeuo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.Therapeuo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		179E8ADA1C00A995005E492F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TherapeuoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.TherapeuoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Therapeuo.app/Therapeuo";
+			};
+			name = Debug;
+		};
+		179E8ADB1C00A995005E492F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TherapeuoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.TherapeuoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Therapeuo.app/Therapeuo";
+			};
+			name = Release;
+		};
+		179E8ADD1C00A995005E492F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TherapeuoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.TherapeuoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Therapeuo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		179E8ADE1C00A995005E492F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TherapeuoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.TherapeuoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Therapeuo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		179E8AA11C00A994005E492F /* Build configuration list for PBXProject "Therapeuo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179E8AD41C00A995005E492F /* Debug */,
+				179E8AD51C00A995005E492F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		179E8AD61C00A995005E492F /* Build configuration list for PBXNativeTarget "Therapeuo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179E8AD71C00A995005E492F /* Debug */,
+				179E8AD81C00A995005E492F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		179E8AD91C00A995005E492F /* Build configuration list for PBXNativeTarget "TherapeuoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179E8ADA1C00A995005E492F /* Debug */,
+				179E8ADB1C00A995005E492F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		179E8ADC1C00A995005E492F /* Build configuration list for PBXNativeTarget "TherapeuoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179E8ADD1C00A995005E492F /* Debug */,
+				179E8ADE1C00A995005E492F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 179E8A9E1C00A994005E492F /* Project object */;
+}
