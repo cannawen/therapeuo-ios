@@ -13,7 +13,7 @@
 #import "TAlertHelper.h"
 #import "TConstants.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet ThemedTextField *emailTextField;
 @property (weak, nonatomic) IBOutlet ThemedTextField *passwordTextField;
@@ -36,11 +36,17 @@
         }
     } failure:nil];
     self.originalLoginBottomConstraintConstant = self.loginBottomConstraint.constant;
+    UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
 }
 
 - (IBAction)loginButtonTapped:(id)sender {
@@ -62,6 +68,19 @@
 - (void)moveToHome {
     [self performSegueWithIdentifier:@"caseController" sender:self];
 }
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.emailTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    } else {
+        [self.view endEditing:YES];
+    }
+    return YES;
+}
+
+#pragma mark - Keyboard
 
 - (void)keyboardWillShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField {
     if (self.loginBottomConstraint.constant == self.originalLoginBottomConstraintConstant) {
