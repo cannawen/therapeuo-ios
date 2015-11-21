@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -60,7 +60,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="2si-aK-2H7" eventType="touchUpInside" id="22u-M7-HNM"/>
-                                    <segue destination="qC7-If-3ch" kind="push" identifier="caseController" id="pSr-gH-mqU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA" customClass="ThemedButton">
@@ -103,7 +102,7 @@
                         <outlet property="logoImageView" destination="akf-Qs-tNZ" id="oFE-d6-CRV"/>
                         <outlet property="passwordTextField" destination="9hL-9C-QO1" id="w1D-UV-XbH"/>
                         <outlet property="registerButton" destination="p6I-Yc-ORA" id="wne-zd-EVa"/>
-                        <segue destination="c0P-b9-Rq5" kind="push" identifier="authToHome" id="Vog-PP-E4t"/>
+                        <segue destination="qC7-If-3ch" kind="push" identifier="caseController" id="w6G-2I-Amx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m77-pW-z14" userLabel="First Responder" sceneMemberID="firstResponder"/>
