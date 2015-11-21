@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -50,16 +50,33 @@
                                     <segue destination="c0P-b9-Rq5" kind="push" id="q5r-Sy-5Pn"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9q1-13-w1d">
+                                <rect key="frame" x="0.0" y="64" width="600" height="446"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="akf-Qs-tNZ">
+                                        <rect key="frame" x="216" y="139" width="169" height="169"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="akf-Qs-tNZ" firstAttribute="centerX" secondItem="9q1-13-w1d" secondAttribute="centerX" id="eOC-xF-Cj7"/>
+                                    <constraint firstItem="akf-Qs-tNZ" firstAttribute="centerY" secondItem="9q1-13-w1d" secondAttribute="centerY" id="rc1-nG-NBc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3cU-w0-ekF" firstAttribute="top" secondItem="p6I-Yc-ORA" secondAttribute="bottom" constant="20" id="32G-ZW-CMg"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="centerX" secondItem="SEE-c1-0Yb" secondAttribute="centerX" id="9NA-3b-BTP"/>
+                            <constraint firstAttribute="trailing" secondItem="9q1-13-w1d" secondAttribute="trailing" id="Exa-zo-EKR"/>
                             <constraint firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" constant="20" id="I7J-Cb-6BD"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerY" secondItem="NEb-AS-6rI" secondAttribute="centerY" id="JrV-Ug-NYF"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="10" id="KAU-V7-qfq"/>
+                            <constraint firstItem="9q1-13-w1d" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" id="UTz-Pt-40P"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="10" id="X2r-K9-EpD"/>
+                            <constraint firstItem="9q1-13-w1d" firstAttribute="top" secondItem="RGK-k7-ZTh" secondAttribute="bottom" id="e8y-fh-ACD"/>
+                            <constraint firstItem="SEE-c1-0Yb" firstAttribute="top" secondItem="9q1-13-w1d" secondAttribute="bottom" id="g2X-8u-hwK"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="20" id="njB-3A-q09"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="trailing" secondItem="p6I-Yc-ORA" secondAttribute="trailing" id="tW5-8z-ruB"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="leading" secondItem="p6I-Yc-ORA" secondAttribute="leading" id="ttQ-dD-ph5"/>
@@ -293,4 +310,7 @@
             <point key="canvasLocation" x="1659" y="483"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="169" height="169"/>
+    </resources>
 </document>
