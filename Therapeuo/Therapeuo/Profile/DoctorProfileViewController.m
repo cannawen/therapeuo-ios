@@ -19,20 +19,38 @@
 @property (weak, nonatomic) IBOutlet UISwitch *assistingSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 
+@property (nonatomic, strong) UIBarButtonItem *editButton;
+@property (nonatomic, assign) BOOL isEditingProfile;
 @end
+
+typedef void (^ SaveBlock)(BOOL);
 
 @implementation DoctorProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Default disabled - change if adding edit ability
     self.title = self.doctor.name;
-    self.nameField.enabled = NO;
-    self.locationField.enabled = NO;
-    self.availableSwitch.enabled = NO;
-    self.assistingSwitch.enabled = NO;
+    _isEditingProfile = NO;
     
+    // Default disabled - change if adding edit ability
+    [self initializeUI];
+    
+    [self setProfileEditMode:NO];
+    self.deviceLabel.text = self.doctor.device;
+    
+    self.editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(didSelectEditButton)];
+    self.navigationItem.rightBarButtonItem = self.editButton;
+}
+
+-(void)setProfileEditMode:(BOOL)shouldEdit {
+    self.nameField.enabled = shouldEdit;
+    self.locationField.enabled = shouldEdit;
+    self.availableSwitch.enabled = shouldEdit;
+    self.assistingSwitch.enabled = shouldEdit;
+}
+
+- (void)initializeUI {
     self.nameField.text = self.doctor.name;
     self.locationField.text = self.doctor.location;
     self.availableSwitch.on = self.doctor.available;
@@ -47,6 +65,45 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Action button
+-(void)didSelectEditButton {
+    if (!_isEditingProfile) {
+        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(didSelectEditButton)];
+        [self setProfileEditMode:YES];
+    }
+    self.isEditingProfile = !self.isEditingProfile;
+}
+
+- (void)setIsEditingProfile:(BOOL)isEditing {
+    _isEditingProfile = !_isEditingProfile;
+    if (!_isEditingProfile) {
+        [self saveProfile:^(BOOL didSave) {
+            if (didSave) {
+                [self setProfileEditMode:NO];
+                self.navigationItem.rightBarButtonItem = nil;
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(didSelectEditButton)];
+            } else {
+                
+            }
+        }];
+    }
+}
+
+- (void)saveProfile:(SaveBlock)saveBlock {
+    
+    // block-based save call
+    
+//     assume success
+    // remove spinner
+     [self setProfileEditMode:NO];
+    saveBlock(YES);
+    // else error
+    // initialize
+
+    
 }
 
 /*
