@@ -11,6 +11,8 @@
 
 @interface TNetworkManager : NSObject
 
++ (instancetype)sharedInstance;
+
 - (void)registerWithEmail:(NSString *)email
                      name:(NSString *)name
                  password:(NSString *)password

@@ -6,6 +6,8 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
+#import "AppDelegate.h"
+
 #import <Blindside.h>
 #import "TNetworkManager.h"
 #import "TSessionManager.h"
@@ -17,6 +19,11 @@
 @end
 
 @implementation TNetworkManager
+
++ (instancetype)sharedInstance {
+    AppDelegate *appDelegate = ((AppDelegate *)[UIApplication sharedApplication].delegate);
+    return [appDelegate.injector getInstance:[self class]];
+}
 
 + (BSInitializer *)bsInitializer {
     return [BSInitializer initializerWithClass:[self class]
