@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -34,16 +34,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA">
-                                <rect key="frame" x="272" y="340" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-Yc-ORA" customClass="ThemedButton">
+                                <rect key="frame" x="20" y="520" width="560" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Register"/>
                                 <connections>
                                     <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-c1-0Yb">
-                                <rect key="frame" x="281" y="285" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-c1-0Yb" customClass="ThemedButton">
+                                <rect key="frame" x="20" y="465" width="560" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -54,11 +54,22 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3cU-w0-ekF" firstAttribute="top" secondItem="p6I-Yc-ORA" secondAttribute="bottom" constant="50" id="32G-ZW-CMg"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="centerX" secondItem="SEE-c1-0Yb" secondAttribute="centerX" id="9NA-3b-BTP"/>
+                            <constraint firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" constant="20" id="I7J-Cb-6BD"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerY" secondItem="NEb-AS-6rI" secondAttribute="centerY" id="JrV-Ug-NYF"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="25" id="KAU-V7-qfq"/>
+                            <constraint firstItem="p6I-Yc-ORA" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="20" id="X2r-K9-EpD"/>
+                            <constraint firstItem="SEE-c1-0Yb" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" constant="20" id="njB-3A-q09"/>
+                            <constraint firstAttribute="trailing" secondItem="p6I-Yc-ORA" secondAttribute="trailing" constant="20" id="x0u-Sv-km5"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="yTG-qF-G6F"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JrV-Ug-NYF"/>
+                                <exclude reference="9NA-3b-BTP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="TNe-Km-nBy"/>
                 </viewController>
