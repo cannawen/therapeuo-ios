@@ -14,7 +14,9 @@
 
 @protocol TPersistenceProtocol <NSObject>
 @optional
-- (void)doctor:(Doctor *)doctor
-       success:(SuccssBlock)success
-       failure:(FailureBlock)failure;
+- (void)readDoctorSuccess:(SuccssBlock)success
+                  failure:(FailureBlock)failure;
+- (void)writeDoctor:(Doctor *)doctor
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure;
 @end

@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TDataAccessProtocols.h"
 
+@class Doctor;
+
 @interface TDataModule : NSObject <TNetworkProtocol>
+
+@property (nonatomic, readonly) Doctor *doctor; //most recent persisted data
 
 @end

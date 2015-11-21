@@ -14,6 +14,8 @@
 // Networking
 #import "TSessionManager.h"
 #import "TNetworkManager.h"
+#import "TPersistenceManager.h"
+#import "TDataModule.h"
 
 
 @implementation TModule
@@ -23,6 +25,8 @@
     [binder bind:kBaseUrlKey toInstance:[NSURL URLWithString:@"google.ca"]];
     [binder bind:[TSessionManager class] withScope:[BSSingleton scope]];
     [binder bind:[TNetworkManager class] withScope:[BSSingleton scope]];
+    [binder bind:[TPersistenceManager class] withScope:[BSSingleton scope]];
+    [binder bind:[TDataModule class] withScope:[BSSingleton scope]];
 }
 
 @end

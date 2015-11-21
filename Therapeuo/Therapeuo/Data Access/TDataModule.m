@@ -11,7 +11,12 @@
 #import "TNetworkManager.h"
 #import "TPersistenceManager.h"
 
+#import "Doctor.h"
+
 @interface TDataModule ()
+
+// In memory cache
+@property (nonatomic, strong) Doctor *doctor;
 
 @property (nonatomic, strong) TNetworkManager *networkManager;
 @property (nonatomic, strong) TPersistenceManager *persistenceManager;
@@ -36,9 +41,37 @@
     if (self) {
         _networkManager = networkManager;
         _persistenceManager = persistenceManager;
+        [_persistenceManager readDoctorSuccess:^(Doctor *result) {
+            _doctor = result;
+        } failure:nil];
     }
     return self;
 }
+
+- (void)registerWithName:(NSString *)name
+                   email:(NSString *)email
+                password:(NSString *)password
+                 success:(SuccssBlock)success
+                 failure:(FailureBlock)failure {
+    [self.networkManager registerWithName:name
+                                    email:email
+                                 password:password
+                                  success:^(Doctor *result) {
+                                      [self.persistenceManager writeDoctor:result success:^(id _) {
+                                          self.doctor = result;
+                                      } failure:^(NSError *error) {
+                                          if (failure) {
+                                              failure(error);
+                                          }
+                                      }];
+                                  } failure:^(NSError *error) {
+                                      if (failure) {
+                                          failure(error);
+                                      }
+                                  }];
+}
+
+#pragma mark -
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     for (id target in @[self.networkManager ? : [NSNull null],

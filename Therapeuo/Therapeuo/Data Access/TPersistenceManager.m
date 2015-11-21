@@ -10,6 +10,11 @@
 #import <YapDatabase.h>
 #import "TPersistenceManager.h"
 
+#import "Doctor.h"
+
+NSString * const kDoctorsCollection = @"Doctors";
+NSString * const kCurrentdDoctorKey = @"CurrentdDoctor";
+
 @interface TPersistenceManager ()
 
 @property (nonatomic, strong) YapDatabase *database;
@@ -26,6 +31,30 @@
         _mainConnection = [_database newConnection];
     }
     return self;
+}
+
+- (void)readDoctorSuccess:(SuccssBlock)success
+                  failure:(FailureBlock)failure {
+    __block Doctor *doctor;
+    [self.mainConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        doctor = [transaction objectForKey:kCurrentdDoctorKey inCollection:kDoctorsCollection];
+    } completionBlock:^{
+        if (success) {
+            success(doctor);
+        }
+    }];
+}
+
+- (void)writeDoctor:(Doctor *)doctor
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure {
+    [self.mainConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        [transaction setObject:doctor forKey:kCurrentdDoctorKey inCollection:kDoctorsCollection];
+    } completionBlock:^{
+        if (success) {
+            success(doctor);
+        }
+    }];
 }
 
 - (NSString *)databasePath {
