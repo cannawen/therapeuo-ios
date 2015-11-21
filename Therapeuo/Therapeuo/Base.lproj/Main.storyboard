@@ -55,6 +55,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="2si-aK-2H7" eventType="touchUpInside" id="22u-M7-HNM"/>
+                                    <segue destination="qC7-If-3ch" kind="push" identifier="caseController" id="pSr-gH-mqU"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-u2-oPT" customClass="ThemedTextField">
@@ -107,7 +108,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="d4n-u2-oPT" id="lD9-nT-Pzv"/>
                         <outlet property="passwordTextField" destination="9hL-9C-QO1" id="w1D-UV-XbH"/>
-                        <segue destination="c0P-b9-Rq5" kind="push" identifier="authToHome" id="Vog-PP-E4t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m77-pW-z14" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,16 +227,23 @@
                     <view key="view" contentMode="scaleToFill" id="xJW-Se-uFP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GJw-fg-jRl"/>
+                    <navigationItem key="navigationItem" id="GJw-fg-jRl">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="jXY-mF-cMY">
+                            <connections>
+                                <segue destination="wLw-8S-ryU" kind="push" identifier="doctorProfile" id="00I-Na-dYX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="6eU-H0-13I" kind="push" identifier="CaseViewControllerSegue" id="RfD-Yo-UEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slr-J4-edI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="1161"/>
+            <point key="canvasLocation" x="1009" y="483"/>
         </scene>
         <!--Case View Controller-->
         <scene sceneID="nQ1-7k-BSM">
@@ -249,56 +256,14 @@
                     <view key="view" contentMode="scaleToFill" id="25q-co-7Se">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OL0-tT-kX7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ik-iy-16J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="1825"/>
-        </scene>
-        <!--Home View Controller-->
-        <scene sceneID="TID-Vt-2GW">
-            <objects>
-                <viewController id="c0P-b9-Rq5" customClass="HomeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mmY-bm-cQg"/>
-                        <viewControllerLayoutGuide type="bottom" id="ebI-cr-eBy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t28-lD-LD6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lK8-qk-dCS">
-                                <rect key="frame" x="97" y="248" width="43" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Cases"/>
-                                <connections>
-                                    <action selector="actionDidSelectCasesButton:" destination="c0P-b9-Rq5" eventType="touchUpInside" id="An7-Du-8A0"/>
-                                    <segue destination="qC7-If-3ch" kind="push" identifier="CaseListViewControllerSegue" id="NqZ-2y-fNO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZr-85-HGI">
-                                <rect key="frame" x="291" y="248" width="69" height="30"/>
-                                <animations/>
-                                <state key="normal" title="My Profile"/>
-                                <connections>
-                                    <segue destination="wLw-8S-ryU" kind="push" identifier="doctorProfile" id="Kk7-Nt-MiZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="opy-bA-p9P"/>
-                    <connections>
-                        <outlet property="caseButton" destination="lK8-qk-dCS" id="SjN-te-FPQ"/>
-                        <outlet property="myProfileButton" destination="KZr-85-HGI" id="uF4-pu-lOS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5VZ-Sg-Mnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1009" y="483"/>
+            <point key="canvasLocation" x="1009" y="1161"/>
         </scene>
         <!--Doctor Profile View Controller-->
         <scene sceneID="LBo-Yz-Dk9">

@@ -7,6 +7,7 @@
 //
 
 #import "CaseListViewController.h"
+#import "DoctorProfileViewController.h"
 
 @interface TempCaseClass : NSObject
 @property (nonatomic, strong) id patient;
@@ -25,7 +26,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UIImage *image = [UIImage imageNamed:@"profileIcon"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.rightBarButtonItem.image = image;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *identifier = segue.identifier;
+    if ([identifier isEqualToString:@"doctorProfile"]) {
+        DoctorProfileViewController *vc = (DoctorProfileViewController *)segue.destinationViewController;
+        
+        [vc configureWithDoctor];
+    }
 }
 
 @end

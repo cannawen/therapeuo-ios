@@ -34,7 +34,7 @@
                                            success:^(Doctor *result) {
                                                [self spinnerHide];
                                                UIViewController *loginViewController = [self.navigationController.childViewControllers firstObject];
-                                               [loginViewController performSegueWithIdentifier:@"authToHome" sender:self];
+                                               [loginViewController performSegueWithIdentifier:@"caseController" sender:self];
                                            } failure:^(NSError *error) {
                                                [self spinnerHide];
                                                [TAlertHelper showDefaultError];

@@ -54,7 +54,7 @@
 }
 
 - (void)moveToHome {
-    [self performSegueWithIdentifier:@"authToHome" sender:self];
+    [self performSegueWithIdentifier:@"caseController" sender:self];
 }
 
 
