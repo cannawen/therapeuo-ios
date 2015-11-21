@@ -12,6 +12,12 @@
 @interface DoctorProfileViewController ()
 
 @property (nonatomic, strong) Doctor *doctor;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *locationField;
+@property (weak, nonatomic) IBOutlet UISwitch *availableSwitch;
+
+@property (weak, nonatomic) IBOutlet UISwitch *assistingSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 
 @end
 
@@ -20,7 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Default disabled - change if adding edit ability
     self.title = self.doctor.name;
+    self.nameField.enabled = NO;
+    self.locationField.enabled = NO;
+    self.availableSwitch.enabled = NO;
+    self.assistingSwitch.enabled = NO;
+    
+    self.nameField.text = self.doctor.name;
+    self.locationField.text = self.doctor.location;
+    self.availableSwitch.on = self.doctor.available;
+    self.assistingSwitch.on = self.doctor.assisting;
+    self.deviceLabel.text = self.doctor.device;
 }
 
 -(void)configureWithDoctor:(Doctor *)doctor {
