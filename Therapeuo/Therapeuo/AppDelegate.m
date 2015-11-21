@@ -57,6 +57,8 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"Did receive notification with userInfo: %@", userInfo);
+    NSString *caseId = userInfo[@"case"];
+    NSString *messageId = userInfo[@"message"];
 }
 
 @end
