@@ -36,7 +36,7 @@ NSString * const kCurrentdDoctorKey = @"CurrentdDoctor";
 - (void)readDoctorSuccess:(SuccssBlock)success
                   failure:(FailureBlock)failure {
     __block Doctor *doctor;
-    [self.mainConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+    [self.mainConnection asyncReadWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
         doctor = [transaction objectForKey:kCurrentdDoctorKey inCollection:kDoctorsCollection];
     } completionBlock:^{
         if (success) {
@@ -53,6 +53,17 @@ NSString * const kCurrentdDoctorKey = @"CurrentdDoctor";
     } completionBlock:^{
         if (success) {
             success(doctor);
+        }
+    }];
+}
+
+- (void)flushAllSuccess:(SuccssBlock)success
+                failure:(FailureBlock)failure {
+    [self.mainConnection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        [transaction removeAllObjectsInCollection:kDoctorsCollection];
+    } completionBlock:^{
+        if (success) {
+            success(nil);
         }
     }];
 }

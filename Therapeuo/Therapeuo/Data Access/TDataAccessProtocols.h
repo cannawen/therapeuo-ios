@@ -29,4 +29,6 @@
 - (void)writeDoctor:(Doctor *)doctor
             success:(SuccssBlock)success
             failure:(FailureBlock)failure;
+- (void)flushAllSuccess:(SuccssBlock)success
+                failure:(FailureBlock)failure;
 @end

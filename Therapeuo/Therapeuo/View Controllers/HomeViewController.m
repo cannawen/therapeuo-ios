@@ -30,7 +30,7 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     NSString *identifier = segue.identifier;
     if ([identifier isEqualToString:@"doctorProfile"]) {

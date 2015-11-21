@@ -8,6 +8,15 @@
 
 #import "CaseListViewController.h"
 
+@interface TempCaseClass : NSObject
+@property (nonatomic, strong) id patient;
+@property (nonatomic, strong) id doctor;
+@property (nonatomic, strong) NSArray *doctors;
+@property (nonatomic) BOOL open;
+@property (nonatomic, strong) NSString *notes;
+@end
+
+
 @interface CaseListViewController ()
 
 @end
@@ -17,11 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
