@@ -49,10 +49,6 @@
     return self;
 }
 
-- (RACSignal *)freshDoctorDataSignal {
-    return RACObserve(self, doctor);
-}
-
 - (void)registerWithName:(NSString *)name
                    email:(NSString *)email
                 password:(NSString *)password
