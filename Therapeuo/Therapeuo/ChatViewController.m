@@ -111,13 +111,7 @@
     NSString *message = self.messageTextField.text;
     ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMyMessage:message];
     self.viewModels = [self.viewModels arrayByAddingObject:viewModel];
-    
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count-1 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count-1 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView endUpdates];
+    [self.tableView reloadData];
     
     [[TDataModule sharedInstance] sendMessage:message
                                 forCaseWithId:self.verboseCase.theCase.caseId
