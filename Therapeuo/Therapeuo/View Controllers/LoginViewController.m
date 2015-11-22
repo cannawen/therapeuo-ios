@@ -75,18 +75,6 @@
      }];
 }
 
-- (IBAction)temp_loginWithTest:(id)sender {
-    self.emailTextField.text = @"test@doctor.com";
-    self.passwordTextField.text = @"thing";
-    [self loginButtonTapped:sender];
-}
-
-- (IBAction)temp_loginWithTest2:(id)sender {
-    self.emailTextField.text = @"test2@doctor.com";
-    self.passwordTextField.text = @"thing";
-    [self loginButtonTapped:sender];
-}
-
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
