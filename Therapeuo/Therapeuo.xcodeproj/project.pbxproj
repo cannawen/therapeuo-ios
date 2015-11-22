@@ -49,6 +49,9 @@
 		D35C6C311C0125E200000697 /* Case.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C301C0125E200000697 /* Case.m */; };
 		D35C6C341C01609900000697 /* MutableCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C331C01609900000697 /* MutableCase.m */; };
 		D35C6C381C017C9500000697 /* ThemeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C371C017C9500000697 /* ThemeTools.m */; };
+		D37349151C01955500037C0A /* AddDoctorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37349141C01955500037C0A /* AddDoctorsViewController.m */; };
+		D37349191C01A3F100037C0A /* DoctorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37349171C01A3F100037C0A /* DoctorTableViewCell.m */; };
+		D373491A1C01A3F100037C0A /* DoctorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37349181C01A3F100037C0A /* DoctorTableViewCell.xib */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
 /* End PBXBuildFile section */
@@ -154,6 +157,11 @@
 		D35C6C331C01609900000697 /* MutableCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MutableCase.m; path = Models/MutableCase.m; sourceTree = "<group>"; };
 		D35C6C361C017C9500000697 /* ThemeTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTools.h; sourceTree = "<group>"; };
 		D35C6C371C017C9500000697 /* ThemeTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTools.m; sourceTree = "<group>"; };
+		D37349131C01955500037C0A /* AddDoctorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorsViewController.h; sourceTree = "<group>"; };
+		D37349141C01955500037C0A /* AddDoctorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorsViewController.m; sourceTree = "<group>"; };
+		D37349161C01A3F100037C0A /* DoctorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorTableViewCell.h; sourceTree = "<group>"; };
+		D37349171C01A3F100037C0A /* DoctorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorTableViewCell.m; sourceTree = "<group>"; };
+		D37349181C01A3F100037C0A /* DoctorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorTableViewCell.xib; sourceTree = "<group>"; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
 		D3796E0D1C00BBBA007E2888 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = "<group>"; };
@@ -354,6 +362,9 @@
 				B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */,
 				B0662EE21C00CD6C008EDA02 /* ThemedTextField.h */,
 				B0662EE31C00CD6C008EDA02 /* ThemedTextField.m */,
+				D37349161C01A3F100037C0A /* DoctorTableViewCell.h */,
+				D37349171C01A3F100037C0A /* DoctorTableViewCell.m */,
+				D37349181C01A3F100037C0A /* DoctorTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -376,6 +387,8 @@
 			children = (
 				B0662EF11C0109FD008EDA02 /* CaseViewController.h */,
 				B0662EF21C0109FD008EDA02 /* CaseViewController.m */,
+				D37349131C01955500037C0A /* AddDoctorsViewController.h */,
+				D37349141C01955500037C0A /* AddDoctorsViewController.m */,
 			);
 			name = Case;
 			sourceTree = "<group>";
@@ -556,6 +569,7 @@
 				1786DEF71C019ED5002DE686 /* CaseListHeaderView.xib in Resources */,
 				B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */,
 				179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */,
+				D373491A1C01A3F100037C0A /* DoctorTableViewCell.xib in Resources */,
 				1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */,
 				179E8AB91C00A994005E492F /* Assets.xcassets in Resources */,
 				B03B74EF1C015A5C008D0383 /* ChatTableViewCell.xib in Resources */,
@@ -650,6 +664,8 @@
 				B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */,
 				B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */,
 				1786DEE71C011378002DE686 /* CaseListCell.m in Sources */,
+				D37349151C01955500037C0A /* AddDoctorsViewController.m in Sources */,
+				D37349191C01A3F100037C0A /* DoctorTableViewCell.m in Sources */,
 				1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */,
 				B03B74F31C017D0C008D0383 /* UITableViewCell+Sizing.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,

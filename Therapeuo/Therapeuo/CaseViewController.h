@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddDoctorsViewController.h"
 
 @class VerboseCase;
 
-@interface CaseViewController : UIViewController
+@interface CaseViewController <AddDoctorsViewControllerDelegate> : UIViewController
 
 + (instancetype)viewControllerWithVerboseCase:(VerboseCase *)verboseCase;
 @end
