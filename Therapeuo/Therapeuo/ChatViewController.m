@@ -12,12 +12,19 @@
 #import "VerboseCase.h"
 #import "TDataModule.h"
 #import "Doctor.h"
+#import "ThemedTextField.h"
+#import "TDataModule.h"
+#import "Case.h"
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendContainerBottomConstraint;
+@property (weak, nonatomic) IBOutlet ThemedTextField *messageTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *warningViewHeightConstraint;
+
 @property (nonatomic) NSArray <ChatCellViewModel *> *viewModels;
+@property (nonatomic) VerboseCase *verboseCase;
 
 @end
 
@@ -36,6 +43,7 @@
 }
 
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
+    
     NSString *myId = [TDataModule sharedInstance].doctor.doctorId;
     NSMutableArray *array = [NSMutableArray array];
     for (Message *message in verboseCase.messages) {
@@ -50,6 +58,21 @@
         [array addObject:viewModel];
     }
     self.viewModels = array;
+}
+
+#pragma mark - IBAction
+
+- (IBAction)sendButtonTapped:(id)sender {
+    NSString *message = self.messageTextField.text;
+    [[TDataModule sharedInstance] sendMessage:message
+                                forCaseWithId:self.verboseCase.theCase.caseId
+                                      success:^(id result) {
+                                          self.warningViewHeightConstraint.constant = 0;
+                                          self.messageTextField.text = message;
+                                      }
+                                      failure:^(NSError *error) {
+                                          self.warningViewHeightConstraint.constant = 44;
+                                      }];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate

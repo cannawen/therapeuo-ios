@@ -51,7 +51,7 @@
                                     <outlet property="delegate" destination="2si-aK-2H7" id="GKz-NP-xf2"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="thing" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-9C-QO1" customClass="ThemedTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-9C-QO1" customClass="ThemedTextField">
                                 <rect key="frame" x="10" y="460" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -471,6 +471,26 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-WA-drD" userLabel="Warning View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message not sent. Please try again later" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3D-gL-hmF">
+                                        <rect key="frame" x="148" y="0.0" width="305" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96078437566757202" green="0.72156864404678345" blue="0.63529413938522339" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="U3D-gL-hmF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xQb-WA-drD" secondAttribute="leading" id="1qn-Em-mTC"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U3D-gL-hmF" secondAttribute="trailing" id="ByZ-8J-70N"/>
+                                    <constraint firstAttribute="height" id="FGT-I5-kai"/>
+                                    <constraint firstItem="U3D-gL-hmF" firstAttribute="centerX" secondItem="xQb-WA-drD" secondAttribute="centerX" id="JHk-1a-S6h"/>
+                                    <constraint firstItem="U3D-gL-hmF" firstAttribute="centerY" secondItem="xQb-WA-drD" secondAttribute="centerY" id="Uv7-tf-4yG"/>
+                                    <constraint firstItem="U3D-gL-hmF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xQb-WA-drD" secondAttribute="top" id="XtN-dD-WL5"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="U3D-gL-hmF" secondAttribute="bottom" id="qdc-45-UQp"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Knx-DH-Erq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="466"/>
                                 <animations/>
@@ -496,6 +516,9 @@
                                         <rect key="frame" x="554" y="20" width="36" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="fPl-5l-8Sj" eventType="touchUpInside" id="fcE-Fg-evH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -518,19 +541,30 @@
                             <constraint firstItem="HXK-yX-Voq" firstAttribute="leading" secondItem="AjX-5c-ZdR" secondAttribute="leading" id="ApA-vS-Ohy"/>
                             <constraint firstAttribute="trailing" secondItem="F5t-7C-iyd" secondAttribute="trailing" id="FXi-d6-aPQ"/>
                             <constraint firstItem="Knx-DH-Erq" firstAttribute="leading" secondItem="AjX-5c-ZdR" secondAttribute="leading" id="LGS-DY-Wak"/>
+                            <constraint firstItem="Knx-DH-Erq" firstAttribute="top" secondItem="xQb-WA-drD" secondAttribute="bottom" id="LhI-lB-Uyv"/>
                             <constraint firstAttribute="trailing" secondItem="HXK-yX-Voq" secondAttribute="trailing" id="WPo-az-SN8"/>
+                            <constraint firstItem="xQb-WA-drD" firstAttribute="leading" secondItem="AjX-5c-ZdR" secondAttribute="leading" id="ayH-EY-spD"/>
+                            <constraint firstItem="xQb-WA-drD" firstAttribute="top" secondItem="LO1-dd-C1k" secondAttribute="bottom" id="bzJ-LP-nOr"/>
                             <constraint firstItem="F5t-7C-iyd" firstAttribute="leading" secondItem="AjX-5c-ZdR" secondAttribute="leading" id="gly-bJ-dJ3"/>
+                            <constraint firstAttribute="trailing" secondItem="xQb-WA-drD" secondAttribute="trailing" id="hfn-lA-9d6"/>
                             <constraint firstAttribute="trailing" secondItem="Knx-DH-Erq" secondAttribute="trailing" id="j1i-kD-ExX"/>
                             <constraint firstItem="F5t-7C-iyd" firstAttribute="top" secondItem="HXK-yX-Voq" secondAttribute="bottom" id="uBi-az-Hau"/>
                             <constraint firstItem="Knx-DH-Erq" firstAttribute="top" secondItem="LO1-dd-C1k" secondAttribute="bottom" id="uf9-tt-XgK"/>
                             <constraint firstItem="aoI-Bl-SIG" firstAttribute="top" secondItem="F5t-7C-iyd" secondAttribute="bottom" id="zWo-Qu-gPa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uf9-tt-XgK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="dOl-6g-uxK"/>
                     <connections>
+                        <outlet property="messageTextField" destination="h6r-1z-0ob" id="7LO-cr-yy5"/>
                         <outlet property="sendContainerBottomConstraint" destination="zWo-Qu-gPa" id="FOM-gA-e6u"/>
                         <outlet property="tableView" destination="Knx-DH-Erq" id="VW8-vn-ZWs"/>
+                        <outlet property="warningViewHeightConstraint" destination="FGT-I5-kai" id="iqh-dW-pI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzc-hC-EsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
