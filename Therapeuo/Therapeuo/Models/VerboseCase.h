@@ -11,6 +11,7 @@
 @class Case;
 @class Patient;
 @class Doctor;
+@class Message;
 
 @interface VerboseCase : TBaseModel
 
@@ -19,5 +20,7 @@
 
 + (instancetype)instanceWithCase:(Case *)theCase
                         messages:(NSArray *)messages;
+
+- (id)senderForMessage:(Message *)message; // either a Patient or Doctor object
 
 @end

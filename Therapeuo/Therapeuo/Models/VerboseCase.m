@@ -9,7 +9,12 @@
 #import "VerboseCase.h"
 
 #import "Case.h"
+#import "Doctor.h"
+#import "Patient.h"
 #import "Message.h"
+#import "Recipient.h"
+
+#import "NSArray+PivotalCore.h"
 
 @interface VerboseCase ()
 
@@ -26,6 +31,20 @@
     verboseCase.theCase = theCase;
     verboseCase.messages = messages;
     return verboseCase;
+}
+
+- (id)senderForMessage:(Message *)message {
+    NSString *senderId = message.sender.recipientId;
+    id sender;
+    
+    if ([senderId isEqualToString:self.theCase.patient.patientId]) {
+        sender = self.theCase.patient;
+    } else {
+        sender = [[self.theCase.doctors filter:^BOOL(Doctor *doctor) {
+            return [senderId isEqualToString:doctor.doctorId];
+        }] firstObject];
+    }
+    return sender;
 }
 
 @end
