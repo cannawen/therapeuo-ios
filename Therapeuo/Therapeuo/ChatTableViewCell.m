@@ -22,12 +22,13 @@ static CGFloat smallSpace = 25;
 @property (weak, nonatomic) IBOutlet UIImageView *rightAngleImageView;
 @property (weak, nonatomic) IBOutlet UIView *rightAngleBackgroundView;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTrailingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLeadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *messageView;
-@property (weak, nonatomic) IBOutlet UIView *flashView;
+@property (nonatomic) NSArray *flashViews;
 
 @end
 
@@ -39,6 +40,7 @@ static CGFloat smallSpace = 25;
     self.rightAngleImageView.image = [UIImage imageNamed:@"speech_angle"];
     self.rightAngleImageView.transform = CGAffineTransformMakeRotation(-M_PI);
     self.messageView.layer.cornerRadius = 8.0f;
+    self.flashViews = @[self.messageView, self.leftAngleBackgroundView, self.rightAngleBackgroundView];
 }
 
 + (UINib *)nib {
@@ -65,12 +67,8 @@ static CGFloat smallSpace = 25;
     return size.height;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.flashView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.2];
-}
-
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
+    self.nameLabel.text = viewModel.nameString ? [NSString stringWithFormat:@"%@:", viewModel.nameString] : nil;
     self.messageLabel.text = viewModel.messageString;
     
     if (viewModel.isMyMessage) {
@@ -96,10 +94,14 @@ static CGFloat smallSpace = 25;
 
 - (void)flash {
     [UIView animateWithDuration:0.5 animations:^{
-        self.flashView.alpha = 1;
+        for (UIView *view in self.flashViews) {
+            view.alpha = 0;
+        }
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.5 animations:^{
-            self.flashView.alpha = 0;
+            for (UIView *view in self.flashViews) {
+                view.alpha = 1;
+            }
         }];
     }];
 }
@@ -170,6 +172,7 @@ static CGFloat smallSpace = 25;
 @interface ChatCellViewModel ()
 
 @property (nonatomic) Message *message;
+@property (nonatomic) NSString *name;
 @property (nonatomic) BOOL isMyMessage;
 @property (nonatomic) NSString *myMessageString;
 
@@ -181,9 +184,10 @@ static CGFloat smallSpace = 25;
     _message = message;
 }
 
-+ (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage {
++ (instancetype)viewModelFromMessage:(Message *)message name:(NSString *)name isMyMessage:(BOOL)isMyMessage {
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
     viewModel.message = message;
+    viewModel.name = name;
     viewModel.isMyMessage = isMyMessage;
     viewModel.shouldFlash = NO;
     return viewModel;
@@ -203,6 +207,10 @@ static CGFloat smallSpace = 25;
     self.myMessageString = self.message.content;
     self.message = nil;
     self.isMyMessage = NO;
+}
+
+- (NSString *)nameString {
+    return self.name;
 }
 
 - (NSString *)messageString {
