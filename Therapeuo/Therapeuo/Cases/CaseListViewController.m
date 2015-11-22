@@ -15,6 +15,7 @@
 #import "VerboseCase.h"
 
 #import "CaseListCell.h"
+#import "CaseViewController.h"
 
 @interface TempCaseClass : NSObject
 @property (nonatomic, strong) id patient;
@@ -101,6 +102,11 @@
         DoctorProfileViewController *vc = (DoctorProfileViewController *)segue.destinationViewController;
         
         [vc configureWithDoctor];
+    } else if ([identifier isEqualToString:@"CaseViewControllerSegue"]) {
+        CaseViewController *vc = [[CaseViewController alloc] init];
+        
+        // TODO get a case.
+        [vc configureWithPatientCase:[self fakeCases][0]];
     }
 }
 
@@ -140,6 +146,10 @@
                    doctorNames:doctorNames
                          notes:notes];
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"CaseViewControllerSegue" sender:nil];
 }
 
 #pragma mark - <UICollectionViewDelegateFlowLayout>

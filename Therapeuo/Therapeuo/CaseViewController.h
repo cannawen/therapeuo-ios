@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PatientCase;
+
 @interface CaseViewController : UIViewController
+
+- (void)configureWithPatientCase:(PatientCase *)patientCase;
 
 @end
