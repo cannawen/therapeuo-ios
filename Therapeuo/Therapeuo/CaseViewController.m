@@ -38,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 @property (weak, nonatomic) IBOutlet UILabel *locationValueLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -128,8 +129,34 @@ typedef void (^ SaveBlock)(BOOL);
     
     self.caseCompletionSwitch.on = theCase.open;
     self.notesTextView.text = theCase.notes;
+    [self updateMap];
+    
 }
 
+- (void)updateMap {
+    // create a region and pass it to the Map View
+    self.mapView.delegate = self;
+    Patient *patient = self.patientCase.theCase.patient;
+    MKCoordinateRegion region;
+    
+    double longitude = [patient.location[1] doubleValue];
+    double latitude = [patient.location[0] doubleValue];
+    
+    region.center.latitude = latitude;
+    region.center.longitude = longitude;
+    region.span.latitudeDelta = 5;
+    region.span.longitudeDelta = 5;
+
+    [self.mapView setRegion:region animated:YES];
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:CLLocationCoordinate2DMake(latitude, longitude)];
+    [annotation setTitle:@"Patient is here!"];
+    [self.mapView addAnnotation:annotation];
+    
+}
+
+#pragma mark - end
 - (void)saveCase:(SaveBlock)saveBlock {
     
     // Make new case:

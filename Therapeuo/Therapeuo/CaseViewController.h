@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AddDoctorsViewController.h"
+#import <MapKit/MapKit.h>
 
 @class VerboseCase;
 
-@interface CaseViewController <AddDoctorsViewControllerDelegate> : UIViewController
+@interface CaseViewController <AddDoctorsViewControllerDelegate, MKMapViewDelegate> : UIViewController
 
 + (instancetype)viewControllerWithVerboseCase:(VerboseCase *)verboseCase;
 @end
