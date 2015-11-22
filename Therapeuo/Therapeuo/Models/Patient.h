@@ -12,6 +12,7 @@
 @interface Patient : TBaseModel
 
 @property (nonatomic, readonly) NSString *patientId;
-@property (nonatomic, readonly) CLLocationCoordinate2D location;
+@property (nonatomic, readonly) NSString *locationDescription;
+@property (nonatomic, readonly) NSArray *location;
 
 @end
