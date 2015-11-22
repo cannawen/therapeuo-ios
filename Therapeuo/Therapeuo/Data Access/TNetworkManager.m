@@ -260,10 +260,21 @@
                      }];
 }
 
-- (void)sendMessageForCaseWithId:(NSString *)caseId
-                        doctorId:(NSString *)doctorId
-                         success:(SuccssBlock)success
-                         failure:(FailureBlock)failure {
+- (void)sendMessage:(NSString *)message
+      forCaseWithId:(NSString *)caseId
+       fromDoctorId:(NSString *)doctorId
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    [params setValue:name forKey:@"name"];
+//    [params setValue:email forKey:@"email"];
+    [self.sessionManager PUT:nil
+                  parameters:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         ;
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         ;
+                     }];
 //    {
 //        "content": "Hello",
 //        "doctor": "ID"

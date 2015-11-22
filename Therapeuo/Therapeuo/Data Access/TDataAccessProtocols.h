@@ -45,10 +45,11 @@
 - (void)fetchMessagesForCaseWithId:(NSString *)caseId
                            success:(SuccssBlock)success
                            failure:(FailureBlock)failure;
-- (void)sendMessageForCaseWithId:(NSString *)caseId
-                        doctorId:(NSString *)doctorId
-                         success:(SuccssBlock)success
-                         failure:(FailureBlock)failure;
+- (void)sendMessage:(NSString *)message
+      forCaseWithId:(NSString *)caseId
+       fromDoctorId:(NSString *)doctorId
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure;
 
 @end
 
