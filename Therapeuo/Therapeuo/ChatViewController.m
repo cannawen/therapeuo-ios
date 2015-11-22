@@ -99,9 +99,11 @@
             ChatCellViewModel *viewModel = self.viewModels[newMessageIndex];
             viewModel.shouldFlash = YES;
         }
-    } failure:^(NSError *error) {
-        [self scrollToBottom];
         [self.tableView reloadData];
+        [self scrollToBottom];
+    } failure:^(NSError *error) {
+        [self.tableView reloadData];
+        [self scrollToBottom];
     }];
 }
 
