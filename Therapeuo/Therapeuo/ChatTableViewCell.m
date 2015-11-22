@@ -82,6 +82,7 @@
 
 @property (nonatomic) Message *message;
 @property (nonatomic) BOOL isMyMessage;
+@property (nonatomic) NSString *myMessageString;
 
 @end
 
@@ -94,16 +95,23 @@
     return viewModel;
 }
 
++ (instancetype)viewModelFromMyMessage:(NSString *)message {
+    ChatCellViewModel *viewModel = [ChatCellViewModel new];
+    viewModel.myMessageString = message;
+    viewModel.isMyMessage = YES;
+    return viewModel;
+}
+
 - (NSString *)messageString {
-    return self.message.content;
+    return self.message.content ? : self.myMessageString;
 }
 
 - (BOOL)isPatientMessage {
-    return [self.message isSentByPatient];
+    return self.myMessageString ? NO : [self.message isSentByPatient];
 }
 
 - (BOOL)isDoctorMessage {
-    return [self.message isSentByDoctor];
+    return self.myMessageString ? YES : [self.message isSentByDoctor];
 }
 
 @end

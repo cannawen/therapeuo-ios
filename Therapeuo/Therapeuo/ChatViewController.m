@@ -74,7 +74,13 @@
 }
 
 - (void)handleRefresh:(id)sender {
-    [self spinnerShow];
+    [self handleRefreshShowingSpinner:YES];
+}
+
+- (void)handleRefreshShowingSpinner:(BOOL)showingSpinner {
+    if (showingSpinner) {
+        [self spinnerShow];
+    }
     [[TDataModule sharedInstance] fetchVerboseCaseWithId:self.verboseCase.theCase.caseId success:^(VerboseCase *result) {
         [self configureWithVerboseCase:result];
         [self spinnerHide];
@@ -99,11 +105,22 @@
 
 - (IBAction)sendButtonTapped:(id)sender {
     NSString *message = self.messageTextField.text;
+    ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMyMessage:message];
+    self.viewModels = [self.viewModels arrayByAddingObject:viewModel];
+    
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
     [[TDataModule sharedInstance] sendMessage:message
                                 forCaseWithId:self.verboseCase.theCase.caseId
                                       success:^(id result) {
                                           self.messageTextField.text = message;
                                           [self hideError];
+                                          [self handleRefreshShowingSpinner:NO];
                                       } failure:^(NSError *error) {
                                           [self showErrorWithMessage:@"Unable to send message"];
                                       }];
