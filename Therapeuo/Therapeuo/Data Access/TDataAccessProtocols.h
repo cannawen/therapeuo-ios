@@ -33,6 +33,8 @@
 - (void)fetchCasesForDoctorWithId:(NSString *)doctorId
                           success:(SuccssBlock)success
                           failure:(FailureBlock)failure;
+- (void)fetchAllDoctorsSuccess:(SuccssBlock)success
+                       failure:(FailureBlock)failure;
 
 #pragma mark - Cases
 

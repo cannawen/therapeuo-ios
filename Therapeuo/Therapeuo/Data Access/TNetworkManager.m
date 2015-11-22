@@ -185,6 +185,33 @@
                      }];
 }
 
+- (void)fetchAllDoctorsSuccess:(SuccssBlock)success
+                       failure:(FailureBlock)failure {
+    [self.sessionManager GET:@"doctors"
+                  parameters:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Fetch doctors success");
+                         NSArray *doctors = [responseObject map:^id(NSDictionary *doctorJsonResponse) {
+                             NSError *error = nil;
+                             Case *parsedCase = [MTLJSONAdapter modelOfClass:Doctor.class fromJSONDictionary:doctorJsonResponse error:&error];
+                             if (error) {
+                                 NSLog(@"Failed to parse doctor: %@", doctorJsonResponse);
+                                 return [NSNull null];
+                             } else {
+                                 return parsedCase;
+                             }
+                         }];
+                         if (success) {
+                             success(doctors);
+                         }
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Fetch doctors failed");
+                         if (failure) {
+                             failure(error);
+                         }
+                     }];
+}
+
 #pragma mark - Cases
 
 - (void)fetchCaseWithId:(NSString *)caseId
