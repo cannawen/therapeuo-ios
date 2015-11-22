@@ -8,7 +8,6 @@
 
 #import "CaseViewController.h"
 #import "Patient.h"
-#import "PatientCase.h"
 #import "Case.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+Theme.h"
