@@ -99,14 +99,14 @@
     self.openCases = [cases filter:^BOOL(Case *aCase) {
         return aCase.open && [aCase.primaryDoctorId isEqualToString:doctorId];
     }];
-//    self.proxyCases = [cases filter:^BOOL(Case *aCase) {
-//        return aCase.open && ![aCase.primaryDoctorId isEqualToString:doctorId];
-//    }];
-//    self.closedCases = [cases filter:^BOOL(Case *aCase) {
-//        return !aCase.open;
-//    }];
-    self.proxyCases = self.openCases;
-    self.closedCases = self.openCases;
+    self.proxyCases = [cases filter:^BOOL(Case *aCase) {
+        return aCase.open && ![aCase.primaryDoctorId isEqualToString:doctorId];
+    }];
+    self.closedCases = [cases filter:^BOOL(Case *aCase) {
+        return !aCase.open;
+    }];
+//    self.proxyCases = self.openCases;
+//    self.closedCases = self.openCases;
 }
 
 #pragma mark - IBActions

@@ -11,6 +11,7 @@
 @interface Patient ()
 
 @property (nonatomic, strong) NSString *patientId;
+@property (nonatomic) CLLocationCoordinate2D location;
 
 @end
 
@@ -21,9 +22,8 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"patientId" : @"_id",
-             //location
+             //@"location" : @"location",
              };
 }
-
 
 @end

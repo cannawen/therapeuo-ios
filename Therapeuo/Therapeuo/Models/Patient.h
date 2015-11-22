@@ -7,9 +7,11 @@
 //
 
 #import "TBaseModel.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface Patient : TBaseModel
 
 @property (nonatomic, readonly) NSString *patientId;
+@property (nonatomic, readonly) CLLocationCoordinate2D location;
 
 @end
