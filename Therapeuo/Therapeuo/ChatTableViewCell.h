@@ -13,7 +13,6 @@
 @interface ChatCellViewModel : NSObject
 
 + (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage;
-- (NSString *)identifier;
 - (NSString *)messageString;
 - (BOOL)isPatientMessage;
 - (BOOL)isMyMessage;
@@ -23,11 +22,7 @@
 
 @interface ChatTableViewCell : UITableViewCell
 
-+ (UINib *)rightMessageNib;
-+ (NSString *)rightMessageIdentifierString;
-
-+ (UINib *)leftMessageNib;
-+ (NSString *)leftMessageIdentifierString;
++ (UINib *)nib;
 
 + (CGFloat)heightForCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel;
 

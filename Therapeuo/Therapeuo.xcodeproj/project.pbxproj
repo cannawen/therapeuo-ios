@@ -32,8 +32,7 @@
 		179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* DoctorProfileViewController.m */; };
 		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; };
 		B03B74E81C014A53008D0383 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E61C014A53008D0383 /* ChatTableViewCell.m */; };
-		B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */; };
-		B03B74EF1C015A5C008D0383 /* LeftChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */; };
+		B03B74EF1C015A5C008D0383 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74EE1C015A5C008D0383 /* ChatTableViewCell.xib */; };
 		B03B74F31C017D0C008D0383 /* UITableViewCell+Sizing.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74F21C017D0C008D0383 /* UITableViewCell+Sizing.m */; settings = {ASSET_TAGS = (); }; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
@@ -122,8 +121,7 @@
 		B03B74E31C013E7A008D0383 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		B03B74E51C014A53008D0383 /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
 		B03B74E61C014A53008D0383 /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
-		B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightChatTableViewCell.xib; sourceTree = "<group>"; };
-		B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftChatTableViewCell.xib; sourceTree = "<group>"; };
+		B03B74EE1C015A5C008D0383 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		B03B74F11C017D0C008D0383 /* UITableViewCell+Sizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Sizing.h"; sourceTree = "<group>"; };
 		B03B74F21C017D0C008D0383 /* UITableViewCell+Sizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Sizing.m"; sourceTree = "<group>"; };
 		B0662ED21C00BF5D008EDA02 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
@@ -303,8 +301,7 @@
 			children = (
 				B03B74E51C014A53008D0383 /* ChatTableViewCell.h */,
 				B03B74E61C014A53008D0383 /* ChatTableViewCell.m */,
-				B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */,
-				B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */,
+				B03B74EE1C015A5C008D0383 /* ChatTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -548,11 +545,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */,
 				179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */,
 				1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */,
 				179E8AB91C00A994005E492F /* Assets.xcassets in Resources */,
-				B03B74EF1C015A5C008D0383 /* LeftChatTableViewCell.xib in Resources */,
+				B03B74EF1C015A5C008D0383 /* ChatTableViewCell.xib in Resources */,
 				179E8AB71C00A994005E492F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

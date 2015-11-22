@@ -25,8 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[ChatTableViewCell leftMessageNib] forCellReuseIdentifier:[ChatTableViewCell leftMessageIdentifierString]];
-    [self.tableView registerNib:[ChatTableViewCell rightMessageNib] forCellReuseIdentifier:[ChatTableViewCell rightMessageIdentifierString]];
+    [self.tableView registerNib:[ChatTableViewCell nib] forCellReuseIdentifier:NSStringFromClass([ChatTableViewCell class])];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
 }
 
@@ -55,7 +58,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatCellViewModel *viewModel = self.viewModels[indexPath.row];
-    ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:viewModel.identifier];
+    ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ChatTableViewCell class])];
     [cell configureWithViewModel:viewModel];
     return cell;
 }

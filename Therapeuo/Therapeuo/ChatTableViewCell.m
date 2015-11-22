@@ -14,27 +14,21 @@
 @interface ChatTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (weak, nonatomic) IBOutlet UIView *dividerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTrailingConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLeadingConstraint;
+@property (weak, nonatomic) IBOutlet UIView *messageBorders;
 
 @end
 
 @implementation ChatTableViewCell
 
-+ (UINib *)leftMessageNib {
-    return [UINib nibWithNibName:[self leftMessageIdentifierString] bundle:nil];
++ (UINib *)nib {
+    return [UINib nibWithNibName:NSStringFromClass([ChatTableViewCell class]) bundle:nil];
 }
 
-+ (UINib *)rightMessageNib {
-    return [UINib nibWithNibName:[self rightMessageIdentifierString] bundle:nil];
-}
-
-+ (NSString *)leftMessageIdentifierString {
-    return @"LeftChatTableViewCell";
-}
-
-+ (NSString *)rightMessageIdentifierString {
-    return @"RightChatTableViewCell";
++ (NSString *)identifierString {
+    return NSStringFromClass([ChatTableViewCell class]);
 }
 
 + (ChatTableViewCell *)loadViewFromNibNamed:(NSString *)nibName {
@@ -42,21 +36,11 @@
 }
 
 + (CGFloat)heightForCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel {
-    static ChatTableViewCell *leftSizingCell;
-    static ChatTableViewCell *rightSizingCell;
-    
+    static ChatTableViewCell *sizingCell;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        leftSizingCell = [self loadViewFromNibNamed:[self leftMessageIdentifierString]];
-        rightSizingCell = [self loadViewFromNibNamed:[self rightMessageIdentifierString]];
+        sizingCell = [self loadViewFromNibNamed:NSStringFromClass([ChatTableViewCell class])];
     });
-    
-    ChatTableViewCell *sizingCell;
-    if (viewModel.isDoctorMessage) {
-        sizingCell = rightSizingCell;
-    } else {
-        sizingCell = leftSizingCell;
-    }
     [sizingCell configureWithWidth:width];
     [sizingCell configureWithViewModel:viewModel];
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
@@ -64,10 +48,16 @@
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
-    self.dividerView.backgroundColor = [UIColor grayColor];
     self.messageLabel.text = viewModel.messageString;
     if (viewModel.isMyMessage) {
         self.messageLabel.backgroundColor = [UIColor themeBlueColor];
+    }
+    if (viewModel.isPatientMessage) {
+        self.messageLeadingConstraint.constant = 10;
+        self.messageTrailingConstraint.constant = 50;
+    } else {
+        self.messageLeadingConstraint.constant = 50;
+        self.messageTrailingConstraint.constant = 10;
     }
 }
 
@@ -95,13 +85,6 @@
     return viewModel;
 }
 
-- (NSString *)identifier {
-    if ([self isDoctorMessage]) {
-        return [ChatTableViewCell rightMessageIdentifierString];
-    } else {
-        return [ChatTableViewCell leftMessageIdentifierString];
-    }
-}
 - (NSString *)messageString {
     return self.message.content;
 }
