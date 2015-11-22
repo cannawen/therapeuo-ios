@@ -142,9 +142,15 @@
                   parameters:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                          NSLog(@"Fetch doctor cases success");
-                         NSArray *cases = [responseObject map:^Case *(NSDictionary *caseJsonResponse) {
+                         NSArray *cases = [responseObject map:^id(NSDictionary *caseJsonResponse) {
                              NSError *error = nil;
-                             return [MTLJSONAdapter modelOfClass:Case.class fromJSONDictionary:caseJsonResponse error:&error];
+                             Case *parsedCase = [MTLJSONAdapter modelOfClass:Case.class fromJSONDictionary:caseJsonResponse error:&error];
+                             if (error) {
+                                 NSLog(@"Failed to parse doctor %@ case: %@", doctorId, caseJsonResponse);
+                                 return [NSNull null];
+                             } else {
+                                 return parsedCase;
+                             }
                          }];
                          if (success) {
                              success(cases);
@@ -183,9 +189,15 @@
                   parameters:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                          NSLog(@"Fetch messages success");
-                         NSArray *messages = [responseObject map:^Case *(NSDictionary *caseJsonResponse) {
+                         NSArray *messages = [responseObject map:^id(NSDictionary *messageJsonResponse) {
                              NSError *error = nil;
-                             return [MTLJSONAdapter modelOfClass:Message.class fromJSONDictionary:caseJsonResponse error:&error];
+                             Message *parsedMessage = [MTLJSONAdapter modelOfClass:Message.class fromJSONDictionary:messageJsonResponse error:&error];
+                             if (error) {
+                                 NSLog(@"Failed to parse case %@ message: %@", caseId, messageJsonResponse);
+                                 return [NSNull null];
+                             } else {
+                                 return parsedMessage;
+                             }
                          }];
                          if (success) {
                              success(messages);

@@ -36,9 +36,9 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"caseId" : @"_id",
-//             @"doctorIds" : @"doctors",
+             @"doctors" : @"doctors",
              @"open" : @"open",
-//             @"patientId" : @"patient",
+             @"patient" : @"patient",
              @"primaryDoctorId" : @"primary",
              @"notes" : @"notes",
              };
