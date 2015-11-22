@@ -35,7 +35,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TDataModule sharedInstance]; // calling this to at least load from persistence
     [self styleNavBar];
-    [self setupPush];
     return YES;
 }
 
@@ -50,15 +49,6 @@
 
 #pragma mark - Push notification code
 
-- (void)setupPush {
-    UIApplication *application = [UIApplication sharedApplication];
-    if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
-        [application registerForRemoteNotifications]; //iOS 8+
-    } else {
-        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    }
-}
-
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -66,15 +56,6 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:token forKey:kDeviceTokenKey];
     [userDefaults synchronize];
-    
-    Doctor *currentDoctor = [TDataModule sharedInstance].doctor;
-    if (currentDoctor) {
-        Doctor *updatedDoctor = [currentDoctor copyWithDevice:token];
-        [[TDataModule sharedInstance] updateDoctor:updatedDoctor
-                                           success:nil
-                                           failure:nil];
-
-    }
     
     NSLog(@"My token is: %@", deviceToken);
 }

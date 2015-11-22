@@ -26,18 +26,18 @@
 + (instancetype)doctorWithID:(NSString *)doctorID
                         name:(NSString *)name
                        email:(NSString *)email
-                      location:(NSString *)location
-                     available:(BOOL)available
-                     assisting:(BOOL)assisting
-                        device:(NSString *)device {
+                    location:(NSString *)location
+                   available:(BOOL)available
+                   assisting:(BOOL)assisting
+                      device:(NSString *)device {
     
     return [[Doctor alloc] initWithID:doctorID
                                  name:name
                                 email:email
-                           location:location
-                          available:available
-                          assisting:assisting
-                             device:device];
+                             location:location
+                            available:available
+                            assisting:assisting
+                               device:device];
 }
 
 - (instancetype)initWithID:(NSString *)doctorID
@@ -81,8 +81,8 @@
              @"doctorId" : @"_id",
              @"assisting" : @"assisting",
              @"available" : @"available",
+             @"device" : @"device",
              //location
-             //device
              };
 }
 

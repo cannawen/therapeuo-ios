@@ -50,13 +50,29 @@
 }
 
 - (void)moveToHome {
+    [self setupPush];
+    [self updateDevice];
+    [self performSegueWithIdentifier:@"caseController" sender:self];
+}
+
+- (void)setupPush {
+    UIApplication *application = [UIApplication sharedApplication];
+    if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        [application registerForRemoteNotifications]; //iOS 8+
+    } else {
+        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    }
+}
+
+- (void)updateDevice {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [userDefaults objectForKey:kDeviceTokenKey];
-    Doctor *updatedDoctor = [[TDataModule sharedInstance].doctor copyWithDevice:token];
-    [[TDataModule sharedInstance] updateDoctor:updatedDoctor
-                                       success:nil
-                                       failure:nil];
-    [self performSegueWithIdentifier:@"caseController" sender:self];
+    if (token) {
+        Doctor *updatedDoctor = [[TDataModule sharedInstance].doctor copyWithDevice:token];
+        [[TDataModule sharedInstance] updateDoctor:updatedDoctor
+                                           success:nil
+                                           failure:nil];
+    }
 }
 
 #pragma mark - IBActions

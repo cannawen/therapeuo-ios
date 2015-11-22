@@ -271,7 +271,7 @@
     [self.sessionManager POST:[NSString stringWithFormat:@"cases/%@/message", caseId]
                    parameters:params
                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                          NSLog(@"Send message failed");
+                          NSLog(@"Send message success");
                           if (success) {
                               success(nil);
                           }
