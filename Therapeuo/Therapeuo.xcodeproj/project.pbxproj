@@ -34,6 +34,7 @@
 		B03B74E81C014A53008D0383 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E61C014A53008D0383 /* ChatTableViewCell.m */; };
 		B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */; };
 		B03B74EF1C015A5C008D0383 /* LeftChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */; };
+		B03B74F31C017D0C008D0383 /* UITableViewCell+Sizing.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74F21C017D0C008D0383 /* UITableViewCell+Sizing.m */; settings = {ASSET_TAGS = (); }; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
 		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; };
@@ -122,6 +123,8 @@
 		B03B74E61C014A53008D0383 /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
 		B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightChatTableViewCell.xib; sourceTree = "<group>"; };
 		B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftChatTableViewCell.xib; sourceTree = "<group>"; };
+		B03B74F11C017D0C008D0383 /* UITableViewCell+Sizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Sizing.h"; sourceTree = "<group>"; };
+		B03B74F21C017D0C008D0383 /* UITableViewCell+Sizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Sizing.m"; sourceTree = "<group>"; };
 		B0662ED21C00BF5D008EDA02 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
 		B0662ED31C00BF5D008EDA02 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/LoginViewController.m"; sourceTree = "<group>"; };
 		B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 				B0662EE71C00CFD2008EDA02 /* UIColor+Theme.m */,
 				B0662EEB1C00D0F6008EDA02 /* UIFont+Theme.h */,
 				B0662EEC1C00D0F6008EDA02 /* UIFont+Theme.m */,
+				B03B74F11C017D0C008D0383 /* UITableViewCell+Sizing.h */,
+				B03B74F21C017D0C008D0383 /* UITableViewCell+Sizing.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				B0662EED1C00D0F6008EDA02 /* UIFont+Theme.m in Sources */,
 				1786DEE71C011378002DE686 /* CaseListCell.m in Sources */,
 				1786DEDA1C00D40B002DE686 /* TPersistenceManager.m in Sources */,
+				B03B74F31C017D0C008D0383 /* UITableViewCell+Sizing.m in Sources */,
 				1786DED11C00C994002DE686 /* TBaseModel.m in Sources */,
 				D35C6C2E1C01238000000697 /* Message.m in Sources */,
 				1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */,

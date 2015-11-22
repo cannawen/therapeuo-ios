@@ -9,10 +9,13 @@
 #import "ChatTableViewCell.h"
 #import "Message.h"
 #import "UIColor+Theme.h"
+#import "UITableViewCell+Sizing.h"
 
 @interface ChatTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerWidthConstraint;
 
 @end
 
@@ -54,16 +57,24 @@
     } else {
         sizingCell = leftSizingCell;
     }
+    [sizingCell configureWithWidth:width];
     [sizingCell configureWithViewModel:viewModel];
-    CGSize size = [sizingCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height;
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
+    self.dividerView.backgroundColor = [UIColor grayColor];
     self.messageLabel.text = viewModel.messageString;
     if (viewModel.isMyMessage) {
         self.messageLabel.backgroundColor = [UIColor themeBlueColor];
     }
+}
+
+- (void)configureWithWidth:(CGFloat)width {
+    self.frame = CGRectMake(0, 0, width, 44);
+    self.dividerWidthConstraint.constant = width;
+    self.dividerWidthConstraint.active = YES;
 }
 
 @end
