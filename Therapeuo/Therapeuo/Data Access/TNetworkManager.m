@@ -41,6 +41,8 @@
     return self;
 }
 
+#pragma mark - Registration / Login / Logout
+
 - (void)registerWithName:(NSString *)name
                    email:(NSString *)email
                 password:(NSString *)password
@@ -88,6 +90,26 @@
                           }
                       }];
 }
+
+- (void)logoutDoctorWithId:(NSString *)doctorId
+                   success:(SuccssBlock)success
+                   failure:(FailureBlock)failure {
+    [self.sessionManager DELETE:[NSString stringWithFormat:@"doctors/%@/logout", doctorId]
+                     parameters:nil
+                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                            NSLog(@"Logout successful");
+                            if (success) {
+                                success(nil);
+                            }
+                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                            NSLog(@"Logout failed");
+                            if (failure) {
+                                failure(error);
+                            }
+                        }];
+}
+
+#pragma mark - Doctor
 
 - (void)fetchDoctorWithId:(NSString *)doctorId
                   success:(SuccssBlock)success
@@ -163,6 +185,8 @@
                      }];
 }
 
+#pragma mark - Cases
+
 - (void)fetchCaseWithId:(NSString *)caseId
                 success:(SuccssBlock)success
                 failure:(FailureBlock)failure {
@@ -176,6 +200,32 @@
                                        failure:failure];
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                          NSLog(@"Fetch case failed");
+                         if (failure) {
+                             failure(error);
+                         }
+                     }];
+}
+
+- (void)updateTheCase:(Case *)theCase
+              success:(SuccssBlock)success
+              failure:(FailureBlock)failure {
+    NSError *error = nil;
+    NSDictionary *params = [MTLJSONAdapter JSONDictionaryFromModel:theCase error:&error];
+    if (error) {
+        NSLog(@"Failed to construct JSON for updating case: %@", theCase);
+        if (failure) {
+            failure(error);
+        }
+    }
+    [self.sessionManager PUT:[NSString stringWithFormat:@"cases/%@", theCase.caseId]
+                  parameters:params
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Update case success");
+                         if (success) {
+                             success(nil);
+                         }
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Update case failed");
                          if (failure) {
                              failure(error);
                          }
@@ -204,20 +254,20 @@
                          }
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                          NSLog(@"Fetch messages failed");
+                         if (failure) {
+                             failure(error);
+                         }
                      }];
 }
 
-- (void)logoutDoctorWithId:(NSString *)doctorId
-                   success:(SuccssBlock)success
-                   failure:(FailureBlock)failure {
-    [self.sessionManager DELETE:[NSString stringWithFormat:@"doctors/%@/logout", doctorId]
-                     parameters:nil
-                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                            NSLog(@"Logout successful");
-                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                            NSLog(@"Logout failed");
-                        }];
+- (void)sendMessageForCaseWithId:(NSString *)caseId
+                         success:(SuccssBlock)success
+                         failure:(FailureBlock)failure {
+    
 }
+
+
+#pragma mark - Helpers
 
 - (void)parseModelClass:(Class)modelClass
        fromJsonResponse:(NSDictionary *)jsonResponse

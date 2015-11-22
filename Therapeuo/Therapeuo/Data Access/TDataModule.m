@@ -57,7 +57,9 @@
     return self;
 }
 
-#pragma mark - <TNetworkProtocol>
+// <TNetworkProtocol>
+
+#pragma mark - Registration / Login / Logout
 
 - (void)registerWithName:(NSString *)name
                    email:(NSString *)email
@@ -85,6 +87,25 @@
      } failure:failure];
 }
 
+- (void)logoutDoctorWithId:(NSString *)doctorId
+                   success:(SuccssBlock)success
+                   failure:(FailureBlock)failure {
+
+}
+
+- (void)logoutSuccess:(SuccssBlock)success
+              failure:(FailureBlock)failure {
+    [self.networkManager logoutDoctorWithId:self.doctor.doctorId success:^(id _) {
+        [self.persistenceManager flushAllSuccess:^(id _) {
+            if (success) {
+                success(nil);
+            }
+        } failure:failure];
+    } failure:failure];
+}
+
+#pragma mark - Doctor
+
 - (void)fetchDoctorWithId:(NSString *)doctorId
                   success:(SuccssBlock)success
                   failure:(FailureBlock)failure {
@@ -101,16 +122,7 @@
     } failure:failure];
 }
 
-- (void)storeDoctor:(Doctor *)doctor
-            success:(SuccssBlock)success
-            failure:(FailureBlock)failure {
-    [self.persistenceManager writeDoctor:doctor success:^(id _) {
-        self.doctor = doctor;
-        if (success) {
-            success(doctor);
-        }
-    } failure:failure];
-}
+#pragma mark - Cases
 
 - (void)fetchCasesForDoctorWithId:(NSString *)doctorId
                           success:(SuccssBlock)success
@@ -127,12 +139,8 @@
                        success:(SuccssBlock)success
                        failure:(FailureBlock)failure {
     __weak TNetworkManager *weakNetworkManager = self.networkManager;
-    
     __block Case *theCase;
-    //patient
-    //doctors
     __block NSArray *messages;
-    
     [self.networkManager fetchCaseWithId:caseId success:^(Case *resultCase) {
         theCase = resultCase;
         [weakNetworkManager fetchMessagesForCaseWithId:resultCase.caseId success:^(NSArray *messageResults) {
@@ -143,17 +151,6 @@
                 success(verboseCase);
             }
         } failure:failure];
-    } failure:failure];
-}
-
-- (void)logoutDoctorWithId:(NSString *)doctorId
-                   success:(SuccssBlock)success
-                   failure:(FailureBlock)failure {
-    [self.networkManager logoutDoctorWithId:doctorId success:^(id _) {
-        [self.persistenceManager flushAllSuccess:nil failure:nil];
-        if (success) {
-            success(nil);
-        }
     } failure:failure];
 }
 
@@ -168,7 +165,18 @@
     }
 }
 
-#pragma mark -
+#pragma mark - Helpers
+
+- (void)storeDoctor:(Doctor *)doctor
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure {
+    [self.persistenceManager writeDoctor:doctor success:^(id _) {
+        self.doctor = doctor;
+        if (success) {
+            success(doctor);
+        }
+    } failure:failure];
+}
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     for (id target in @[self.networkManager ? : [NSNull null],

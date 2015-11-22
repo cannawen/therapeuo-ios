@@ -119,14 +119,13 @@
 #pragma mark - IBActions
 
 - (IBAction)logoutButtonTapped:(id)sender {
-    TDataModule *dataModule = [TDataModule sharedInstance];
-    [dataModule logoutDoctorWithId:dataModule.doctor.doctorId
-                           success:nil
-                           failure:nil];
-    [dataModule flushAllSuccess:^(id result) {
+    [self spinnerShow];
+    [[TDataModule sharedInstance] logoutSuccess:^(id _) {
+        [self spinnerHide];
         [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self spinnerHide];
+        [TAlertHelper showDefaultError];
     }];
 }
 

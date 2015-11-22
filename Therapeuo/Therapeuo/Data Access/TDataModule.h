@@ -11,15 +11,12 @@
 
 @class Doctor;
 
-@interface TDataModule : NSObject <TNetworkProtocol, TPersistenceProtocol>
+@interface TDataModule : NSObject <TNetworkProtocol, TPersistenceProtocol, TDataAccessSpecialProtocol>
 
 //most recent persisted data
 @property (nonatomic, readonly) Doctor *doctor;
 @property (nonatomic, readonly) NSArray *cases;
 
 + (instancetype)sharedInstance;
-- (void)fetchVerboseCaseWithId:(NSString *)caseId
-                       success:(SuccssBlock)success
-                       failure:(FailureBlock)failure;
 
 @end
