@@ -7,32 +7,38 @@
 //
 
 #import "Message.h"
+#import "Recipient.h"
 
 @interface Message ()
 
-
-// TODO: Sender
-// TODO: Receiver
-@property (nonatomic, strong) NSNumber *timestamp;
+@property (nonatomic, strong) NSString *messageId;
+@property (nonatomic, strong) NSString *caseId;
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSArray *receivers;
+@property (nonatomic, strong) Recipient *sender;
+@property (nonatomic, strong) NSNumber *timestamp; //should switch this to NSDate transformer?
 
 @end
 
 @implementation Message
 
-//case: {type: Schema.Types.ObjectId, ref: "Case"},
-//sender: {
-//    id: {type: String},
-//_type: {type: String}
-//},
-//receivers: [
-//            {
-//                id: {type: String},
-//            _type: {type: String}
-//            }
-//            ],
-//timestamp: {type: Number},
-//content: {type: String, required: true}
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"messageId" : @"_id",
+             @"caseId" : @"case",
+             @"content" : @"content",
+             @"receivers" : @"receivers",
+             @"sender" : @"sender",
+             @"timestamp" : @"timestamp",
+             };
+}
 
++ (NSValueTransformer *)receiversJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass:Recipient.class];
+}
+
++ (NSValueTransformer *)senderJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:Recipient.class];
+}
 
 @end

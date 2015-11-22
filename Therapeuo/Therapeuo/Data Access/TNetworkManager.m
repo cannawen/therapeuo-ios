@@ -13,6 +13,7 @@
 
 #import "Doctor.h"
 #import "Case.h"
+#import "Message.h"
 
 #import "NSArray+PivotalCore.h"
 
@@ -163,8 +164,15 @@
                   parameters:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                          NSLog(@"Fetch case success");
+                         [self parseModelClass:Case.class
+                              fromJsonResponse:responseObject
+                                       success:success
+                                       failure:failure];
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                          NSLog(@"Fetch case failed");
+                         if (failure) {
+                             failure(error);
+                         }
                      }];
 }
 
@@ -174,9 +182,16 @@
     [self.sessionManager GET:[NSString stringWithFormat:@"cases/%@/messages", caseId]
                   parameters:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                         NSLog(@"Fetch case success");
+                         NSLog(@"Fetch messages success");
+                         NSArray *messages = [responseObject map:^Case *(NSDictionary *caseJsonResponse) {
+                             NSError *error = nil;
+                             return [MTLJSONAdapter modelOfClass:Message.class fromJSONDictionary:caseJsonResponse error:&error];
+                         }];
+                         if (success) {
+                             success(messages);
+                         }
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                         NSLog(@"Fetch case failed");
+                         NSLog(@"Fetch messages failed");
                      }];
 }
 

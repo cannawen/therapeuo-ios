@@ -19,6 +19,7 @@
 		1786DEE71C011378002DE686 /* CaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEE61C011378002DE686 /* CaseListCell.m */; };
 		1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1786DEE81C01138A002DE686 /* CaseListCell.xib */; };
 		1786DEEC1C012D51002DE686 /* VerboseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEEB1C012D51002DE686 /* VerboseCase.m */; };
+		1786DEEF1C013621002DE686 /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEEE1C013621002DE686 /* Recipient.m */; };
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
@@ -86,6 +87,8 @@
 		1786DEE81C01138A002DE686 /* CaseListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaseListCell.xib; sourceTree = "<group>"; };
 		1786DEEA1C012D51002DE686 /* VerboseCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerboseCase.h; path = Models/VerboseCase.h; sourceTree = "<group>"; };
 		1786DEEB1C012D51002DE686 /* VerboseCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerboseCase.m; path = Models/VerboseCase.m; sourceTree = "<group>"; };
+		1786DEED1C013621002DE686 /* Recipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipient.h; path = Models/Recipient.h; sourceTree = "<group>"; };
+		1786DEEE1C013621002DE686 /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipient.m; path = Models/Recipient.m; sourceTree = "<group>"; };
 		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 				D3796E0E1C00BBBA007E2888 /* Patient.m */,
 				D35C6C291C011E2600000697 /* PatientCase.h */,
 				D35C6C2A1C011E2600000697 /* PatientCase.m */,
+				1786DEED1C013621002DE686 /* Recipient.h */,
+				1786DEEE1C013621002DE686 /* Recipient.m */,
 				1786DECF1C00C994002DE686 /* TBaseModel.h */,
 				1786DED01C00C994002DE686 /* TBaseModel.m */,
 				1786DEEA1C012D51002DE686 /* VerboseCase.h */,
@@ -584,6 +589,7 @@
 				1786DEE11C00F48B002DE686 /* TBaseViewController.m in Sources */,
 				1786DED41C00D2F5002DE686 /* TDataModule.m in Sources */,
 				1786DEC71C00C6A0002DE686 /* TModule.m in Sources */,
+				1786DEEF1C013621002DE686 /* Recipient.m in Sources */,
 				1786DEC61C00C6A0002DE686 /* TConstants.m in Sources */,
 				B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */,
 				B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */,

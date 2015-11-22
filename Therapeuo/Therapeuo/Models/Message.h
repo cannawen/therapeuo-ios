@@ -6,8 +6,17 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TBaseModel.h"
 
-@interface Message : NSObject
+@class Recipient;
+
+@interface Message : TBaseModel
+
+@property (nonatomic, readonly) NSString *messageId;
+@property (nonatomic, readonly) NSString *caseId;
+@property (nonatomic, readonly) NSString *content;
+@property (nonatomic, readonly) NSArray *receivers;
+@property (nonatomic, readonly) Recipient *sender;
+@property (nonatomic, readonly) NSNumber *timestamp;
 
 @end

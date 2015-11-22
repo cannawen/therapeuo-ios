@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "Doctor.h"
 #import "Case.h"
+#import "VerboseCase.h"
 
 @interface TDataModule ()
 
@@ -114,12 +115,23 @@
                        success:(SuccssBlock)success
                        failure:(FailureBlock)failure {
     __weak TNetworkManager *weakNetworkManager = self.networkManager;
+    
+    __block Case *theCase;
+    //patient
+    //doctors
+    __block NSArray *messages;
+    
     [self.networkManager fetchCaseWithId:caseId success:^(Case *resultCase) {
-        [weakNetworkManager fetchDoctorWithId:resultCase.primaryDoctorId success:^(Doctor *resultDoctor) {
-            // add doctor
-            [weakNetworkManager fetchMessagesForCaseWithId:resultCase.caseId success:^(id result) {
-                // add message
-            } failure:failure];
+        theCase = resultCase;
+        [weakNetworkManager fetchMessagesForCaseWithId:resultCase.caseId success:^(NSArray *messageResults) {
+            messages = messageResults;
+            VerboseCase *verboseCase = [VerboseCase instanceWithCase:theCase
+                                                             patient:nil
+                                                             doctors:nil
+                                                            messages:messages];
+            if (success) {
+                success(verboseCase);
+            }
         } failure:failure];
     } failure:failure];
 }
