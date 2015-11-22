@@ -74,21 +74,25 @@
 }
 
 - (void)handleRefresh:(id)sender {
-    [self handleRefreshShowingSpinner:YES];
+    [self handleRefreshShowingFeedback:YES];
 }
 
-- (void)handleRefreshShowingSpinner:(BOOL)showingSpinner {
-    if (showingSpinner) {
+- (void)handleRefreshShowingFeedback:(BOOL)showingFeedback {
+    if (showingFeedback) {
         [self spinnerShow];
     }
     [[TDataModule sharedInstance] fetchVerboseCaseWithId:self.verboseCase.theCase.caseId success:^(VerboseCase *result) {
         [self configureWithVerboseCase:result];
-        [self spinnerHide];
-        [self.refreshControl endRefreshing];
+        if (showingFeedback) {
+            [self spinnerHide];
+            [self.refreshControl endRefreshing];
+        }
     } failure:^(NSError *error) {
-        [self showErrorWithMessage:@"Unable to reload messages"];
-        [self spinnerHide];
-        [self.refreshControl endRefreshing];
+        if (showingFeedback) {
+            [self showErrorWithMessage:@"Unable to reload messages"];
+            [self spinnerHide];
+            [self.refreshControl endRefreshing];
+        }
     }];
 }
 
@@ -109,18 +113,18 @@
     self.viewModels = [self.viewModels arrayByAddingObject:viewModel];
     
     [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count inSection:0]]
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count-1 inSection:0]]
                           withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count inSection:0]]
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.viewModels.count-1 inSection:0]]
                           withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
     
     [[TDataModule sharedInstance] sendMessage:message
                                 forCaseWithId:self.verboseCase.theCase.caseId
                                       success:^(id result) {
-                                          self.messageTextField.text = message;
+                                          self.messageTextField.text = nil;
                                           [self hideError];
-                                          [self handleRefreshShowingSpinner:NO];
+                                          [self handleRefreshShowingFeedback:NO];
                                       } failure:^(NSError *error) {
                                           [self showErrorWithMessage:@"Unable to send message"];
                                       }];
