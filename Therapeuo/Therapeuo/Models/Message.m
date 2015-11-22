@@ -22,6 +22,8 @@
 
 @implementation Message
 
+#pragma mark - Data Parsing
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"messageId" : @"_id",

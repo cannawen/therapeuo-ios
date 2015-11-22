@@ -9,6 +9,7 @@
 #import "TBaseModel.h"
 
 @class Patient;
+@class Doctor;
 
 @interface Case : TBaseModel
 
@@ -18,5 +19,7 @@
 @property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, readonly) NSString *primaryDoctorId;
 @property (nonatomic, readonly) NSString *notes;
+
+- (Doctor *)primaryDoctor;
 
 @end

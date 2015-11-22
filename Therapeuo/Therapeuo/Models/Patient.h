@@ -10,4 +10,6 @@
 
 @interface Patient : TBaseModel
 
+@property (nonatomic, readonly) NSString *patientId;
+
 @end

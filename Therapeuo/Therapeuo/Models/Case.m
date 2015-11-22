@@ -10,6 +10,8 @@
 #import "Patient.h"
 #import "Doctor.h"
 
+#import "NSArray+PivotalCore.h"
+
 @interface Case ()
 
 @property (nonatomic, strong) NSString *caseId;
@@ -22,6 +24,12 @@
 @end
 
 @implementation Case
+
+- (Doctor *)primaryDoctor {
+    return [[self.doctors filter:^BOOL(Doctor *doctor) {
+        return [doctor.doctorId isEqualToString:self.primaryDoctorId];
+    }] firstObject];
+}
 
 #pragma mark - Data Parsing
 

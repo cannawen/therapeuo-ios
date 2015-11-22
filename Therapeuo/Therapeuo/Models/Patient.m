@@ -8,6 +8,22 @@
 
 #import "Patient.h"
 
+@interface Patient ()
+
+@property (nonatomic, strong) NSString *patientId;
+
+@end
+
 @implementation Patient
+
+#pragma mark - Data Parsing
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"patientId" : @"_id",
+             //location
+             };
+}
+
 
 @end
