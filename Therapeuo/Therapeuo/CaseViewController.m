@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *associateMDValueLabel;
 @property (weak, nonatomic) IBOutlet ThemedButton *openChatButton;
 @property (weak, nonatomic) IBOutlet UIButton *addDoctorButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 @end
 
@@ -62,7 +63,6 @@ typedef void (^ SaveBlock)(BOOL);
     self.caseCompleteLabel.textColor = [UIColor themeBlueColor];
     
     self.title = self.patientCase.theCase.patient.patientId;
-    self.addDoctorButton.hidden = YES;
     [self setupUI];
     
 // bar buttons
@@ -74,7 +74,7 @@ typedef void (^ SaveBlock)(BOOL);
     self.caseCompletionSwitch.enabled = editing;
     self.notesTextView.editable = editing;
     self.openChatButton.enabled = !editing;
-    self.addDoctorButton.hidden = !editing;
+    self.addDoctorButton.enabled = !editing;
 }
 
 - (void)setCaseEditing:(BOOL)isEditing {
@@ -153,14 +153,21 @@ typedef void (^ SaveBlock)(BOOL);
         [chatVC configureWithVerboseCase:self.patientCase];
         
     } else if ([segue.identifier isEqualToString:@"AddDoctorsSegue"]) {
-        AddDoctorsViewController *addDocVC = (AddDoctorsViewController *)segue.destinationViewController;
+        UINavigationController *nav = (UINavigationController *)segue.destinationViewController;
+    
+        AddDoctorsViewController *addDocVC = (AddDoctorsViewController *)nav.topViewController;
         addDocVC.delegate = self;
     }
 }
 
 #pragma AddDoctorsViewControllerDelegate
 -(void)didAddDoctor:(Doctor *)doctor {
-    
+    [self.loadingSpinner startAnimating];
+    [[TDataModule sharedInstance] addDoctorId:doctor.doctorId toCaseId:self.patientCase.theCase.caseId success:^(id result) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } failure:^(NSError *error) {
+        [self.loadingSpinner stopAnimating];
+    }];
 }
 
 

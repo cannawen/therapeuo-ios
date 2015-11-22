@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RbY-4A-JKs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -307,6 +308,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MnV-3s-4fv">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Two, Dr. Three, Dr. Four" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMD-0C-x0Q">
                                 <rect key="frame" x="10" y="166" width="207" height="21"/>
                                 <animations/>
@@ -315,7 +320,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8hi-O3-kTF">
-                                <rect key="frame" x="10" y="265" width="580" height="275"/>
+                                <rect key="frame" x="10" y="265" width="580" height="235"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -328,6 +333,14 @@
                                 <state key="normal" title="OPEN CHAT"/>
                                 <connections>
                                     <segue destination="fPl-5l-8Sj" kind="push" identifier="ChatViewControllerSegue" id="BPh-2u-91l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-Un-zg9" userLabel="Add Doctor" customClass="ThemedButton">
+                                <rect key="frame" x="10" y="510" width="580" height="30"/>
+                                <animations/>
+                                <state key="normal" title="ADD DOCTORS"/>
+                                <connections>
+                                    <segue destination="IIV-32-NRk" kind="modal" identifier="AddDoctorsSegue" id="fNd-wg-a4d"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary MD:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bL-lM-tEP">
@@ -369,17 +382,6 @@
                                 <rect key="frame" x="541" y="134" width="51" height="31"/>
                                 <animations/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHZ-3U-nRa">
-                                <rect key="frame" x="148" y="135" width="35" height="29"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="8vw-HB-wnZ"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="blue_plus"/>
-                                <connections>
-                                    <segue destination="IIV-32-NRk" kind="modal" identifier="AddDoctorsSegue" id="oUm-AN-JXY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -395,28 +397,31 @@
                             <constraint firstItem="5CP-cR-sTF" firstAttribute="top" secondItem="Byj-W0-KzX" secondAttribute="bottom" constant="20" id="Axi-tg-tQx"/>
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="RMD-0C-x0Q" secondAttribute="bottom" constant="50" id="CPf-0Y-2BA"/>
                             <constraint firstItem="412-ra-D9Q" firstAttribute="centerY" secondItem="RMD-0C-x0Q" secondAttribute="centerY" id="DPc-HA-8AI"/>
+                            <constraint firstAttribute="trailing" secondItem="MnV-3s-4fv" secondAttribute="trailing" id="EeV-UE-KZw"/>
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="n8c-v3-Lyx" secondAttribute="bottom" constant="19" id="G2f-ED-6aM"/>
                             <constraint firstItem="RMD-0C-x0Q" firstAttribute="top" secondItem="yh7-BV-uZJ" secondAttribute="bottom" constant="5" id="GBf-ed-JL8"/>
                             <constraint firstItem="Byj-W0-KzX" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="HB7-wM-zR2"/>
                             <constraint firstAttribute="trailing" secondItem="412-ra-D9Q" secondAttribute="trailing" constant="10" id="HLh-A5-stR"/>
                             <constraint firstItem="RMD-0C-x0Q" firstAttribute="leading" secondItem="yh7-BV-uZJ" secondAttribute="trailing" constant="5" id="J1q-oj-9v0"/>
                             <constraint firstItem="412-ra-D9Q" firstAttribute="top" secondItem="80y-wv-h9z" secondAttribute="bottom" constant="20" id="KHI-F0-h6k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ycs-Un-zg9" secondAttribute="trailing" constant="-10" id="PqB-dD-IUB"/>
                             <constraint firstItem="RMD-0C-x0Q" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="R5J-We-wb9"/>
+                            <constraint firstItem="Byj-W0-KzX" firstAttribute="top" secondItem="ycs-Un-zg9" secondAttribute="bottom" constant="10" id="TxC-6c-L3b"/>
                             <constraint firstItem="8hi-O3-kTF" firstAttribute="top" secondItem="gm5-Dx-C4f" secondAttribute="bottom" constant="5" id="URc-Uy-FtR"/>
                             <constraint firstItem="8hi-O3-kTF" firstAttribute="top" secondItem="RMD-0C-x0Q" secondAttribute="bottom" constant="10" id="Uyi-48-oI0"/>
                             <constraint firstItem="n8c-v3-Lyx" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="VTK-Zm-9Kn"/>
                             <constraint firstItem="5bL-lM-tEP" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="XH9-LT-oim"/>
                             <constraint firstItem="RMD-0C-x0Q" firstAttribute="centerY" secondItem="yh7-BV-uZJ" secondAttribute="centerY" id="YJL-fh-QdU"/>
                             <constraint firstAttribute="trailing" secondItem="8hi-O3-kTF" secondAttribute="trailing" constant="10" id="YmT-Ht-M6s"/>
-                            <constraint firstItem="oHZ-3U-nRa" firstAttribute="leading" secondItem="yh7-BV-uZJ" secondAttribute="trailing" id="ZAb-H2-MoW"/>
                             <constraint firstItem="412-ra-D9Q" firstAttribute="top" secondItem="RMD-0C-x0Q" secondAttribute="bottom" constant="10" id="Zby-0j-tha"/>
                             <constraint firstAttribute="leading" secondItem="8hi-O3-kTF" secondAttribute="leading" constant="10" id="Zc7-SA-muJ"/>
+                            <constraint firstItem="ycs-Un-zg9" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leadingMargin" constant="-10" id="a8C-Jb-KZO"/>
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="n8c-v3-Lyx" secondAttribute="bottom" constant="50" id="aaN-7t-0bb"/>
                             <constraint firstItem="412-ra-D9Q" firstAttribute="leading" secondItem="n8c-v3-Lyx" secondAttribute="trailing" constant="10" id="bIU-jQ-nzc"/>
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="yh7-BV-uZJ" secondAttribute="bottom" constant="50" id="cF1-So-LQh"/>
                             <constraint firstItem="yh7-BV-uZJ" firstAttribute="top" secondItem="5bL-lM-tEP" secondAttribute="bottom" constant="10" id="cMi-Yv-Sp3"/>
-                            <constraint firstItem="oHZ-3U-nRa" firstAttribute="centerY" secondItem="yh7-BV-uZJ" secondAttribute="centerY" id="dGa-aN-xGF"/>
                             <constraint firstItem="n8c-v3-Lyx" firstAttribute="centerY" secondItem="412-ra-D9Q" secondAttribute="centerY" id="de7-Qd-Ixu"/>
+                            <constraint firstItem="ycs-Un-zg9" firstAttribute="top" secondItem="8hi-O3-kTF" secondAttribute="bottom" constant="10" id="eXF-Eg-fP1"/>
                             <constraint firstItem="Byj-W0-KzX" firstAttribute="top" secondItem="8hi-O3-kTF" secondAttribute="bottom" constant="10" id="ele-kX-Bg3"/>
                             <constraint firstItem="yh7-BV-uZJ" firstAttribute="top" secondItem="EfY-hG-rcp" secondAttribute="bottom" constant="15" id="h9t-fw-Jbd"/>
                             <constraint firstAttribute="leading" secondItem="EfY-hG-rcp" secondAttribute="leading" id="hYb-Sh-gWf"/>
@@ -424,10 +429,13 @@
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="leF-uy-6LC"/>
                             <constraint firstItem="EfY-hG-rcp" firstAttribute="centerY" secondItem="5bL-lM-tEP" secondAttribute="centerY" id="lmu-Cx-Ndk"/>
                             <constraint firstItem="yh7-BV-uZJ" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="mxj-3O-BWB"/>
+                            <constraint firstItem="5CP-cR-sTF" firstAttribute="top" secondItem="MnV-3s-4fv" secondAttribute="bottom" id="n86-Qx-yuq"/>
                             <constraint firstItem="EfY-hG-rcp" firstAttribute="leading" secondItem="5bL-lM-tEP" secondAttribute="trailing" constant="10" id="ppk-hU-B5g"/>
+                            <constraint firstItem="MnV-3s-4fv" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" id="pt5-d4-7Jz"/>
                             <constraint firstAttribute="leading" secondItem="RMD-0C-x0Q" secondAttribute="leading" id="qaV-cy-jRg"/>
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="RMD-0C-x0Q" secondAttribute="bottom" constant="50" id="ry2-iB-TBH"/>
                             <constraint firstItem="EfY-hG-rcp" firstAttribute="top" secondItem="5bL-lM-tEP" secondAttribute="bottom" constant="5" id="sUE-3p-q1Q"/>
+                            <constraint firstItem="MnV-3s-4fv" firstAttribute="top" secondItem="80y-wv-h9z" secondAttribute="bottom" id="tgy-52-fMq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -449,6 +457,7 @@
                                 <exclude reference="Zc7-SA-muJ"/>
                                 <exclude reference="1ik-iE-PaN"/>
                                 <exclude reference="VTK-Zm-9Kn"/>
+                                <exclude reference="ele-kX-Bg3"/>
                                 <exclude reference="DPc-HA-8AI"/>
                                 <exclude reference="KHI-F0-h6k"/>
                                 <exclude reference="Zby-0j-tha"/>
@@ -457,11 +466,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="OL0-tT-kX7"/>
                     <connections>
-                        <outlet property="addDoctorButton" destination="oHZ-3U-nRa" id="RGL-uW-Kw6"/>
+                        <outlet property="addDoctorButton" destination="ycs-Un-zg9" id="Aip-Af-ija"/>
                         <outlet property="associateMDLabel" destination="yh7-BV-uZJ" id="19M-yH-MiG"/>
                         <outlet property="associateMDValueLabel" destination="RMD-0C-x0Q" id="A74-n7-fJ1"/>
                         <outlet property="caseCompleteLabel" destination="n8c-v3-Lyx" id="fY2-Rd-tuW"/>
                         <outlet property="caseCompletionSwitch" destination="412-ra-D9Q" id="MgY-DG-3kk"/>
+                        <outlet property="loadingSpinner" destination="MnV-3s-4fv" id="gyv-oN-RbL"/>
                         <outlet property="notesLabel" destination="gm5-Dx-C4f" id="ASk-Jn-rgc"/>
                         <outlet property="notesTextView" destination="8hi-O3-kTF" id="4k0-LQ-Phf"/>
                         <outlet property="openChatButton" destination="Byj-W0-KzX" id="ZAg-DV-Rir"/>
@@ -813,7 +823,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blue_plus" width="30" height="29"/>
         <image name="gradient" width="300" height="20"/>
         <image name="logo" width="169" height="169"/>
         <image name="logo_blurred" width="169" height="169"/>
