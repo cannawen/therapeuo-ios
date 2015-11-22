@@ -13,11 +13,10 @@
 @interface Case ()
 
 @property (nonatomic, strong) NSString *caseId;
-@property (nonatomic, strong) NSArray *doctorIds;
+@property (nonatomic, strong) NSArray *doctors;
 @property (nonatomic, assign) BOOL open;
-@property (nonatomic, strong) NSString *patientId;
+@property (nonatomic, strong) Patient *patient;
 @property (nonatomic, strong) NSString *primaryDoctorId;
-
 @property (nonatomic, strong) NSString *notes;
 
 @end
@@ -29,16 +28,24 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"caseId" : @"_id",
-             @"doctorIds" : @"doctors",
+//             @"doctorIds" : @"doctors",
              @"open" : @"open",
-             @"patientId" : @"patient",
+//             @"patientId" : @"patient",
              @"primaryDoctorId" : @"primary",
-             //notes
+             @"notes" : @"notes",
              };
 }
 
 + (NSValueTransformer *)openJSONTransformer {
     return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
+}
+
++ (NSValueTransformer *)doctorsJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass:Doctor.class];
+}
+
++ (NSValueTransformer *)patientJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:Patient.class];
 }
 
 @end

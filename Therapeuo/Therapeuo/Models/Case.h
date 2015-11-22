@@ -8,14 +8,15 @@
 
 #import "TBaseModel.h"
 
+@class Patient;
+
 @interface Case : TBaseModel
 
 @property (nonatomic, readonly) NSString *caseId;
-@property (nonatomic, readonly) NSArray *doctorIds;
+@property (nonatomic, readonly) NSArray *doctors;
 @property (nonatomic, readonly) BOOL open;
-@property (nonatomic, readonly) NSString *patientId;
+@property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, readonly) NSString *primaryDoctorId;
-
 @property (nonatomic, readonly) NSString *notes;
 
 @end
