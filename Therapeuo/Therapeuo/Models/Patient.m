@@ -28,4 +28,8 @@
              };
 }
 
+- (BOOL)hasLocations {
+    return self.location.count == 2 && self.locationDescription.length > 0;
+}
+
 @end

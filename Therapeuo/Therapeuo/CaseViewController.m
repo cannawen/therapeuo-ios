@@ -129,7 +129,9 @@ typedef void (^ SaveBlock)(BOOL);
     
     self.caseCompletionSwitch.on = theCase.open;
     self.notesTextView.text = theCase.notes;
-    [self updateMap];
+    if ([self.patientCase.theCase.patient hasLocations]) {
+        [self updateMap];
+    }
     
 }
 

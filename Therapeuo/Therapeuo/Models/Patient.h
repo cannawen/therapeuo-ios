@@ -15,4 +15,6 @@
 @property (nonatomic, readonly) NSString *locationDescription;
 @property (nonatomic, readonly) NSArray *location;
 
+- (BOOL)hasLocations;
+
 @end
