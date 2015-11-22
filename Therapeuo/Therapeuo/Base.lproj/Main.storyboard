@@ -545,19 +545,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-9W-SXO" customClass="ThemedTextField">
-                                <rect key="frame" x="30" y="135" width="540" height="30"/>
+                                <rect key="frame" x="10" y="135" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LKn-1g-Ani" customClass="ThemedTextField">
-                                <rect key="frame" x="30" y="180" width="540" height="30"/>
+                                <rect key="frame" x="10" y="180" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Udt-ll-bRv" customClass="ThemedTextField">
-                                <rect key="frame" x="30" y="225" width="540" height="30"/>
+                                <rect key="frame" x="10" y="225" width="580" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -647,19 +647,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="LKn-1g-Ani" secondAttribute="trailing" constant="10" id="2g8-ob-hth"/>
+                            <constraint firstAttribute="trailing" secondItem="LKn-1g-Ani" secondAttribute="trailing" constant="10" id="2g8-ob-hth"/>
                             <constraint firstItem="bNB-5k-iya" firstAttribute="centerX" secondItem="TxG-1p-tFG" secondAttribute="centerX" id="9PP-s8-APT"/>
                             <constraint firstItem="bNB-5k-iya" firstAttribute="top" secondItem="CQn-lf-x9F" secondAttribute="bottom" constant="15" id="Axz-12-D13"/>
-                            <constraint firstItem="LKn-1g-Ani" firstAttribute="leading" secondItem="TxG-1p-tFG" secondAttribute="leadingMargin" constant="10" id="EcA-3C-NMy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RPp-9W-SXO" secondAttribute="trailing" constant="10" id="IfV-kg-ohk"/>
-                            <constraint firstItem="RPp-9W-SXO" firstAttribute="leading" secondItem="TxG-1p-tFG" secondAttribute="leadingMargin" constant="10" id="Nme-ca-e6A"/>
+                            <constraint firstItem="LKn-1g-Ani" firstAttribute="leading" secondItem="TxG-1p-tFG" secondAttribute="leading" constant="10" id="EcA-3C-NMy"/>
+                            <constraint firstAttribute="trailing" secondItem="RPp-9W-SXO" secondAttribute="trailing" constant="10" id="IfV-kg-ohk"/>
+                            <constraint firstItem="RPp-9W-SXO" firstAttribute="leading" secondItem="TxG-1p-tFG" secondAttribute="leading" constant="10" id="Nme-ca-e6A"/>
                             <constraint firstItem="CQn-lf-x9F" firstAttribute="centerX" secondItem="TxG-1p-tFG" secondAttribute="centerX" id="Vvf-yV-kEd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Udt-ll-bRv" secondAttribute="trailing" constant="10" id="WeJ-oI-Yiy"/>
+                            <constraint firstAttribute="trailing" secondItem="Udt-ll-bRv" secondAttribute="trailing" constant="10" id="WeJ-oI-Yiy"/>
                             <constraint firstItem="bNB-5k-iya" firstAttribute="top" secondItem="Udt-ll-bRv" secondAttribute="bottom" constant="15" id="c2K-RA-FoZ"/>
                             <constraint firstItem="Udt-ll-bRv" firstAttribute="top" secondItem="LKn-1g-Ani" secondAttribute="bottom" constant="15" id="cQv-fL-gMS"/>
                             <constraint firstItem="CQn-lf-x9F" firstAttribute="top" secondItem="bNB-5k-iya" secondAttribute="bottom" constant="15" id="l5w-c2-XwL"/>
                             <constraint firstItem="RPp-9W-SXO" firstAttribute="top" secondItem="IVh-8T-NDt" secondAttribute="bottom" constant="71" id="mds-63-nWD"/>
-                            <constraint firstItem="Udt-ll-bRv" firstAttribute="leading" secondItem="TxG-1p-tFG" secondAttribute="leadingMargin" constant="10" id="peU-JT-s3o"/>
+                            <constraint firstItem="Udt-ll-bRv" firstAttribute="leading" secondItem="TxG-1p-tFG" secondAttribute="leading" constant="10" id="peU-JT-s3o"/>
                             <constraint firstItem="LKn-1g-Ani" firstAttribute="top" secondItem="RPp-9W-SXO" secondAttribute="bottom" constant="15" id="wUW-3O-WGp"/>
                         </constraints>
                         <variation key="default">

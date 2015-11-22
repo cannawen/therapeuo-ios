@@ -7,6 +7,7 @@
 //
 
 #import "CaseListCell.h"
+#import "ThemeTools.h"
 
 @interface CaseListCell ()
 @property (weak, nonatomic) IBOutlet UILabel *patientNameLabel;
@@ -19,8 +20,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.layer.cornerRadius = 4.0f;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.layer.borderWidth = 1.0f;
+    
+    [ThemeTools applyBlueThemeBorderToView:self];
+    
 }
 
 - (void)setupWithPatientName:(NSString *)patientName

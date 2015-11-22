@@ -35,7 +35,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TDataModule sharedInstance]; // calling this to at least load from persistence
     [self styleNavBar];
+    [self styleBack];
     return YES;
+}
+
+// Remove back button titles
+- (void)styleBack {
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)styleNavBar {

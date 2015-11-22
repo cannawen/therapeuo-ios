@@ -7,15 +7,16 @@
 //
 
 #import "ThemedTextField.h"
-#import "UIColor+Theme.h"
 #import "UIFont+Theme.h"
+#import "ThemeTools.h"
 
 @implementation ThemedTextField
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.layer.borderColor = [UIColor themeBlueColor].CGColor;
-    self.layer.borderWidth = 1;
+    
+    [ThemeTools applyBlueThemeBorderToView:self];
+
     self.layer.masksToBounds = true;
     self.font = [UIFont themeFontStandardSize];
     self.borderStyle = UITextBorderStyleLine;

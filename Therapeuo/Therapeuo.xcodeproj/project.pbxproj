@@ -47,6 +47,7 @@
 		D35C6C2E1C01238000000697 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C2D1C01238000000697 /* Message.m */; };
 		D35C6C311C0125E200000697 /* Case.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C301C0125E200000697 /* Case.m */; };
 		D35C6C341C01609900000697 /* MutableCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C331C01609900000697 /* MutableCase.m */; };
+		D35C6C381C017C9500000697 /* ThemeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C371C017C9500000697 /* ThemeTools.m */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
 		D3796E141C00BBBA007E2888 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0E1C00BBBA007E2888 /* Patient.m */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,8 @@
 		D35C6C301C0125E200000697 /* Case.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Case.m; path = Models/Case.m; sourceTree = "<group>"; };
 		D35C6C321C01609900000697 /* MutableCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MutableCase.h; path = Models/MutableCase.h; sourceTree = "<group>"; };
 		D35C6C331C01609900000697 /* MutableCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MutableCase.m; path = Models/MutableCase.m; sourceTree = "<group>"; };
+		D35C6C361C017C9500000697 /* ThemeTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTools.h; sourceTree = "<group>"; };
+		D35C6C371C017C9500000697 /* ThemeTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTools.m; sourceTree = "<group>"; };
 		D3796E0B1C00BBBA007E2888 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Doctor.h; path = Models/Doctor.h; sourceTree = "<group>"; };
 		D3796E0C1C00BBBA007E2888 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Doctor.m; path = Models/Doctor.m; sourceTree = "<group>"; };
 		D3796E0D1C00BBBA007E2888 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = "<group>"; };
@@ -325,6 +328,7 @@
 		B0662EDA1C00C788008EDA02 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D35C6C351C017C4A00000697 /* Tools */,
 				B0662EEA1C00D0DD008EDA02 /* Categories */,
 				1786DEDC1C00F0FF002DE686 /* TAlertHelper.h */,
 				1786DEDD1C00F0FF002DE686 /* TAlertHelper.m */,
@@ -404,6 +408,15 @@
 				C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35C6C351C017C4A00000697 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				D35C6C361C017C9500000697 /* ThemeTools.h */,
+				D35C6C371C017C9500000697 /* ThemeTools.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 		D3796E0A1C00BBAB007E2888 /* Models */ = {
@@ -616,6 +629,7 @@
 				1786DEEC1C012D51002DE686 /* VerboseCase.m in Sources */,
 				B0662EE41C00CD6C008EDA02 /* ThemedTextField.m in Sources */,
 				B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */,
+				D35C6C381C017C9500000697 /* ThemeTools.m in Sources */,
 				1786DECD1C00C6A7002DE686 /* TNetworkManager.m in Sources */,
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
 				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,

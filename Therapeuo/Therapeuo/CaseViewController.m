@@ -17,6 +17,7 @@
 #import "TDataModule.h"
 #import "ChatViewController.h"
 #import "ThemedButton.h"
+#import "ThemeTools.h"
 
 @interface CaseViewController ()
 
@@ -50,8 +51,7 @@ typedef void (^ SaveBlock)(BOOL);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.notesTextView.layer.borderColor = [UIColor themeBlueColor].CGColor;
-    self.notesTextView.layer.borderWidth = 1.0f;
+    [ThemeTools applyBlueThemeBorderToView:self.notesTextView];
     
     self.primaryMDLabel.textColor = [UIColor themeBlueColor];
     self.associateMDLabel.textColor = [UIColor themeBlueColor];
@@ -60,7 +60,7 @@ typedef void (^ SaveBlock)(BOOL);
     self.caseCompletionSwitch.onTintColor = [UIColor themeBlueColor];
     self.caseCompleteLabel.textColor = [UIColor themeBlueColor];
     
-    self.title = self.patientCase.theCase.caseId;
+    self.title = self.patientCase.theCase.patient.patientId;
     [self setupUI];
     
 // bar buttons
