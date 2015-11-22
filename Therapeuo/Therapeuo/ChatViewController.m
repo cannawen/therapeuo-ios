@@ -22,9 +22,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendContainerBottomConstraint;
 @property (weak, nonatomic) IBOutlet ThemedTextField *messageTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *warningViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
 @property (nonatomic) NSArray <ChatCellViewModel *> *viewModels;
 @property (nonatomic) VerboseCase *verboseCase;
+@property (nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -33,17 +35,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[ChatTableViewCell nib] forCellReuseIdentifier:NSStringFromClass([ChatTableViewCell class])];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    self.refreshControl = refreshControl;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:self.viewModels.count - 1
-                                                               inSection:0]
-                          atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self scrollToBottom];
 }
 
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
-    
+    self.verboseCase = verboseCase;
     NSString *myId = [TDataModule sharedInstance].doctor.doctorId;
     NSMutableArray *array = [NSMutableArray array];
     for (Message *message in verboseCase.messages) {
@@ -58,6 +62,37 @@
         [array addObject:viewModel];
     }
     self.viewModels = array;
+    [self.tableView reloadData];
+}
+
+#pragma mark -
+
+- (void)scrollToBottom {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:self.viewModels.count - 1
+                                                               inSection:0]
+                          atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+- (void)handleRefresh:(id)sender {
+    [self spinnerShow];
+    [[TDataModule sharedInstance] fetchVerboseCaseWithId:self.verboseCase.theCase.caseId success:^(VerboseCase *result) {
+        [self configureWithVerboseCase:result];
+        [self spinnerHide];
+        [self.refreshControl endRefreshing];
+    } failure:^(NSError *error) {
+        [self showErrorWithMessage:@"Unable to reload messages"];
+        [self spinnerHide];
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+- (void)showErrorWithMessage:(NSString *)warning {
+    self.warningViewHeightConstraint.constant = 44;
+    self.warningLabel.text = warning;
+}
+
+- (void)hideError {
+    self.warningViewHeightConstraint.constant = 0;
 }
 
 #pragma mark - IBAction
@@ -67,11 +102,10 @@
     [[TDataModule sharedInstance] sendMessage:message
                                 forCaseWithId:self.verboseCase.theCase.caseId
                                       success:^(id result) {
-                                          self.warningViewHeightConstraint.constant = 0;
                                           self.messageTextField.text = message;
-                                      }
-                                      failure:^(NSError *error) {
-                                          self.warningViewHeightConstraint.constant = 44;
+                                          [self hideError];
+                                      } failure:^(NSError *error) {
+                                          [self showErrorWithMessage:@"Unable to send message"];
                                       }];
 }
 

@@ -564,6 +564,7 @@
                         <outlet property="messageTextField" destination="h6r-1z-0ob" id="7LO-cr-yy5"/>
                         <outlet property="sendContainerBottomConstraint" destination="zWo-Qu-gPa" id="FOM-gA-e6u"/>
                         <outlet property="tableView" destination="Knx-DH-Erq" id="VW8-vn-ZWs"/>
+                        <outlet property="warningLabel" destination="U3D-gL-hmF" id="z2Q-zI-2al"/>
                         <outlet property="warningViewHeightConstraint" destination="FGT-I5-kai" id="iqh-dW-pI3"/>
                     </connections>
                 </viewController>
