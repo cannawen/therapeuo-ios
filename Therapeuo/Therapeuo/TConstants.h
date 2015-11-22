@@ -7,4 +7,6 @@ typedef void (^FailureBlock)(NSError *error);
 
 // Networking
 extern NSString * const kBaseUrlKey;
+
+extern NSString * const kDeviceTokenKey;
 extern CGFloat animationDuration;

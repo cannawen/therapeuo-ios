@@ -27,5 +27,6 @@
                    assisting:(BOOL)assisting
                       device:(NSString *)device;
 
+- (instancetype)copyWithDevice:(NSString *)device;
 
 @end

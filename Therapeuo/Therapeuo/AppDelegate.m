@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "TDataModule.h"
 #import "UIColor+Theme.h"
+#import "Doctor.h"
 
 @interface AppDelegate ()
 @end
@@ -59,6 +60,22 @@
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:token forKey:kDeviceTokenKey];
+    [userDefaults synchronize];
+    
+    Doctor *currentDoctor = [TDataModule sharedInstance].doctor;
+    if (currentDoctor) {
+        Doctor *updatedDoctor = [currentDoctor copyWithDevice:token];
+        [[TDataModule sharedInstance] updateDoctor:updatedDoctor
+                                           success:nil
+                                           failure:nil];
+
+    }
+    
     NSLog(@"My token is: %@", deviceToken);
 }
 

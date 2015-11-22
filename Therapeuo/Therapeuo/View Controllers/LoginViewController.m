@@ -12,6 +12,7 @@
 #import "TDataModule.h"
 #import "TAlertHelper.h"
 #import "TConstants.h"
+#import "Doctor.h"
 
 @interface LoginViewController () <UIGestureRecognizerDelegate>
 
@@ -49,6 +50,12 @@
 }
 
 - (void)moveToHome {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [userDefaults objectForKey:kDeviceTokenKey];
+    Doctor *updatedDoctor = [[TDataModule sharedInstance].doctor copyWithDevice:token];
+    [[TDataModule sharedInstance] updateDoctor:updatedDoctor
+                                       success:nil
+                                       failure:nil];
     [self performSegueWithIdentifier:@"caseController" sender:self];
 }
 

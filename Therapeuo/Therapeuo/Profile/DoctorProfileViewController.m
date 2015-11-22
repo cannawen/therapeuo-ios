@@ -105,7 +105,7 @@ typedef void (^ SaveBlock)(BOOL);
 
 - (void)saveProfile:(SaveBlock)saveBlock {
     
-    Doctor *doctor = [Doctor doctorWithID:self.doctor.doctorId name:self.nameField.text email:self.emailField.text location:self.locationField.text available:self.availableSwitch.on assisting:self.assistingSwitch.on device:@""];
+    Doctor *doctor = [Doctor doctorWithID:self.doctor.doctorId name:self.nameField.text email:self.emailField.text location:self.locationField.text available:self.availableSwitch.on assisting:self.assistingSwitch.on device:self.doctor.device];
     
     [[TDataModule sharedInstance] updateDoctor:doctor success:^(id result) {
         // remove spinner

@@ -60,6 +60,16 @@
     return self;
 }
 
+- (instancetype)copyWithDevice:(NSString *)device {
+    return [[Doctor alloc] initWithID:[self.doctorId copy]
+                                 name:[self.name copy]
+                                email:[self.email copy]
+                             location:[self.location copy]
+                            available:self.available
+                            assisting:self.assisting
+                               device:device];
+}
+
 
 #pragma mark - Data Parsing
 
