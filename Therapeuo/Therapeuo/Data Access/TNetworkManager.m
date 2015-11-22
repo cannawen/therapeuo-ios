@@ -259,6 +259,27 @@
                      }];
 }
 
+- (void)addDoctorId:(NSString *)doctorId
+           toCaseId:(NSString *)caseId
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:doctorId forKey:@"doctor_id"];
+    [self.sessionManager PUT:[NSString stringWithFormat:@"cases/%@/add_doctor", caseId]
+                  parameters:params
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                         NSLog(@"Adding doctor to case success");
+                         if (success) {
+                             success(nil);
+                         }
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"Adding doctor to case failed");
+                         if (failure) {
+                             failure(error);
+                         }
+                     }];
+}
+
 - (void)fetchMessagesForCaseWithId:(NSString *)caseId
                            success:(SuccssBlock)success
                            failure:(FailureBlock)failure {

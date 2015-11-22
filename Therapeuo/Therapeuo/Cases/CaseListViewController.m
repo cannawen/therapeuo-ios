@@ -80,6 +80,13 @@
     NSString *doctorId = [TDataModule sharedInstance].doctor.doctorId;
     [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctorId success:^(NSArray *results) {;
         [self updateSectionsWithCases:results];
+        
+//        Case *testCase = [results firstObject];
+//        [[TDataModule sharedInstance] sendMessage:@"asdfasdf"
+//                                    forCaseWithId:testCase.caseId
+//                                          success:nil
+//                                          failure:nil];
+        
         [self.collectionView reloadData];
     } failure:nil];
 }

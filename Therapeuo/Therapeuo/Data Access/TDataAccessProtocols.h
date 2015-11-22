@@ -44,6 +44,10 @@
 - (void)updateTheCase:(Case *)theCase
               success:(SuccssBlock)success
               failure:(FailureBlock)failure;
+- (void)addDoctorId:(NSString *)doctorId
+           toCaseId:(NSString *)caseId
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure;
 - (void)fetchMessagesForCaseWithId:(NSString *)caseId
                            success:(SuccssBlock)success
                            failure:(FailureBlock)failure;
