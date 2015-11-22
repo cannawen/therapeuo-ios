@@ -22,74 +22,30 @@
 
 #import "NSArray+PivotalCore.h"
 
-@interface TempCaseClass : NSObject
-@property (nonatomic, strong) id patient;
-@property (nonatomic, strong) id doctor;
-@property (nonatomic, strong) NSArray *doctors;
-@property (nonatomic) BOOL open;
-@property (nonatomic, strong) NSString *notes;
-@end
-@implementation TempCaseClass
-@end
-
-
 @interface CaseListViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *cases;
+
+@property (nonatomic, strong) NSArray *openCases;
+@property (nonatomic, strong) NSArray *proxyCases;
+@property (nonatomic, strong) NSArray *closedCases;
 
 @end
 
 @implementation CaseListViewController
 
-- (NSArray *)fakeCases {
-    TempCaseClass *asdf1 = [[TempCaseClass alloc] init];
-    asdf1.patient = @"Brian";
-    asdf1.doctor = @"Canna";
-    asdf1.doctors = @[@"Canna", @"Andrew"];
-    asdf1.open = YES;
-    asdf1.notes = @"Some sleep and rest should be all it takes";
-    
-    TempCaseClass *asdf2 = [[TempCaseClass alloc] init];
-    asdf2.patient = @"Steven";
-    asdf2.doctor = @"Rebecca";
-    asdf2.doctors = @[@"Andrew", @"Rebecca"];
-    asdf2.open = YES;
-    asdf2.notes = @"Steven has experienced deteriorating symtoms of a rare condition called eating-too-much, an on-site visit may be required";
-    
-    TempCaseClass *asdf3 = [[TempCaseClass alloc] init];
-    asdf3.patient = @"ASDFASDF";
-    asdf3.doctor = @"adsf";
-    asdf3.doctors = @[@"14p98", @"asdfbjl"];
-    asdf3.open = NO;
-    
-    return @[asdf1, asdf2, asdf3];
-}
-
 #pragma mark - View Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cases = [TDataModule sharedInstance].cases;
+    [self updateSectionsWithCases:[TDataModule sharedInstance].cases];
     [self setupNavBar];
     [self setupCollectionView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //    __weak TDataModule *weakDataModule = [TDataModule sharedInstance];
-    
-    Doctor *doctor = [TDataModule sharedInstance].doctor;
-    [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctor.doctorId success:^(NSArray *results) {
-        self.cases = [TDataModule sharedInstance].cases;
-        [self.collectionView reloadData];
-        
-        //        Case *testCase = [self.cases firstObject];
-        //        [weakDataModule sendMessage:@"iOS test"
-        //                      forCaseWithId:testCase.caseId
-        //                            success:nil
-        //                            failure:nil];
-    } failure:nil];
+    [self updateCases];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -118,6 +74,29 @@
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([CaseListCell class])];
 }
 
+#pragma mark - Cases
+
+- (void)updateCases {
+    NSString *doctorId = [TDataModule sharedInstance].doctor.doctorId;
+    [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctorId success:^(NSArray *results) {;
+        [self updateSectionsWithCases:results];
+        [self.collectionView reloadData];
+    } failure:nil];
+}
+
+- (void)updateSectionsWithCases:(NSArray *)cases {
+    NSString *doctorId = [TDataModule sharedInstance].doctor.doctorId;
+    self.openCases = [cases filter:^BOOL(Case *aCase) {
+        return aCase.open && [aCase.primaryDoctorId isEqualToString:doctorId];
+    }];
+    self.proxyCases = [cases filter:^BOOL(Case *aCase) {
+        return aCase.open && ![aCase.primaryDoctorId isEqualToString:doctorId];
+    }];
+    self.closedCases = [cases filter:^BOOL(Case *aCase) {
+        return !aCase.open;
+    }];
+}
+
 #pragma mark - IBActions
 
 - (IBAction)logoutButtonTapped:(id)sender {
@@ -133,19 +112,37 @@
 
 #pragma mark - <UICollectionViewDataSource>
 
+- (NSArray *)casesForSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return self.openCases;
+        case 1:
+            return self.proxyCases;
+        case 2:
+            return self.closedCases;
+        default:
+            return nil;
+    }
+}
+
+- (Case *)caseForIndexPath:(NSIndexPath *)indexPath {
+    NSArray *cases = [self casesForSection:indexPath.section];
+    return cases[indexPath.item];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.cases.count;
+    return [self casesForSection:section].count;
 }
 
 #pragma mark - <UICollectionViewDelegate>
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CaseListCell *cell = (CaseListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CaseListCell class]) forIndexPath:indexPath];
-    Case *caseAtIndexPath = self.cases[indexPath.item];
+    Case *caseAtIndexPath = [self caseForIndexPath:indexPath];
     NSArray *doctorNames = [caseAtIndexPath.doctors map:^NSString *(Doctor *doctor) {
         return doctor.name;
     }];
@@ -159,7 +156,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Case *currentCase = self.cases[indexPath.item];
+    Case *currentCase = [self caseForIndexPath:indexPath];
     [self spinnerShow];
     [[TDataModule sharedInstance] fetchVerboseCaseWithId:currentCase.caseId
                                                  success:
