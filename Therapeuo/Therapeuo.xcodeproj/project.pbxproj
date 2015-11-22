@@ -31,6 +31,9 @@
 		179E8AEB1C00AA27005E492F /* CaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CaseListViewController.m */; };
 		179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* DoctorProfileViewController.m */; };
 		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; };
+		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B03B74E81C014A53008D0383 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E61C014A53008D0383 /* ChatTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B03B74E91C014A53008D0383 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74E71C014A53008D0383 /* ChatTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
 		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; };
@@ -115,6 +118,9 @@
 		A4A264045B78BC0161C92BD7 /* Pods-Therapeuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Therapeuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Therapeuo/Pods-Therapeuo.debug.xcconfig"; sourceTree = "<group>"; };
 		B03B74E21C013E7A008D0383 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		B03B74E31C013E7A008D0383 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		B03B74E51C014A53008D0383 /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		B03B74E61C014A53008D0383 /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		B03B74E71C014A53008D0383 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		B0662ED21C00BF5D008EDA02 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
 		B0662ED31C00BF5D008EDA02 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/LoginViewController.m"; sourceTree = "<group>"; };
 		B0662ED51C00BF6B008EDA02 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
@@ -280,8 +286,19 @@
 			children = (
 				B03B74E21C013E7A008D0383 /* ChatViewController.h */,
 				B03B74E31C013E7A008D0383 /* ChatViewController.m */,
+				B03B74EA1C014BA6008D0383 /* Cells */,
 			);
 			name = Chat;
+			sourceTree = "<group>";
+		};
+		B03B74EA1C014BA6008D0383 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B03B74E51C014A53008D0383 /* ChatTableViewCell.h */,
+				B03B74E61C014A53008D0383 /* ChatTableViewCell.m */,
+				B03B74E71C014A53008D0383 /* ChatTableViewCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		B0662ED11C00BF3A008EDA02 /* View Controllers */ = {
@@ -511,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03B74E91C014A53008D0383 /* ChatTableViewCell.xib in Resources */,
 				179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */,
 				1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */,
 				179E8AB91C00A994005E492F /* Assets.xcassets in Resources */,
@@ -611,6 +629,7 @@
 				1786DEC71C00C6A0002DE686 /* TModule.m in Sources */,
 				1786DEEF1C013621002DE686 /* Recipient.m in Sources */,
 				1786DEC61C00C6A0002DE686 /* TConstants.m in Sources */,
+				B03B74E81C014A53008D0383 /* ChatTableViewCell.m in Sources */,
 				B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */,
 				B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,

@@ -77,20 +77,10 @@
                                     <segue destination="xu0-Of-p6m" kind="push" id="Wn2-Bn-bMV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYn-Hv-hfB">
-                                <rect key="frame" x="398" y="64" width="192" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Login with test@doctor.com"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFh-iC-NdI">
+                                <rect key="frame" x="0.0" y="64" width="30" height="30"/>
                                 <connections>
-                                    <action selector="temp_loginWithTest:" destination="2si-aK-2H7" eventType="touchUpInside" id="H63-64-WR4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL1-dj-STS">
-                                <rect key="frame" x="389" y="94" width="201" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Login with test2@doctor.com"/>
-                                <connections>
-                                    <action selector="temp_loginWithTest2:" destination="2si-aK-2H7" eventType="touchUpInside" id="Vm6-ZF-aGh"/>
+                                    <segue destination="fPl-5l-8Sj" kind="push" id="Kco-Eq-aQj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,6 +88,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3cU-w0-ekF" firstAttribute="top" secondItem="p6I-Yc-ORA" secondAttribute="bottom" constant="20" id="32G-ZW-CMg"/>
+                            <constraint firstItem="OFh-iC-NdI" firstAttribute="leading" secondItem="NEb-AS-6rI" secondAttribute="leading" id="6Zh-jC-0gV"/>
                             <constraint firstItem="p6I-Yc-ORA" firstAttribute="top" secondItem="SEE-c1-0Yb" secondAttribute="bottom" constant="10" id="KAU-V7-qfq"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="trailing" secondItem="SEE-c1-0Yb" secondAttribute="trailing" id="O10-Kk-BxE"/>
                             <constraint firstItem="SHy-X1-9GG" firstAttribute="centerY" secondItem="akf-Qs-tNZ" secondAttribute="centerY" id="PwV-95-NgY"/>
@@ -107,6 +98,7 @@
                             <constraint firstItem="d4n-u2-oPT" firstAttribute="leading" secondItem="9hL-9C-QO1" secondAttribute="leading" id="m7y-GA-NFm"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="centerX" secondItem="NEb-AS-6rI" secondAttribute="centerX" id="oHy-mP-ZXs"/>
                             <constraint firstItem="akf-Qs-tNZ" firstAttribute="top" secondItem="RGK-k7-ZTh" secondAttribute="bottom" constant="100" id="oXM-D7-3Cq"/>
+                            <constraint firstItem="OFh-iC-NdI" firstAttribute="top" secondItem="RGK-k7-ZTh" secondAttribute="bottom" id="rM9-Ro-aa8"/>
                             <constraint firstItem="9hL-9C-QO1" firstAttribute="top" secondItem="d4n-u2-oPT" secondAttribute="bottom" constant="10" id="tMz-Mn-pfy"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="trailing" secondItem="p6I-Yc-ORA" secondAttribute="trailing" id="tW5-8z-ruB"/>
                             <constraint firstItem="SEE-c1-0Yb" firstAttribute="leading" secondItem="p6I-Yc-ORA" secondAttribute="leading" id="ttQ-dD-ph5"/>
@@ -483,7 +475,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="F5t-7C-iyd" firstAttribute="top" secondItem="Knx-DH-Erq" secondAttribute="bottom" id="9rb-qy-33G"/>
-                            <constraint firstItem="aoI-Bl-SIG" firstAttribute="top" secondItem="Knx-DH-Erq" secondAttribute="bottom" id="ENa-Ii-dxu"/>
                             <constraint firstAttribute="trailing" secondItem="F5t-7C-iyd" secondAttribute="trailing" id="FXi-d6-aPQ"/>
                             <constraint firstItem="Knx-DH-Erq" firstAttribute="leading" secondItem="AjX-5c-ZdR" secondAttribute="leading" id="LGS-DY-Wak"/>
                             <constraint firstItem="F5t-7C-iyd" firstAttribute="leading" secondItem="AjX-5c-ZdR" secondAttribute="leading" id="gly-bJ-dJ3"/>
@@ -491,11 +482,6 @@
                             <constraint firstItem="Knx-DH-Erq" firstAttribute="top" secondItem="LO1-dd-C1k" secondAttribute="bottom" id="uf9-tt-XgK"/>
                             <constraint firstItem="aoI-Bl-SIG" firstAttribute="top" secondItem="F5t-7C-iyd" secondAttribute="bottom" id="zWo-Qu-gPa"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ENa-Ii-dxu"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dOl-6g-uxK"/>
                     <connections>
@@ -660,4 +646,7 @@
         <image name="logo" width="169" height="169"/>
         <image name="logo_blurred" width="169" height="169"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kco-Eq-aQj"/>
+    </inferredMetricsTieBreakers>
 </document>
