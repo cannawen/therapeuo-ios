@@ -486,6 +486,7 @@
                     <navigationItem key="navigationItem" id="dOl-6g-uxK"/>
                     <connections>
                         <outlet property="sendContainerBottomConstraint" destination="zWo-Qu-gPa" id="FOM-gA-e6u"/>
+                        <outlet property="tableView" destination="Knx-DH-Erq" id="VW8-vn-ZWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzc-hC-EsK" userLabel="First Responder" sceneMemberID="firstResponder"/>

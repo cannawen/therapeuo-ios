@@ -8,14 +8,22 @@
 
 #import "ChatViewController.h"
 #import "TConstants.h"
+#import "ChatTableViewCell.h"
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendContainerBottomConstraint;
 
 @end
 
 @implementation ChatViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.tableView registerNib:[ChatTableViewCell myMessageNib] forCellReuseIdentifier:[ChatTableViewCell myMessageIdentifierString]];
+    [self.tableView registerNib:[ChatTableViewCell partnerMessageNib] forCellReuseIdentifier:[ChatTableViewCell partnerMessageIdentifierString]];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
