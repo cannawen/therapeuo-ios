@@ -15,6 +15,7 @@
 #import "ThemedTextField.h"
 #import "TDataModule.h"
 #import "Case.h"
+#import "Message.h"
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -59,9 +60,20 @@
 }
 
 - (NSMutableArray *)viewModelsWithVerboseCase:(VerboseCase *)verboseCase {
+    NSArray *sortedMessage = [verboseCase.messages sortedArrayUsingComparator:^NSComparisonResult(Message *message1, Message *message2) {
+        if ([message1.timestamp integerValue] == [message2.timestamp integerValue]) {
+            return NSOrderedSame;
+        }
+        if (message1.timestamp > message2.timestamp) {
+            return NSOrderedDescending;
+        }
+        
+        return NSOrderedAscending;
+    }];
+    
     NSString *myId = [TDataModule sharedInstance].doctor.doctorId;
     NSMutableArray *array = [NSMutableArray array];
-    for (Message *message in verboseCase.messages) {
+    for (Message *message in sortedMessage) {
         id sender = [verboseCase senderForMessage:message];
         NSString *name;
         BOOL isMyMessage = NO;
