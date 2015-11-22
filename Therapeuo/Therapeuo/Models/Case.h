@@ -11,7 +11,7 @@
 @class Patient;
 @class Doctor;
 
-@interface Case : TBaseModel
+@interface Case <NSCopying, NSMutableCopying> : TBaseModel
 
 @property (nonatomic, readonly) NSString *caseId;
 @property (nonatomic, readonly) NSArray *doctors;

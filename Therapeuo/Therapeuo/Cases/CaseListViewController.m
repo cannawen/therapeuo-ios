@@ -98,11 +98,6 @@
         DoctorProfileViewController *vc = (DoctorProfileViewController *)segue.destinationViewController;
         
         [vc configureWithDoctor];
-    } else if ([identifier isEqualToString:@"CaseViewControllerSegue"]) {
-        CaseViewController *vc = [[CaseViewController alloc] init];
-        
-        // TODO get a case.
-        [vc configureWithPatientCase:[self fakeCases][0]];
     }
 }
 
@@ -170,7 +165,10 @@
                                                  success:
      ^(VerboseCase *result) {
          [self spinnerHide];
-         [self performSegueWithIdentifier:@"CaseViewControllerSegue" sender:nil];
+         
+         UIViewController *vc = [CaseViewController viewControllerWithVerboseCase:result];
+         [self.navigationController pushViewController:vc animated:YES];
+
      } failure:^(NSError *error) {
          [self spinnerHide];
          [TAlertHelper showDefaultError];

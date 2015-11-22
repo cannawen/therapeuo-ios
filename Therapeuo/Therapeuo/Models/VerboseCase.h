@@ -15,8 +15,8 @@
 
 @interface VerboseCase : TBaseModel
 
-@property (nonatomic, readonly) Case *theCase;
-@property (nonatomic, readonly) NSArray *messages;
+@property (nonatomic, strong) Case *theCase;
+@property (nonatomic, strong) NSArray *messages;
 
 + (instancetype)instanceWithCase:(Case *)theCase
                         messages:(NSArray *)messages;

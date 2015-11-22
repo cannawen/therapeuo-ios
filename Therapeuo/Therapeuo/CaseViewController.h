@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class PatientCase;
+@class VerboseCase;
 
 @interface CaseViewController : UIViewController
 
-- (void)configureWithPatientCase:(PatientCase *)patientCase;
-
++ (instancetype)viewControllerWithVerboseCase:(VerboseCase *)verboseCase;
 @end

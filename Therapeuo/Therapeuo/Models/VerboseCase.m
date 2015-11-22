@@ -16,13 +16,6 @@
 
 #import "NSArray+PivotalCore.h"
 
-@interface VerboseCase ()
-
-@property (nonatomic, strong) Case *theCase;
-@property (nonatomic, strong) NSArray *messages;
-
-@end
-
 @implementation VerboseCase
 
 + (instancetype)instanceWithCase:(Case *)theCase
