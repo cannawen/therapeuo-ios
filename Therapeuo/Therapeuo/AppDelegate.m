@@ -10,6 +10,7 @@
 #import "TModule.h"
 #import "AppDelegate.h"
 #import "TDataModule.h"
+#import "UIColor+Theme.h"
 
 @interface AppDelegate ()
 @end
@@ -32,8 +33,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TDataModule sharedInstance]; // calling this to at least load from persistence
+    [self styleNavBar];
     [self setupPush];
     return YES;
+}
+
+- (void)styleNavBar {
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSKernAttributeName : @2.0
+                                                           }];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor themeBlueColor]];
+    [[UINavigationBar appearance] setTranslucent:NO];
 }
 
 #pragma mark - Push notification code
