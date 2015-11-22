@@ -17,8 +17,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-fr-nIf" userLabel="Message view">
                         <rect key="frame" x="10" y="4" width="322" height="148"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvj-De-tMe">
+                                <rect key="frame" x="10" y="10" width="302" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqO-Q7-JDy">
-                                <rect key="frame" x="10" y="10" width="302" height="128"/>
+                                <rect key="frame" x="10" y="36" width="302" height="102"/>
                                 <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -29,7 +35,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TqO-Q7-JDy" secondAttribute="trailing" constant="10" id="4Ov-N7-aLU"/>
                             <constraint firstAttribute="bottom" secondItem="TqO-Q7-JDy" secondAttribute="bottom" constant="10" id="G8d-g4-oa9"/>
-                            <constraint firstItem="TqO-Q7-JDy" firstAttribute="top" secondItem="ge8-fr-nIf" secondAttribute="top" constant="10" id="P4S-6j-uSG"/>
+                            <constraint firstItem="lvj-De-tMe" firstAttribute="top" secondItem="ge8-fr-nIf" secondAttribute="top" constant="10" id="Heg-aH-5tE"/>
+                            <constraint firstAttribute="trailing" secondItem="lvj-De-tMe" secondAttribute="trailing" constant="10" id="clR-jz-5eJ"/>
+                            <constraint firstItem="lvj-De-tMe" firstAttribute="leading" secondItem="ge8-fr-nIf" secondAttribute="leading" constant="10" id="rDd-dc-9J0"/>
+                            <constraint firstItem="TqO-Q7-JDy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lvj-De-tMe" secondAttribute="bottom" constant="4" id="xoj-xl-6a0"/>
                             <constraint firstItem="TqO-Q7-JDy" firstAttribute="leading" secondItem="ge8-fr-nIf" secondAttribute="leading" constant="10" id="zLQ-e2-aOV"/>
                         </constraints>
                     </view>
@@ -99,10 +108,11 @@
                 <outlet property="dividerWidthConstraint" destination="zmB-AY-WAd" id="ybc-gi-ynu"/>
                 <outlet property="leftAngleBackgroundView" destination="ETb-5i-yc5" id="2jG-BY-MtY"/>
                 <outlet property="leftAngleImageView" destination="um7-QP-VdW" id="Zdh-bM-wPi"/>
-                <outlet property="messageLabel" destination="TqO-Q7-JDy" id="AHg-z6-seB"/>
+                <outlet property="messageLabel" destination="TqO-Q7-JDy" id="ugc-a3-N2z"/>
                 <outlet property="messageLeadingConstraint" destination="Drf-jL-VqD" id="r9M-DV-opS"/>
                 <outlet property="messageTrailingConstraint" destination="vWr-mH-yPm" id="9CC-mj-ESF"/>
                 <outlet property="messageView" destination="ge8-fr-nIf" id="0tF-x0-0Vf"/>
+                <outlet property="nameLabel" destination="lvj-De-tMe" id="st1-s3-emu"/>
                 <outlet property="rightAngleBackgroundView" destination="Kgk-Ox-d3B" id="2rS-wS-cZ4"/>
                 <outlet property="rightAngleImageView" destination="y7T-CA-p07" id="TRr-tt-L3G"/>
             </connections>

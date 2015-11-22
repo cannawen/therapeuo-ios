@@ -52,13 +52,19 @@
     NSMutableArray *array = [NSMutableArray array];
     for (Message *message in verboseCase.messages) {
         id sender = [verboseCase senderForMessage:message];
-        BOOL isMyMessage;
-        if ([sender isKindOfClass:[Doctor class]] && [((Doctor *)sender).doctorId isEqualToString:myId]) {
-            isMyMessage = YES;
-        } else {
-            isMyMessage = NO;
+        NSString *name;
+        BOOL isMyMessage = NO;
+        if ([sender isKindOfClass:[Doctor class]]) {
+            if ([((Doctor *)sender).doctorId isEqualToString:myId]) {
+                name = @"Me";
+                isMyMessage = YES;
+            } else {
+                name = ((Doctor *)sender).name;
+            }
         }
-        ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:message isMyMessage:isMyMessage];
+        ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:message
+                                                                          name:name
+                                                                   isMyMessage:isMyMessage];
         [array addObject:viewModel];
     }
     self.viewModels = array;

@@ -22,6 +22,7 @@ static CGFloat smallSpace = 25;
 @property (weak, nonatomic) IBOutlet UIImageView *rightAngleImageView;
 @property (weak, nonatomic) IBOutlet UIView *rightAngleBackgroundView;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTrailingConstraint;
@@ -65,6 +66,7 @@ static CGFloat smallSpace = 25;
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
+    self.nameLabel.text = viewModel.nameString ? [NSString stringWithFormat:@"%@:", viewModel.nameString] : nil;
     self.messageLabel.text = viewModel.messageString;
     
     if (viewModel.isMyMessage) {
@@ -152,6 +154,7 @@ static CGFloat smallSpace = 25;
 @interface ChatCellViewModel ()
 
 @property (nonatomic) Message *message;
+@property (nonatomic) NSString *name;
 @property (nonatomic) BOOL isMyMessage;
 @property (nonatomic) NSString *myMessageString;
 
@@ -163,9 +166,10 @@ static CGFloat smallSpace = 25;
     _message = message;
 }
 
-+ (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage {
++ (instancetype)viewModelFromMessage:(Message *)message name:(NSString *)name isMyMessage:(BOOL)isMyMessage {
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
     viewModel.message = message;
+    viewModel.name = name;
     viewModel.isMyMessage = isMyMessage;
     return viewModel;
 }
@@ -181,6 +185,10 @@ static CGFloat smallSpace = 25;
     self.myMessageString = self.message.content;
     self.message = nil;
     self.isMyMessage = NO;
+}
+
+- (NSString *)nameString {
+    return self.name;
 }
 
 - (NSString *)messageString {

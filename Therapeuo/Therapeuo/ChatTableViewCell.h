@@ -12,9 +12,10 @@
 
 @interface ChatCellViewModel : NSObject
 
-+ (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage;
++ (instancetype)viewModelFromMessage:(Message *)message name:(NSString *)name isMyMessage:(BOOL)isMyMessage;
 + (instancetype)viewModelFromMyMessage:(NSString *)message;
 
+- (NSString *)nameString;
 - (NSString *)messageString;
 - (BOOL)isPatientMessage;
 - (BOOL)isMyMessage;
