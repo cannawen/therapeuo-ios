@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *caseCompleteLabel;
 
 @property (nonatomic, assign) BOOL caseEditing;
+@property (weak, nonatomic) IBOutlet UILabel *primaryMDValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *associateMDValueLabel;
 
 @end
 
@@ -102,7 +104,7 @@ typedef void (^ SaveBlock)(BOOL);
 
 - (void)setupUI {
     Case *theCase = self.patientCase.theCase;
-    self.primaryMDLabel.text = theCase.primaryDoctor.name;
+    self.primaryMDValueLabel.text = theCase.primaryDoctor.name;
     
     NSMutableString *associateDoctorString = [NSMutableString new];
     for (Doctor *doctor in theCase.doctors) {
@@ -110,7 +112,7 @@ typedef void (^ SaveBlock)(BOOL);
     }
     
     if (associateDoctorString.length > 0) {
-        self.associateMDLabel.text = [associateDoctorString substringToIndex:(associateDoctorString.length - 1)];
+        self.associateMDValueLabel.text = [associateDoctorString substringToIndex:(associateDoctorString.length - 1)];
     }
     
     self.caseCompletionSwitch.on = theCase.open;

@@ -446,11 +446,13 @@
                     <navigationItem key="navigationItem" id="OL0-tT-kX7"/>
                     <connections>
                         <outlet property="associateMDLabel" destination="yh7-BV-uZJ" id="19M-yH-MiG"/>
+                        <outlet property="associateMDValueLabel" destination="RMD-0C-x0Q" id="A74-n7-fJ1"/>
                         <outlet property="caseCompleteLabel" destination="n8c-v3-Lyx" id="fY2-Rd-tuW"/>
                         <outlet property="caseCompletionSwitch" destination="412-ra-D9Q" id="MgY-DG-3kk"/>
                         <outlet property="notesLabel" destination="gm5-Dx-C4f" id="ASk-Jn-rgc"/>
                         <outlet property="notesTextView" destination="8hi-O3-kTF" id="4k0-LQ-Phf"/>
                         <outlet property="primaryMDLabel" destination="5bL-lM-tEP" id="JOo-En-vDf"/>
+                        <outlet property="primaryMDValueLabel" destination="EfY-hG-rcp" id="ytI-LJ-OfW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ik-iy-16J" userLabel="First Responder" sceneMemberID="firstResponder"/>
