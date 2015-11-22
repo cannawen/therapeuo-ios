@@ -124,7 +124,7 @@ typedef void (^ SaveBlock)(BOOL);
         self.associateMDValueLabel.text = [associateDoctorString substringToIndex:(associateDoctorString.length - 2)];
     }
     
-//    self.locationValueLabel.text = theCase.patient.location;
+    self.locationValueLabel.text = theCase.patient.locationDescription;
     
     self.caseCompletionSwitch.on = theCase.open;
     self.notesTextView.text = theCase.notes;
