@@ -30,10 +30,10 @@
 		179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AD11C00A995005E492F /* TherapeuoUITests.m */; };
 		179E8AEB1C00AA27005E492F /* CaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CaseListViewController.m */; };
 		179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* DoctorProfileViewController.m */; };
-		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; settings = {ASSET_TAGS = (); }; };
-		B03B74E81C014A53008D0383 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E61C014A53008D0383 /* ChatTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		B03B74EF1C015A5C008D0383 /* LeftChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; };
+		B03B74E81C014A53008D0383 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E61C014A53008D0383 /* ChatTableViewCell.m */; };
+		B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74E71C014A53008D0383 /* RightChatTableViewCell.xib */; };
+		B03B74EF1C015A5C008D0383 /* LeftChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03B74EE1C015A5C008D0383 /* LeftChatTableViewCell.xib */; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
 		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; };
@@ -43,7 +43,6 @@
 		B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EEF1C0107A3008EDA02 /* ThemedLabel.m */; };
 		B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EF21C0109FD008EDA02 /* CaseViewController.m */; };
 		B532F76BD2BBA1C8908EBC13 /* libPods-Therapeuo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */; };
-		D35C6C2B1C011E2600000697 /* PatientCase.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C2A1C011E2600000697 /* PatientCase.m */; };
 		D35C6C2E1C01238000000697 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C2D1C01238000000697 /* Message.m */; };
 		D35C6C311C0125E200000697 /* Case.m in Sources */ = {isa = PBXBuildFile; fileRef = D35C6C301C0125E200000697 /* Case.m */; };
 		D3796E131C00BBBA007E2888 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3796E0C1C00BBBA007E2888 /* Doctor.m */; };
@@ -139,8 +138,6 @@
 		B0662EF11C0109FD008EDA02 /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
 		B0662EF21C0109FD008EDA02 /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
 		C9D3485565CC8C0FB8C1C6C5 /* libPods-Therapeuo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Therapeuo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D35C6C291C011E2600000697 /* PatientCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientCase.h; path = Models/PatientCase.h; sourceTree = "<group>"; };
-		D35C6C2A1C011E2600000697 /* PatientCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientCase.m; path = Models/PatientCase.m; sourceTree = "<group>"; };
 		D35C6C2C1C01238000000697 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = Models/Message.h; sourceTree = "<group>"; };
 		D35C6C2D1C01238000000697 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = Models/Message.m; sourceTree = "<group>"; };
 		D35C6C2F1C0125E200000697 /* Case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Case.h; path = Models/Case.h; sourceTree = "<group>"; };
@@ -412,8 +409,6 @@
 				D35C6C2D1C01238000000697 /* Message.m */,
 				D3796E0D1C00BBBA007E2888 /* Patient.h */,
 				D3796E0E1C00BBBA007E2888 /* Patient.m */,
-				D35C6C291C011E2600000697 /* PatientCase.h */,
-				D35C6C2A1C011E2600000697 /* PatientCase.m */,
 				1786DEED1C013621002DE686 /* Recipient.h */,
 				1786DEEE1C013621002DE686 /* Recipient.m */,
 				1786DECF1C00C994002DE686 /* TBaseModel.h */,
@@ -636,7 +631,6 @@
 				B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */,
 				B0662EE81C00CFD2008EDA02 /* UIColor+Theme.m in Sources */,
 				179E8AAB1C00A994005E492F /* main.m in Sources */,
-				D35C6C2B1C011E2600000697 /* PatientCase.m in Sources */,
 				D35C6C311C0125E200000697 /* Case.m in Sources */,
 				179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */,
 				1786DECE1C00C6A7002DE686 /* TSessionManager.m in Sources */,
