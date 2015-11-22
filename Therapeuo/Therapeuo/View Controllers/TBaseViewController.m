@@ -23,6 +23,11 @@
     [self registerKeyboardNotifications];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
+}
+
 #pragma mark - Spinner
 
 - (UIActivityIndicatorView *)spinner {
@@ -62,6 +67,10 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
