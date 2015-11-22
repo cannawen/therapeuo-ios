@@ -25,7 +25,7 @@
     [self.tableView registerNib:[ChatTableViewCell rightMessageNib] forCellReuseIdentifier:[ChatTableViewCell rightMessageIdentifierString]];
 }
 
-- (void)configureWithMessages:(NSArray <Message *> *)messages {
+- (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
     
 }
 

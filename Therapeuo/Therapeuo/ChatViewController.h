@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TBaseViewController.h"
 
-@class Message;
+@class VerboseCase;
 
 @interface ChatViewController : TBaseViewController
 
-- (void)configureWithMessages:(NSArray <Message *> *)messages;
+- (void)configureWithVerboseCase:(VerboseCase *)verboseCase;
 
 @end
