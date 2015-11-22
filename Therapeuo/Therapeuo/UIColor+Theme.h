@@ -11,5 +11,6 @@
 @interface UIColor (Theme)
 
 + (UIColor *)themeBlueColor;
+- (UIColor *)darkerColor;
 
 @end

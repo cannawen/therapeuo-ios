@@ -11,21 +11,34 @@
 #import "UIColor+Theme.h"
 #import "UITableViewCell+Sizing.h"
 
-static CGFloat largeSpace = 75;
-static CGFloat smallSpace = 10;
+static CGFloat largeSpace = 90;
+static CGFloat smallSpace = 25;
 
 @interface ChatTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *leftAngleImageView;
+@property (weak, nonatomic) IBOutlet UIView *leftAngleBackgroundView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *rightAngleImageView;
+@property (weak, nonatomic) IBOutlet UIView *rightAngleBackgroundView;
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTrailingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLeadingConstraint;
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *messageBorders;
 @property (weak, nonatomic) IBOutlet UIView *messageView;
 
 @end
 
 @implementation ChatTableViewCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.leftAngleImageView.image = [UIImage imageNamed:@"speech_angle"];
+    self.rightAngleImageView.image = [UIImage imageNamed:@"speech_angle"];
+    self.rightAngleImageView.transform = CGAffineTransformMakeRotation(-M_PI);
+    self.messageView.layer.cornerRadius = 8.0f;
+}
 
 + (UINib *)nib {
     return [UINib nibWithNibName:NSStringFromClass([ChatTableViewCell class]) bundle:nil];
@@ -76,49 +89,62 @@ static CGFloat smallSpace = 10;
 #pragma mark -
 
 - (void)styleForMyMessage {
-    self.messageView.backgroundColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.25];
-    self.messageLabel.textColor = [UIColor blackColor];
+    self.messageLabel.textColor = [[UIColor themeBlueColor] darkerColor];
     self.messageLeadingConstraint.constant = largeSpace;
     self.messageTrailingConstraint.constant = smallSpace;
-    [self updateBorderColor:[UIColor themeBlueColor]];
+    
+    UIColor *mainColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.5f];
+    self.messageView.backgroundColor = mainColor;
+    self.leftAngleBackgroundView.backgroundColor = [UIColor clearColor];
+    self.rightAngleBackgroundView.backgroundColor = mainColor;
 }
 
 - (void)styleForPatientMessage {
     self.messageView.backgroundColor = nil;
-    self.messageLabel.textColor = [UIColor blackColor];
+    self.messageLabel.textColor = [[UIColor grayColor] darkerColor];
     self.messageLeadingConstraint.constant = smallSpace;
     self.messageTrailingConstraint.constant = largeSpace;
-    [self updateBorderColor:[UIColor grayColor]];
+    
+    UIColor *mainColor = [[UIColor grayColor] colorWithAlphaComponent:0.25f];
+    self.messageView.backgroundColor = mainColor;
+    self.rightAngleBackgroundView.backgroundColor = [UIColor clearColor];
+    self.leftAngleBackgroundView.backgroundColor = mainColor;
 }
 
 - (void)styleForDoctorMessage {
     self.messageView.backgroundColor = nil;
-    self.messageLabel.textColor = [UIColor blackColor];
+    self.messageLabel.textColor = [UIColor grayColor];
     self.messageLeadingConstraint.constant = largeSpace;
     self.messageTrailingConstraint.constant = smallSpace;
-    [self updateBorderColor:[UIColor grayColor]];
+    
+    UIColor *mainColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.1f];
+    self.messageView.backgroundColor = mainColor;
+    self.leftAngleBackgroundView.backgroundColor = [UIColor clearColor];
+    self.rightAngleBackgroundView.backgroundColor = mainColor;
 }
 
 - (void)styleForServerMessage {
     self.messageView.backgroundColor = nil;
-    self.messageLabel.textColor = [UIColor grayColor];
+    self.messageLabel.textColor = [UIColor lightGrayColor];
     self.messageLeadingConstraint.constant = largeSpace;
     self.messageTrailingConstraint.constant = largeSpace;
-    [self updateBorderColor:nil];
+    
+    UIColor *mainColor = [UIColor clearColor];
+    self.messageView.backgroundColor = mainColor;
+    self.leftAngleBackgroundView.backgroundColor = mainColor;
+    self.rightAngleBackgroundView.backgroundColor = mainColor;
 }
 
 - (void)styleForUnknown {
     self.messageView.backgroundColor = nil;
-    self.messageLabel.textColor = [UIColor grayColor];
+    self.messageLabel.textColor = [UIColor lightGrayColor];
     self.messageLeadingConstraint.constant = 0;
     self.messageTrailingConstraint.constant = 0;
-    [self updateBorderColor:[UIColor redColor]];
-}
-
-- (void)updateBorderColor:(UIColor *)borderColor {
-    for (UIView *borderView in self.messageBorders) {
-        borderView.backgroundColor = borderColor;
-    }
+    
+    UIColor *mainColor = [UIColor clearColor];
+    self.messageView.backgroundColor = mainColor;
+    self.leftAngleBackgroundView.backgroundColor = mainColor;
+    self.rightAngleBackgroundView.backgroundColor = mainColor;
 }
 
 @end
