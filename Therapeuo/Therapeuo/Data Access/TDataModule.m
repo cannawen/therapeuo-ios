@@ -126,8 +126,6 @@
         [weakNetworkManager fetchMessagesForCaseWithId:resultCase.caseId success:^(NSArray *messageResults) {
             messages = messageResults;
             VerboseCase *verboseCase = [VerboseCase instanceWithCase:theCase
-                                                             patient:nil
-                                                             doctors:nil
                                                             messages:messages];
             if (success) {
                 success(verboseCase);
