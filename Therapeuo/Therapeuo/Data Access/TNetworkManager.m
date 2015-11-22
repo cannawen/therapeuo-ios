@@ -217,7 +217,7 @@
             failure(error);
         }
     }
-    [self.sessionManager PUT:[NSString stringWithFormat:@"cases/%@", theCase.caseId]
+    [self.sessionManager PUT:[NSString stringWithFormat:@"cases/%@/update", theCase.caseId]
                   parameters:params
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                          NSLog(@"Update case success");
