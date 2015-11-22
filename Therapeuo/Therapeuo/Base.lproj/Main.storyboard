@@ -366,7 +366,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="412-ra-D9Q">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="412-ra-D9Q">
                                 <rect key="frame" x="541" y="134" width="51" height="31"/>
                                 <animations/>
                             </switch>
@@ -451,6 +451,7 @@
                         <outlet property="caseCompletionSwitch" destination="412-ra-D9Q" id="MgY-DG-3kk"/>
                         <outlet property="notesLabel" destination="gm5-Dx-C4f" id="ASk-Jn-rgc"/>
                         <outlet property="notesTextView" destination="8hi-O3-kTF" id="4k0-LQ-Phf"/>
+                        <outlet property="openChatButton" destination="Byj-W0-KzX" id="ZAg-DV-Rir"/>
                         <outlet property="primaryMDLabel" destination="5bL-lM-tEP" id="JOo-En-vDf"/>
                         <outlet property="primaryMDValueLabel" destination="EfY-hG-rcp" id="ytI-LJ-OfW"/>
                     </connections>

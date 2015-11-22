@@ -16,6 +16,7 @@
 #import "UIColor+Theme.h"
 #import "TDataModule.h"
 #import "ChatViewController.h"
+#import "ThemedButton.h"
 
 @interface CaseViewController ()
 
@@ -31,6 +32,7 @@
 @property (nonatomic, assign) BOOL caseEditing;
 @property (weak, nonatomic) IBOutlet UILabel *primaryMDValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *associateMDValueLabel;
+@property (weak, nonatomic) IBOutlet ThemedButton *openChatButton;
 
 @end
 
@@ -69,6 +71,7 @@ typedef void (^ SaveBlock)(BOOL);
 - (void)setCaseEditMode:(BOOL)editing {
     self.caseCompletionSwitch.enabled = editing;
     self.notesTextView.editable = editing;
+    self.openChatButton.enabled = !editing;
 }
 
 - (void)setCaseEditing:(BOOL)isEditing {
