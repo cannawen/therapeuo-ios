@@ -9,11 +9,13 @@
 #import "ChatViewController.h"
 #import "TConstants.h"
 #import "ChatTableViewCell.h"
+#import "VerboseCase.h"
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendContainerBottomConstraint;
+@property (nonatomic) VerboseCase *verboseCase;
 
 @end
 
@@ -26,17 +28,19 @@
 }
 
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
-    
+    self.verboseCase = verboseCase;
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.verboseCase.messages.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:self.verboseCase.messages[indexPath.row]];
+    ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:viewModel.identifier];
+    return cell;
 }
 
 #pragma mark - Keyboard

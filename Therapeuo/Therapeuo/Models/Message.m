@@ -43,4 +43,12 @@
     return [MTLJSONAdapter dictionaryTransformerWithModelClass:Recipient.class];
 }
 
+- (BOOL)isSentByDoctor {
+    return self.sender.type == RecipientTypeDoctor;
+}
+
+- (BOOL)isSentByPatient {
+    return self.sender.type == RecipientTypePatient;
+}
+
 @end

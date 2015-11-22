@@ -68,9 +68,7 @@
 
 @interface ChatCellViewModel ()
 
-@property (nonatomic) BOOL isDoctorMessage;
-@property (nonatomic) BOOL isMyMessage;
-@property (nonatomic) NSString *messageString;
+@property (nonatomic) Message *message;
 
 @end
 
@@ -78,8 +76,31 @@
 
 + (instancetype)viewModelFromMessage:(Message *)message {
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
-    viewModel.messageString = message.content;
+    viewModel.message = message;
     return viewModel;
+}
+
+- (NSString *)identifier {
+    if ([self isDoctorMessage]) {
+        return [ChatTableViewCell rightMessageIdentifierString];
+    } else {
+        return [ChatTableViewCell leftMessageIdentifierString];
+    }
+}
+- (NSString *)messageString {
+    return self.message.content;
+}
+
+- (BOOL)isPatientMessage {
+    return [self.message isSentByPatient];
+}
+
+- (BOOL)isMyMessage {
+    return NO;//TODO
+}
+
+- (BOOL)isDoctorMessage {
+    return [self.message isSentByDoctor];
 }
 
 @end

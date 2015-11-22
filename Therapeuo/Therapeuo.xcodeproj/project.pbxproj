@@ -782,6 +782,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.Therapeuo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1a6c1f01-0ec1-4314-b72b-6df9e0bd1c94";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -797,6 +798,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.Therapeuo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1a6c1f01-0ec1-4314-b72b-6df9e0bd1c94";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

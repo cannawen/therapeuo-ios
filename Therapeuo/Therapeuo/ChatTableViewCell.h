@@ -12,11 +12,12 @@
 
 @interface ChatCellViewModel : NSObject
 
-@property (nonatomic, readonly) BOOL isDoctorMessage;
-@property (nonatomic, readonly) BOOL isMyMessage;
-@property (nonatomic, readonly) NSString *messageString;
-
 + (instancetype)viewModelFromMessage:(Message *)message;
+- (NSString *)identifier;
+- (NSString *)messageString;
+- (BOOL)isPatientMessage;
+- (BOOL)isMyMessage;
+- (BOOL)isDoctorMessage;
 
 @end
 

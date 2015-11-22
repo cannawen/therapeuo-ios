@@ -19,4 +19,7 @@
 @property (nonatomic, readonly) Recipient *sender;
 @property (nonatomic, readonly) NSNumber *timestamp;
 
+- (BOOL)isSentByDoctor;
+- (BOOL)isSentByPatient;
+
 @end
