@@ -127,7 +127,7 @@ typedef void (^ SaveBlock)(BOOL);
     
     self.locationValueLabel.text = theCase.patient.locationDescription;
     
-    self.caseCompletionSwitch.on = theCase.open;
+    self.caseCompletionSwitch.on = !theCase.open;
     self.notesTextView.text = theCase.notes;
     if ([self.patientCase.theCase.patient hasLocations]) {
         [self updateMap];
