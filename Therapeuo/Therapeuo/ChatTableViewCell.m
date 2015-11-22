@@ -151,6 +151,12 @@ static CGFloat smallSpace = 10;
     return viewModel;
 }
 
+- (void)invalidateMessage {
+    self.myMessageString = self.message.content;
+    self.message = nil;
+    self.isMyMessage = NO;
+}
+
 - (NSString *)messageString {
     return self.message.content ? : self.myMessageString;
 }

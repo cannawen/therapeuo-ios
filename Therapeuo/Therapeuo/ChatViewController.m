@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *warningViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
-@property (nonatomic) NSArray <ChatCellViewModel *> *viewModels;
+@property (nonatomic) NSMutableArray <ChatCellViewModel *> *viewModels;
 @property (nonatomic) VerboseCase *verboseCase;
 @property (nonatomic) UIRefreshControl *refreshControl;
 
@@ -53,7 +53,7 @@
     for (Message *message in verboseCase.messages) {
         id sender = [verboseCase senderForMessage:message];
         BOOL isMyMessage;
-        if ([sender isKindOfClass:[Doctor class]] && ((Doctor *)sender).doctorId == myId) {
+        if ([sender isKindOfClass:[Doctor class]] && [((Doctor *)sender).doctorId isEqualToString:myId]) {
             isMyMessage = YES;
         } else {
             isMyMessage = NO;
@@ -109,18 +109,21 @@
 
 - (IBAction)sendButtonTapped:(id)sender {
     NSString *message = self.messageTextField.text;
+    self.messageTextField.text = nil;
     ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMyMessage:message];
-    self.viewModels = [self.viewModels arrayByAddingObject:viewModel];
+    [self.viewModels addObject:viewModel];
     [self.tableView reloadData];
     
     [[TDataModule sharedInstance] sendMessage:message
                                 forCaseWithId:self.verboseCase.theCase.caseId
                                       success:^(id result) {
-                                          self.messageTextField.text = nil;
                                           [self hideError];
                                           [self handleRefreshShowingFeedback:NO];
                                       } failure:^(NSError *error) {
+                                          self.messageTextField.text = message;
                                           [self showErrorWithMessage:@"Unable to send message"];
+                                          [[self viewModels] removeLastObject];
+                                          [self.tableView reloadData];
                                       }];
 }
 

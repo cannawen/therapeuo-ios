@@ -14,6 +14,7 @@
 
 + (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage;
 + (instancetype)viewModelFromMyMessage:(NSString *)message;
+
 - (NSString *)messageString;
 - (BOOL)isPatientMessage;
 - (BOOL)isMyMessage;

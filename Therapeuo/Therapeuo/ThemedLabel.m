@@ -7,9 +7,13 @@
 //
 
 #import "ThemedLabel.h"
+#import "UIFont+Theme.h"
 
 @implementation ThemedLabel
 
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.font = [UIFont themeFontStandardSize];
+}
 
 @end
