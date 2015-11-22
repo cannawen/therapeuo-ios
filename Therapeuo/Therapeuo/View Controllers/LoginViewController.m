@@ -31,16 +31,16 @@
     [super viewDidLoad];
     UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
     [[TDataModule sharedInstance] readDoctorSuccess:^(id result) {
         if (result) {
             [self moveToHome];
         }
     } failure:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
     self.originalLoginBottomConstraintConstant = self.loginBottomConstraint.constant;
 }
 

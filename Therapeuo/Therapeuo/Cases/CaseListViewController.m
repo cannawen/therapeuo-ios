@@ -109,8 +109,8 @@
 - (IBAction)logoutButtonTapped:(id)sender {
     TDataModule *dataModule = [TDataModule sharedInstance];
     [dataModule logoutDoctorWithId:dataModule.doctor.doctorId
-                                             success:nil
-                                             failure:nil];
+                           success:nil
+                           failure:nil];
     [dataModule flushAllSuccess:^(id result) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^(NSError *error) {
