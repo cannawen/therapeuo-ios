@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendContainerBottomConstraint;
-@property (nonatomic) VerboseCase *verboseCase;
+@property (nonatomic) NSArray <ChatCellViewModel *> *viewModels;
 
 @end
 
@@ -31,28 +31,38 @@
 }
 
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
-    self.verboseCase = verboseCase;
+    NSString *myId = [TDataModule sharedInstance].doctor.doctorId;
+    NSMutableArray *array = [NSMutableArray array];
+    for (Message *message in verboseCase.messages) {
+        id sender = [verboseCase senderForMessage:message];
+        BOOL isMyMessage;
+        if ([sender isKindOfClass:[Doctor class]] && ((Doctor *)sender).doctorId == myId) {
+            isMyMessage = YES;
+        } else {
+            isMyMessage = NO;
+        }
+        ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:message isMyMessage:isMyMessage];
+        [array addObject:viewModel];
+    }
+    self.viewModels = array;
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.verboseCase.messages.count;
+    return self.viewModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Message *message = self.verboseCase.messages[indexPath.row];
-    id sender = [self.verboseCase senderForMessage:message];
-    Doctor *me = [[TDataModule sharedInstance] doctor];
-    BOOL isMyMessage;
-    if ([sender isKindOfClass:[Doctor class]] && ((Doctor *)sender).doctorId == me.doctorId) {
-        isMyMessage = YES;
-    } else {
-        isMyMessage = NO;
-    }
-    ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:message isMyMessage:isMyMessage];
+    ChatCellViewModel *viewModel = self.viewModels[indexPath.row];
     ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:viewModel.identifier];
+    [cell configureWithViewModel:viewModel];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChatCellViewModel *viewModel = self.viewModels[indexPath.row];
+    return [ChatTableViewCell heightForCellWithWidth:CGRectGetWidth(tableView.bounds) viewModel:viewModel];
 }
 
 #pragma mark - Keyboard

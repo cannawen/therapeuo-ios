@@ -38,7 +38,7 @@
     return [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] firstObject];
 }
 
-+ (instancetype)sizingCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel {
++ (CGFloat)heightForCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel {
     static ChatTableViewCell *leftSizingCell;
     static ChatTableViewCell *rightSizingCell;
     
@@ -48,13 +48,15 @@
         rightSizingCell = [self loadViewFromNibNamed:[self rightMessageIdentifierString]];
     });
     
+    ChatTableViewCell *sizingCell;
     if (viewModel.isDoctorMessage) {
-        [rightSizingCell configureWithViewModel:viewModel];
-        return rightSizingCell;
+        sizingCell = rightSizingCell;
     } else {
-        [leftSizingCell configureWithViewModel:viewModel];
-        return leftSizingCell;
+        sizingCell = leftSizingCell;
     }
+    [sizingCell configureWithViewModel:viewModel];
+    CGSize size = [sizingCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {

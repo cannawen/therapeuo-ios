@@ -29,7 +29,7 @@
 + (UINib *)leftMessageNib;
 + (NSString *)leftMessageIdentifierString;
 
-+ (instancetype)sizingCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel;
++ (CGFloat)heightForCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel;
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel;
 
