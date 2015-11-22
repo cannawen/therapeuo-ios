@@ -18,6 +18,7 @@
 - (BOOL)isPatientMessage;
 - (BOOL)isMyMessage;
 - (BOOL)isDoctorMessage;
+- (BOOL)isServerModel;
 
 @end
 

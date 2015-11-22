@@ -51,4 +51,8 @@
     return self.sender.type == RecipientTypePatient;
 }
 
+- (BOOL)isSentByServer {
+    return self.sender.type == RecipientTypeServer;
+}
+
 @end

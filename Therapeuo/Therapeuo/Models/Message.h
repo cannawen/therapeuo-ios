@@ -21,5 +21,6 @@
 
 - (BOOL)isSentByDoctor;
 - (BOOL)isSentByPatient;
+- (BOOL)isSentByServer;
 
 @end

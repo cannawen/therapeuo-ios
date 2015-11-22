@@ -52,22 +52,36 @@
     self.messageLabel.text = viewModel.messageString;
     if (viewModel.isMyMessage) {
         self.messageView.backgroundColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.25];
+    } else {
+        self.messageView.backgroundColor = nil;
     }
+    
     if (viewModel.isPatientMessage) {
         self.messageLeadingConstraint.constant = 10;
         self.messageTrailingConstraint.constant = 75;
-    } else {
+    } else if (viewModel.isDoctorMessage) {
         self.messageLeadingConstraint.constant = 75;
         self.messageTrailingConstraint.constant = 10;
+    } else if (viewModel.isServerModel) {
+        self.messageLeadingConstraint.constant = 75;
+        self.messageTrailingConstraint.constant = 75;
+    } else {
+        self.messageLeadingConstraint.constant = 0;
+        self.messageTrailingConstraint.constant = 0;
     }
     
     for (UIView *borderView in self.messageBorders) {
         if (viewModel.isMyMessage) {
             borderView.backgroundColor = [UIColor themeBlueColor];
-        } else {
+        } else if (viewModel.isServerModel) {
+            borderView.backgroundColor = nil;
+        } else if (viewModel.isPatientMessage || viewModel.isDoctorMessage) {
             borderView.backgroundColor = [UIColor grayColor];
+        } else {
+            borderView.backgroundColor = [UIColor redColor];
         }
     }
+    
 }
 
 - (void)configureWithWidth:(CGFloat)width {
@@ -88,6 +102,10 @@
 
 @implementation ChatCellViewModel
 
+- (void)setMessage:(Message *)message {
+    _message = message;
+}
+
 + (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage {
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
     viewModel.message = message;
@@ -107,11 +125,15 @@
 }
 
 - (BOOL)isPatientMessage {
-    return self.myMessageString ? NO : [self.message isSentByPatient];
+    return [self.message isSentByPatient];
 }
 
 - (BOOL)isDoctorMessage {
     return self.myMessageString ? YES : [self.message isSentByDoctor];
+}
+
+- (BOOL)isServerModel {
+    return [self.message isSentByServer];
 }
 
 @end
