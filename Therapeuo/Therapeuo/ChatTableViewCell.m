@@ -11,6 +11,9 @@
 #import "UIColor+Theme.h"
 #import "UITableViewCell+Sizing.h"
 
+static CGFloat largeSpace = 75;
+static CGFloat smallSpace = 10;
+
 @interface ChatTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
@@ -50,44 +53,72 @@
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
     self.messageLabel.text = viewModel.messageString;
+    
     if (viewModel.isMyMessage) {
-        self.messageView.backgroundColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.25];
-    } else {
-        self.messageView.backgroundColor = nil;
-    }
-    
-    if (viewModel.isPatientMessage) {
-        self.messageLeadingConstraint.constant = 10;
-        self.messageTrailingConstraint.constant = 75;
+        [self styleForMyMessage];
+    } else if (viewModel.isPatientMessage) {
+        [self styleForPatientMessage];
     } else if (viewModel.isDoctorMessage) {
-        self.messageLeadingConstraint.constant = 75;
-        self.messageTrailingConstraint.constant = 10;
+        [self styleForDoctorMessage];
     } else if (viewModel.isServerModel) {
-        self.messageLeadingConstraint.constant = 75;
-        self.messageTrailingConstraint.constant = 75;
+        [self styleForServerMessage];
     } else {
-        self.messageLeadingConstraint.constant = 0;
-        self.messageTrailingConstraint.constant = 0;
+        [self styleForUnknown];
     }
-    
-    for (UIView *borderView in self.messageBorders) {
-        if (viewModel.isMyMessage) {
-            borderView.backgroundColor = [UIColor themeBlueColor];
-        } else if (viewModel.isServerModel) {
-            borderView.backgroundColor = nil;
-        } else if (viewModel.isPatientMessage || viewModel.isDoctorMessage) {
-            borderView.backgroundColor = [UIColor grayColor];
-        } else {
-            borderView.backgroundColor = [UIColor redColor];
-        }
-    }
-    
 }
 
 - (void)configureWithWidth:(CGFloat)width {
     self.frame = CGRectMake(0, 0, width, 44);
     self.dividerWidthConstraint.constant = width;
     self.dividerWidthConstraint.active = YES;
+}
+
+#pragma mark -
+
+- (void)styleForMyMessage {
+    self.messageView.backgroundColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.25];
+    self.messageLabel.textColor = [UIColor blackColor];
+    self.messageLeadingConstraint.constant = largeSpace;
+    self.messageTrailingConstraint.constant = smallSpace;
+    [self updateBorderColor:[UIColor themeBlueColor]];
+}
+
+- (void)styleForPatientMessage {
+    self.messageView.backgroundColor = nil;
+    self.messageLabel.textColor = [UIColor blackColor];
+    self.messageLeadingConstraint.constant = smallSpace;
+    self.messageTrailingConstraint.constant = largeSpace;
+    [self updateBorderColor:[UIColor grayColor]];
+}
+
+- (void)styleForDoctorMessage {
+    self.messageView.backgroundColor = nil;
+    self.messageLabel.textColor = [UIColor blackColor];
+    self.messageLeadingConstraint.constant = largeSpace;
+    self.messageTrailingConstraint.constant = smallSpace;
+    [self updateBorderColor:[UIColor grayColor]];
+}
+
+- (void)styleForServerMessage {
+    self.messageView.backgroundColor = nil;
+    self.messageLabel.textColor = [UIColor grayColor];
+    self.messageLeadingConstraint.constant = largeSpace;
+    self.messageTrailingConstraint.constant = largeSpace;
+    [self updateBorderColor:nil];
+}
+
+- (void)styleForUnknown {
+    self.messageView.backgroundColor = nil;
+    self.messageLabel.textColor = [UIColor grayColor];
+    self.messageLeadingConstraint.constant = 0;
+    self.messageTrailingConstraint.constant = 0;
+    [self updateBorderColor:[UIColor redColor]];
+}
+
+- (void)updateBorderColor:(UIColor *)borderColor {
+    for (UIView *borderView in self.messageBorders) {
+        borderView.backgroundColor = borderColor;
+    }
 }
 
 @end
