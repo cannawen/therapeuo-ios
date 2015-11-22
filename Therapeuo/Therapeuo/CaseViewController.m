@@ -144,8 +144,8 @@ typedef void (^ SaveBlock)(BOOL);
     
     region.center.latitude = latitude;
     region.center.longitude = longitude;
-    region.span.latitudeDelta = 5;
-    region.span.longitudeDelta = 5;
+    region.span.latitudeDelta = 2;
+    region.span.longitudeDelta = 2;
 
     [self.mapView setRegion:region animated:YES];
     
