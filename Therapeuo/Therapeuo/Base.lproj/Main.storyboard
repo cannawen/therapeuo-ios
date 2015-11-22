@@ -318,22 +318,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3V3-68-gEr">
-                                <rect key="frame" x="10" y="74" width="87" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Two, Dr. Three, Dr. Four" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMD-0C-x0Q">
-                                <rect key="frame" x="139" y="136" width="207" height="21"/>
+                                <rect key="frame" x="10" y="166" width="207" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8hi-O3-kTF">
-                                <rect key="frame" x="10" y="233" width="580" height="307"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8hi-O3-kTF">
+                                <rect key="frame" x="10" y="265" width="580" height="275"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -346,28 +339,28 @@
                                 <state key="normal" title="OPEN CHAT"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary MD:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bL-lM-tEP">
-                                <rect key="frame" x="10" y="105" width="95" height="21"/>
+                                <rect key="frame" x="10" y="74" width="111" height="23"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Primary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfY-hG-rcp">
-                                <rect key="frame" x="115" y="105" width="85" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associate MDs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yh7-BV-uZJ">
-                                <rect key="frame" x="10" y="136" width="119" height="21"/>
+                                <rect key="frame" x="10" y="138" width="138" height="23"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm5-Dx-C4f">
-                                <rect key="frame" x="10" y="207" width="46" height="21"/>
+                                <rect key="frame" x="10" y="237" width="53" height="23"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Primary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfY-hG-rcp">
+                                <rect key="frame" x="10" y="102" width="85" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -379,16 +372,17 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Byj-W0-KzX" secondAttribute="trailing" constant="10" id="01x-Kp-cEO"/>
                             <constraint firstItem="8hi-O3-kTF" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="7AW-mX-PqB"/>
+                            <constraint firstItem="5bL-lM-tEP" firstAttribute="top" secondItem="80y-wv-h9z" secondAttribute="bottom" constant="10" id="7MR-RB-tIa"/>
                             <constraint firstItem="8hi-O3-kTF" firstAttribute="top" secondItem="yh7-BV-uZJ" secondAttribute="bottom" constant="10" id="8OX-pj-MfB"/>
                             <constraint firstAttribute="trailing" secondItem="8hi-O3-kTF" secondAttribute="trailing" constant="10" id="AGF-Wk-7Dj"/>
                             <constraint firstItem="5CP-cR-sTF" firstAttribute="top" secondItem="Byj-W0-KzX" secondAttribute="bottom" constant="20" id="Axi-tg-tQx"/>
-                            <constraint firstItem="3V3-68-gEr" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="D5p-Kb-xZD"/>
+                            <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="RMD-0C-x0Q" secondAttribute="bottom" constant="50" id="CPf-0Y-2BA"/>
+                            <constraint firstItem="RMD-0C-x0Q" firstAttribute="top" secondItem="yh7-BV-uZJ" secondAttribute="bottom" constant="5" id="GBf-ed-JL8"/>
                             <constraint firstItem="Byj-W0-KzX" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="HB7-wM-zR2"/>
-                            <constraint firstItem="RMD-0C-x0Q" firstAttribute="leading" secondItem="yh7-BV-uZJ" secondAttribute="trailing" constant="10" id="J1q-oj-9v0"/>
-                            <constraint firstItem="5bL-lM-tEP" firstAttribute="top" secondItem="3V3-68-gEr" secondAttribute="bottom" constant="10" id="L44-bY-Dif"/>
+                            <constraint firstItem="RMD-0C-x0Q" firstAttribute="leading" secondItem="yh7-BV-uZJ" secondAttribute="trailing" constant="5" id="J1q-oj-9v0"/>
+                            <constraint firstItem="RMD-0C-x0Q" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="R5J-We-wb9"/>
                             <constraint firstItem="8hi-O3-kTF" firstAttribute="top" secondItem="gm5-Dx-C4f" secondAttribute="bottom" constant="5" id="URc-Uy-FtR"/>
                             <constraint firstItem="8hi-O3-kTF" firstAttribute="top" secondItem="RMD-0C-x0Q" secondAttribute="bottom" constant="10" id="Uyi-48-oI0"/>
-                            <constraint firstItem="3V3-68-gEr" firstAttribute="top" secondItem="80y-wv-h9z" secondAttribute="bottom" constant="10" id="Vv5-VB-lBT"/>
                             <constraint firstItem="5bL-lM-tEP" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="XH9-LT-oim"/>
                             <constraint firstItem="RMD-0C-x0Q" firstAttribute="centerY" secondItem="yh7-BV-uZJ" secondAttribute="centerY" id="YJL-fh-QdU"/>
                             <constraint firstAttribute="trailing" secondItem="8hi-O3-kTF" secondAttribute="trailing" constant="10" id="YmT-Ht-M6s"/>
@@ -396,13 +390,26 @@
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="top" secondItem="yh7-BV-uZJ" secondAttribute="bottom" constant="50" id="cF1-So-LQh"/>
                             <constraint firstItem="yh7-BV-uZJ" firstAttribute="top" secondItem="5bL-lM-tEP" secondAttribute="bottom" constant="10" id="cMi-Yv-Sp3"/>
                             <constraint firstItem="Byj-W0-KzX" firstAttribute="top" secondItem="8hi-O3-kTF" secondAttribute="bottom" constant="10" id="ele-kX-Bg3"/>
+                            <constraint firstItem="yh7-BV-uZJ" firstAttribute="top" secondItem="EfY-hG-rcp" secondAttribute="bottom" constant="15" id="h9t-fw-Jbd"/>
+                            <constraint firstAttribute="leading" secondItem="EfY-hG-rcp" secondAttribute="leading" id="hYb-Sh-gWf"/>
+                            <constraint firstItem="EfY-hG-rcp" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="lF6-XM-iQv"/>
                             <constraint firstItem="gm5-Dx-C4f" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="leF-uy-6LC"/>
                             <constraint firstItem="EfY-hG-rcp" firstAttribute="centerY" secondItem="5bL-lM-tEP" secondAttribute="centerY" id="lmu-Cx-Ndk"/>
                             <constraint firstItem="yh7-BV-uZJ" firstAttribute="leading" secondItem="25q-co-7Se" secondAttribute="leading" constant="10" id="mxj-3O-BWB"/>
                             <constraint firstItem="EfY-hG-rcp" firstAttribute="leading" secondItem="5bL-lM-tEP" secondAttribute="trailing" constant="10" id="ppk-hU-B5g"/>
+                            <constraint firstAttribute="leading" secondItem="RMD-0C-x0Q" secondAttribute="leading" id="qaV-cy-jRg"/>
+                            <constraint firstItem="EfY-hG-rcp" firstAttribute="top" secondItem="5bL-lM-tEP" secondAttribute="bottom" constant="5" id="sUE-3p-q1Q"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="hYb-Sh-gWf"/>
+                                <exclude reference="lmu-Cx-Ndk"/>
+                                <exclude reference="ppk-hU-B5g"/>
+                                <exclude reference="cMi-Yv-Sp3"/>
+                                <exclude reference="J1q-oj-9v0"/>
+                                <exclude reference="YJL-fh-QdU"/>
+                                <exclude reference="qaV-cy-jRg"/>
+                                <exclude reference="cF1-So-LQh"/>
                                 <exclude reference="8OX-pj-MfB"/>
                                 <exclude reference="Uyi-48-oI0"/>
                                 <exclude reference="YmT-Ht-M6s"/>
@@ -413,8 +420,8 @@
                     <navigationItem key="navigationItem" id="OL0-tT-kX7"/>
                     <connections>
                         <outlet property="associateMDLabel" destination="yh7-BV-uZJ" id="19M-yH-MiG"/>
+                        <outlet property="notesLabel" destination="gm5-Dx-C4f" id="ASk-Jn-rgc"/>
                         <outlet property="notesTextView" destination="8hi-O3-kTF" id="4k0-LQ-Phf"/>
-                        <outlet property="patientNameLabel" destination="3V3-68-gEr" id="JLb-Ic-vyF"/>
                         <outlet property="primaryMDLabel" destination="5bL-lM-tEP" id="JOo-En-vDf"/>
                         <segue destination="fPl-5l-8Sj" kind="push" id="VZl-0W-Y0O"/>
                     </connections>

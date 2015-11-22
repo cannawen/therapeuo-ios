@@ -7,19 +7,21 @@
 //
 
 #import "CaseViewController.h"
+#import "Patient.h"
 #import "PatientCase.h"
 #import "Case.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+Theme.h"
 
+
 @interface CaseViewController ()
 
 @property (nonatomic, strong) PatientCase *patientCase;
 
-@property (weak, nonatomic) IBOutlet UILabel *patientNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *primaryMDLabel;
 @property (weak, nonatomic) IBOutlet UILabel *associateMDLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
 
 @end
 
@@ -30,6 +32,12 @@
     
     self.notesTextView.layer.borderColor = [UIColor themeBlueColor].CGColor;
     self.notesTextView.layer.borderWidth = 1.0f;
+    
+    self.primaryMDLabel.textColor = [UIColor themeBlueColor];
+    self.associateMDLabel.textColor = [UIColor themeBlueColor];
+    self.notesLabel.textColor = [UIColor themeBlueColor];
+    
+    self.title = self.patientCase.patientCase.caseId;
 }
 
 - (void)didReceiveMemoryWarning {
