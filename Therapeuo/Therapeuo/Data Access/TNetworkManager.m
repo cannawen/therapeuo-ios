@@ -261,9 +261,13 @@
 }
 
 - (void)sendMessageForCaseWithId:(NSString *)caseId
+                        doctorId:(NSString *)doctorId
                          success:(SuccssBlock)success
                          failure:(FailureBlock)failure {
-    
+//    {
+//        "content": "Hello",
+//        "doctor": "ID"
+//    }
 }
 
 

@@ -46,6 +46,7 @@
                            success:(SuccssBlock)success
                            failure:(FailureBlock)failure;
 - (void)sendMessageForCaseWithId:(NSString *)caseId
+                        doctorId:(NSString *)doctorId
                          success:(SuccssBlock)success
                          failure:(FailureBlock)failure;
 
