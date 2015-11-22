@@ -27,6 +27,7 @@
     [super viewDidLoad];
     [self.tableView registerNib:[ChatTableViewCell leftMessageNib] forCellReuseIdentifier:[ChatTableViewCell leftMessageIdentifierString]];
     [self.tableView registerNib:[ChatTableViewCell rightMessageNib] forCellReuseIdentifier:[ChatTableViewCell rightMessageIdentifierString]];
+    [self.tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
 }
 
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
