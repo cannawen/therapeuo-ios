@@ -10,6 +10,8 @@
 
 @interface ChatCellViewModel : NSObject
 
+@property (nonatomic, readonly) BOOL isMySentMessage;
+
 @end
 
 @interface ChatTableViewCell : UITableViewCell

@@ -16,13 +16,46 @@
 
 @implementation ChatTableViewCell
 
-+ (instancetype)sizingCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel  {
-    return nil;
++ (UINib *)leftMessageNib {
+    return [UINib nibWithNibName:@"LeftChatTableViewCell" bundle:nil];
+}
+
++ (UINib *)rightMessageNib {
+    return [UINib nibWithNibName:@"RightChatTableViewCell" bundle:nil];
+}
+
++ (ChatTableViewCell *)loadViewFromNibNamed:(NSString *)nibName {
+    return [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] firstObject];
+}
+
++ (instancetype)sizingCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel {
+    static ChatTableViewCell *leftSizingCell;
+    static ChatTableViewCell *rightSizingCell;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        leftSizingCell = [self loadViewFromNibNamed:@"LeftChatTableViewCell"];
+        rightSizingCell = [self loadViewFromNibNamed:@"RightChatTableViewCell"];
+    });
+    
+    if (viewModel.isMySentMessage) {
+        [rightSizingCell configureWithViewModel:viewModel];
+        return rightSizingCell;
+    } else {
+        [leftSizingCell configureWithViewModel:viewModel];
+        return leftSizingCell;
+    }
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
     
 }
+
+@end
+
+@interface ChatCellViewModel ()
+
+@property (nonatomic) BOOL isMySentMessage;
 
 @end
 
