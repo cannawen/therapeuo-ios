@@ -13,7 +13,9 @@
 
 @interface TDataModule : NSObject <TNetworkProtocol, TPersistenceProtocol>
 
-@property (nonatomic, readonly) Doctor *doctor; //most recent persisted data
+//most recent persisted data
+@property (nonatomic, readonly) Doctor *doctor;
+@property (nonatomic, readonly) NSArray *cases;
 
 + (instancetype)sharedInstance;
 - (void)fetchVerboseCaseWithId:(NSString *)caseId

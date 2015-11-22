@@ -10,12 +10,15 @@
 #import "DoctorProfileViewController.h"
 #import "TDataModule.h"
 
+#import "Patient.h"
 #import "Doctor.h"
 #import "Case.h"
 #import "VerboseCase.h"
 
 #import "CaseListCell.h"
 #import "CaseViewController.h"
+
+#import "NSArray+PivotalCore.h"
 
 @interface TempCaseClass : NSObject
 @property (nonatomic, strong) id patient;
@@ -61,19 +64,13 @@
     return @[asdf1, asdf2, asdf3];
 }
 
+#pragma mark - View Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImage *image = [UIImage imageNamed:@"profileIcon"];
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.rightBarButtonItem.image = image;
-
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass([CaseListCell class]) bundle:[NSBundle bundleForClass:[self class]]];
-    [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([CaseListCell class])];
-    self.navigationItem.hidesBackButton = YES;
+    self.cases = [TDataModule sharedInstance].cases;
+    [self setupNavBar];
+    [self setupCollectionView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -81,19 +78,15 @@
     Doctor *doctor = [TDataModule sharedInstance].doctor;
     __weak TDataModule *weakDataModule = [TDataModule sharedInstance];
     [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctor.doctorId success:^(NSArray *results) {
-        Case *currentCase = [results firstObject];
-        [weakDataModule fetchVerboseCaseWithId:currentCase.caseId
-                                       success:
-         ^(VerboseCase *result) {
-             
-         } failure:nil];
+//        Case *currentCase = [results firstObject];
+//        [weakDataModule fetchVerboseCaseWithId:currentCase.caseId
+//                                       success:
+//         ^(VerboseCase *result) {
+//             
+//         } failure:nil];
+        self.cases = [TDataModule sharedInstance].cases;
+        [self.collectionView reloadData];
     } failure:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.cases = [self fakeCases];
-    [self.collectionView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -108,6 +101,23 @@
         // TODO get a case.
         [vc configureWithPatientCase:[self fakeCases][0]];
     }
+}
+
+#pragma mark - Setup
+
+- (void)setupNavBar {
+    UIImage *image = [UIImage imageNamed:@"profileIcon"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.rightBarButtonItem.image = image;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)setupCollectionView {
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([CaseListCell class]) bundle:[NSBundle bundleForClass:[self class]]];
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([CaseListCell class])];
 }
 
 #pragma mark - IBActions
@@ -131,24 +141,27 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return self.cases.count;
 }
 
 #pragma mark - <UICollectionViewDelegate>
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CaseListCell *cell = (CaseListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CaseListCell class]) forIndexPath:indexPath];
-    TempCaseClass *caseAtIndexPath = self.cases[indexPath.item];
-    NSString *patientName = caseAtIndexPath.patient;
-    NSString *doctorNames = [NSString stringWithFormat:@"Doctors: %@", [caseAtIndexPath.doctors componentsJoinedByString:@", "]];
+    Case *caseAtIndexPath = self.cases[indexPath.item];
+    NSArray *doctorNames = [caseAtIndexPath.doctors map:^NSString *(Doctor *doctor) {
+        return doctor.name;
+    }];
+    NSString *patientNameString = caseAtIndexPath.patient.patientId;
+    NSString *doctorNamesString = [NSString stringWithFormat:@"Doctors: %@", [doctorNames componentsJoinedByString:@", "]];
     NSString *notes = caseAtIndexPath.notes;
-    [cell setupWithPatientName:patientName
-                   doctorNames:doctorNames
+    [cell setupWithPatientName:patientNameString
+                   doctorNames:doctorNamesString
                          notes:notes];
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"CaseViewControllerSegue" sender:nil];
 }
 

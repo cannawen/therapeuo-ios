@@ -19,7 +19,8 @@
 @interface TDataModule ()
 
 // In memory cache
-@property (nonatomic, strong) Doctor *doctor;
+@property (nonatomic, strong, readwrite) Doctor *doctor;
+@property (nonatomic, strong, readwrite) NSArray *cases;
 
 @property (nonatomic, strong) TNetworkManager *networkManager;
 @property (nonatomic, strong) TPersistenceManager *persistenceManager;
@@ -107,6 +108,17 @@
         self.doctor = doctor;
         if (success) {
             success(doctor);
+        }
+    } failure:failure];
+}
+
+- (void)fetchCasesForDoctorWithId:(NSString *)doctorId
+                          success:(SuccssBlock)success
+                          failure:(FailureBlock)failure {
+    [self.networkManager fetchCasesForDoctorWithId:doctorId success:^(NSArray *cases) {
+        self.cases = cases;
+        if (success) {
+            success(cases);
         }
     } failure:failure];
 }
