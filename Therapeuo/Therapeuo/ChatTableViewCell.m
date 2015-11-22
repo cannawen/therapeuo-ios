@@ -17,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTrailingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLeadingConstraint;
-@property (weak, nonatomic) IBOutlet UIView *messageBorders;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *messageBorders;
+
 
 @end
 
@@ -50,7 +51,7 @@
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
     self.messageLabel.text = viewModel.messageString;
     if (viewModel.isMyMessage) {
-        self.messageLabel.backgroundColor = [UIColor themeBlueColor];
+        self.messageLabel.backgroundColor = [[UIColor themeBlueColor] colorWithAlphaComponent:0.5];
     }
     if (viewModel.isPatientMessage) {
         self.messageLeadingConstraint.constant = 10;
@@ -58,6 +59,14 @@
     } else {
         self.messageLeadingConstraint.constant = 50;
         self.messageTrailingConstraint.constant = 10;
+    }
+    
+    for (UIView *borderView in self.messageBorders) {
+        if (viewModel.isMyMessage) {
+            borderView.backgroundColor = [UIColor themeBlueColor];
+        } else {
+            borderView.backgroundColor = [UIColor grayColor];
+        }
     }
 }
 

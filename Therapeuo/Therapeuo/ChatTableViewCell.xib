@@ -99,10 +99,13 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dividerWidthConstraint" destination="zmB-AY-WAd" id="ybc-gi-ynu"/>
-                <outlet property="messageBorders" destination="jwt-sa-bAI" id="xPf-hH-tNh"/>
                 <outlet property="messageLabel" destination="TqO-Q7-JDy" id="AHg-z6-seB"/>
                 <outlet property="messageLeadingConstraint" destination="Drf-jL-VqD" id="r9M-DV-opS"/>
                 <outlet property="messageTrailingConstraint" destination="vWr-mH-yPm" id="9CC-mj-ESF"/>
+                <outletCollection property="messageBorders" destination="jwt-sa-bAI" id="6X9-ok-BRm"/>
+                <outletCollection property="messageBorders" destination="TZn-OD-DeZ" id="Ob3-k1-1jW"/>
+                <outletCollection property="messageBorders" destination="Vcy-md-4V8" id="eet-M1-5nN"/>
+                <outletCollection property="messageBorders" destination="vWe-sW-XMX" id="ajE-YN-NTO"/>
             </connections>
             <point key="canvasLocation" x="351" y="336"/>
         </tableViewCell>
