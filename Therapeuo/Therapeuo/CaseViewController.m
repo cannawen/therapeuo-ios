@@ -36,7 +36,7 @@
     self.associateMDLabel.textColor = [UIColor themeBlueColor];
     self.notesLabel.textColor = [UIColor themeBlueColor];
     
-    self.title = self.patientCase.patientCase.caseId;
+//    self.title = self.patientCase.patientCase.caseId;
 }
 
 - (void)didReceiveMemoryWarning {

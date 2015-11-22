@@ -45,7 +45,6 @@
                                                            }];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor themeBlueColor]];
-    [[UINavigationBar appearance] setTranslucent:NO];
 }
 
 #pragma mark - Push notification code
