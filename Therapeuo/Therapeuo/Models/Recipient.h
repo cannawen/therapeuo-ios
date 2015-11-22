@@ -11,7 +11,8 @@
 typedef NS_ENUM(NSUInteger, RecipientType) {
     RecipientTypeNone = 0,
     RecipientTypeDoctor,
-    RecipientTypePatient
+    RecipientTypePatient,
+    RecipientTypeServer
 };
 
 @interface Recipient : TBaseModel

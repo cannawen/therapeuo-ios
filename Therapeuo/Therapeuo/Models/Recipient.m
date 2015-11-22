@@ -29,9 +29,11 @@
 
 + (NSValueTransformer *)typeJSONTransformer {
     return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
-                                                                           @"Doctor": @(RecipientTypeDoctor),
+                                                                           @"Doctor" : @(RecipientTypeDoctor),
                                                                            @"Patient": @(RecipientTypePatient),
-                                                                           }];
+                                                                           @"Server" : @(RecipientTypeServer),
+                                                                           } defaultValue:@(RecipientTypeNone)
+                                                     reverseDefaultValue:@(RecipientTypeNone)];
 }
 
 @end
