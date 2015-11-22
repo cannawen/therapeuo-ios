@@ -154,6 +154,17 @@
     } failure:failure];
 }
 
+- (void)sendMessage:(NSString *)message
+      forCaseWithId:(NSString *)caseId
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure {
+    [self.networkManager sendMessage:message
+                       forCaseWithId:caseId
+                        fromDoctorId:self.doctor.doctorId
+                             success:success
+                             failure:failure];
+}
+
 #pragma mark - <TPersistenceProtocol>
 
 - (void)readDoctorSuccess:(SuccssBlock)success

@@ -266,19 +266,21 @@
             success:(SuccssBlock)success
             failure:(FailureBlock)failure {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    [params setValue:name forKey:@"name"];
-//    [params setValue:email forKey:@"email"];
-    [self.sessionManager PUT:nil
-                  parameters:nil
-                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                         ;
-                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                         ;
-                     }];
-//    {
-//        "content": "Hello",
-//        "doctor": "ID"
-//    }
+    [params setValue:message forKey:@"content"];
+    [params setValue:doctorId forKey:@"doctor"];
+    [self.sessionManager POST:[NSString stringWithFormat:@"cases/%@/message", caseId]
+                   parameters:params
+                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                          NSLog(@"Send message failed");
+                          if (success) {
+                              success(nil);
+                          }
+                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          NSLog(@"Send message failed");
+                          if (failure) {
+                              failure(error);
+                          }
+                      }];
 }
 
 

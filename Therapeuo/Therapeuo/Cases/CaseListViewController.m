@@ -77,11 +77,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //    __weak TDataModule *weakDataModule = [TDataModule sharedInstance];
+    
     Doctor *doctor = [TDataModule sharedInstance].doctor;
-    __weak TDataModule *weakDataModule = [TDataModule sharedInstance];
     [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctor.doctorId success:^(NSArray *results) {
         self.cases = [TDataModule sharedInstance].cases;
         [self.collectionView reloadData];
+        
+        //        Case *testCase = [self.cases firstObject];
+        //        [weakDataModule sendMessage:@"iOS test"
+        //                      forCaseWithId:testCase.caseId
+        //                            success:nil
+        //                            failure:nil];
     } failure:nil];
 }
 
@@ -160,7 +167,7 @@
     Case *currentCase = self.cases[indexPath.item];
     [self spinnerShow];
     [[TDataModule sharedInstance] fetchVerboseCaseWithId:currentCase.caseId
-                                   success:
+                                                 success:
      ^(VerboseCase *result) {
          [self spinnerHide];
          [self performSegueWithIdentifier:@"CaseViewControllerSegue" sender:nil];

@@ -74,5 +74,9 @@
                        failure:(FailureBlock)failure;
 - (void)logoutSuccess:(SuccssBlock)success
               failure:(FailureBlock)failure;
+- (void)sendMessage:(NSString *)message
+      forCaseWithId:(NSString *)caseId
+            success:(SuccssBlock)success
+            failure:(FailureBlock)failure;
 
 @end
