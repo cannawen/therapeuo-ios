@@ -11,12 +11,23 @@
 @interface ChatCellViewModel : NSObject
 
 @property (nonatomic, readonly) BOOL isMySentMessage;
+@property (nonatomic, readonly) NSString *message;
+
++ (instancetype)viewModelWithMessage:(NSString *)message
+                     isMySentMessage:(BOOL)isMySentMessage;
 
 @end
 
 @interface ChatTableViewCell : UITableViewCell
 
++ (UINib *)partnerMessageNib;
++ (NSString *)partnerMessageIdentifierString;
+
++ (UINib *)myMessageNib;
++ (NSString *)myMessageIdentifierString;
+
 + (instancetype)sizingCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel;
+
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel;
 
 @end

@@ -16,12 +16,20 @@
 
 @implementation ChatTableViewCell
 
-+ (UINib *)leftMessageNib {
-    return [UINib nibWithNibName:@"LeftChatTableViewCell" bundle:nil];
++ (UINib *)partnerMessageNib {
+    return [UINib nibWithNibName:[self partnerMessageIdentifierString] bundle:nil];
 }
 
-+ (UINib *)rightMessageNib {
-    return [UINib nibWithNibName:@"RightChatTableViewCell" bundle:nil];
++ (UINib *)myMessageNib {
+    return [UINib nibWithNibName:[self myMessageIdentifierString] bundle:nil];
+}
+
++ (NSString *)partnerMessageIdentifierString {
+    return @"LeftChatTableViewCell";
+}
+
++ (NSString *)myMessageIdentifierString {
+    return @"RightChatTableViewCell";
 }
 
 + (ChatTableViewCell *)loadViewFromNibNamed:(NSString *)nibName {
@@ -34,8 +42,8 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        leftSizingCell = [self loadViewFromNibNamed:@"LeftChatTableViewCell"];
-        rightSizingCell = [self loadViewFromNibNamed:@"RightChatTableViewCell"];
+        leftSizingCell = [self loadViewFromNibNamed:[self partnerMessageIdentifierString]];
+        rightSizingCell = [self loadViewFromNibNamed:[self myMessageIdentifierString]];
     });
     
     if (viewModel.isMySentMessage) {
@@ -48,7 +56,7 @@
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
-    
+    self.messageLabel.text = viewModel.message;
 }
 
 @end
@@ -56,11 +64,17 @@
 @interface ChatCellViewModel ()
 
 @property (nonatomic) BOOL isMySentMessage;
+@property (nonatomic) NSString *message;
 
 @end
 
 @implementation ChatCellViewModel
 
-
++ (instancetype)viewModelWithMessage:(NSString *)message isMySentMessage:(BOOL)isMySentMessage {
+    ChatCellViewModel *viewModel = [ChatCellViewModel new];
+    viewModel.message = message;
+    viewModel.isMySentMessage = isMySentMessage;
+    return viewModel;
+}
 
 @end
