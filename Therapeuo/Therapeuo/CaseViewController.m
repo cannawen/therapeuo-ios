@@ -35,7 +35,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *associateMDValueLabel;
 @property (weak, nonatomic) IBOutlet ThemedButton *openChatButton;
 @property (weak, nonatomic) IBOutlet UIButton *addDoctorButton;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
+@property (weak, nonatomic) IBOutlet UILabel *locationValueLabel;
 
 @end
 
@@ -61,6 +63,7 @@ typedef void (^ SaveBlock)(BOOL);
     self.caseCompletionSwitch.tintColor = [UIColor themeBlueColor];
     self.caseCompletionSwitch.onTintColor = [UIColor themeBlueColor];
     self.caseCompleteLabel.textColor = [UIColor themeBlueColor];
+    self.locationLabel.textColor = [UIColor themeBlueColor];
     
     self.title = self.patientCase.theCase.patient.patientId;
     [self setupUI];
@@ -114,12 +117,14 @@ typedef void (^ SaveBlock)(BOOL);
     
     NSMutableString *associateDoctorString = [NSMutableString new];
     for (Doctor *doctor in theCase.doctors) {
-        [associateDoctorString appendString:[NSString stringWithFormat:@"%@,", doctor.name]];
+        [associateDoctorString appendString:[NSString stringWithFormat:@"%@, ", doctor.name]];
     }
     
     if (associateDoctorString.length > 0) {
-        self.associateMDValueLabel.text = [associateDoctorString substringToIndex:(associateDoctorString.length - 1)];
+        self.associateMDValueLabel.text = [associateDoctorString substringToIndex:(associateDoctorString.length - 2)];
     }
+    
+//    self.locationValueLabel.text = theCase.patient.location;
     
     self.caseCompletionSwitch.on = theCase.open;
     self.notesTextView.text = theCase.notes;
