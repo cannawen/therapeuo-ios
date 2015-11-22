@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TBaseViewController.h"
 
+@class Message;
+
 @interface ChatViewController : TBaseViewController
+
+- (void)configureWithMessages:(NSArray <Message *> *)messages;
 
 @end

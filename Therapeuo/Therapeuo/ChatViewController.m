@@ -21,9 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[ChatTableViewCell myMessageNib] forCellReuseIdentifier:[ChatTableViewCell myMessageIdentifierString]];
-    [self.tableView registerNib:[ChatTableViewCell partnerMessageNib] forCellReuseIdentifier:[ChatTableViewCell partnerMessageIdentifierString]];
+    [self.tableView registerNib:[ChatTableViewCell leftMessageNib] forCellReuseIdentifier:[ChatTableViewCell leftMessageIdentifierString]];
+    [self.tableView registerNib:[ChatTableViewCell rightMessageNib] forCellReuseIdentifier:[ChatTableViewCell rightMessageIdentifierString]];
 }
+
+- (void)configureWithMessages:(NSArray <Message *> *)messages {
+    
+}
+
+#pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;

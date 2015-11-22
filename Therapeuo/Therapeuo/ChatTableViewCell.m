@@ -7,6 +7,8 @@
 //
 
 #import "ChatTableViewCell.h"
+#import "Message.h"
+#import "UIColor+Theme.h"
 
 @interface ChatTableViewCell ()
 
@@ -16,19 +18,19 @@
 
 @implementation ChatTableViewCell
 
-+ (UINib *)partnerMessageNib {
-    return [UINib nibWithNibName:[self partnerMessageIdentifierString] bundle:nil];
++ (UINib *)leftMessageNib {
+    return [UINib nibWithNibName:[self leftMessageIdentifierString] bundle:nil];
 }
 
-+ (UINib *)myMessageNib {
-    return [UINib nibWithNibName:[self myMessageIdentifierString] bundle:nil];
++ (UINib *)rightMessageNib {
+    return [UINib nibWithNibName:[self rightMessageIdentifierString] bundle:nil];
 }
 
-+ (NSString *)partnerMessageIdentifierString {
++ (NSString *)leftMessageIdentifierString {
     return @"LeftChatTableViewCell";
 }
 
-+ (NSString *)myMessageIdentifierString {
++ (NSString *)rightMessageIdentifierString {
     return @"RightChatTableViewCell";
 }
 
@@ -42,11 +44,11 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        leftSizingCell = [self loadViewFromNibNamed:[self partnerMessageIdentifierString]];
-        rightSizingCell = [self loadViewFromNibNamed:[self myMessageIdentifierString]];
+        leftSizingCell = [self loadViewFromNibNamed:[self leftMessageIdentifierString]];
+        rightSizingCell = [self loadViewFromNibNamed:[self rightMessageIdentifierString]];
     });
     
-    if (viewModel.isMySentMessage) {
+    if (viewModel.isDoctorMessage) {
         [rightSizingCell configureWithViewModel:viewModel];
         return rightSizingCell;
     } else {
@@ -56,24 +58,27 @@
 }
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
-    self.messageLabel.text = viewModel.message;
+    self.messageLabel.text = viewModel.messageString;
+    if (viewModel.isMyMessage) {
+        self.messageLabel.backgroundColor = [UIColor themeBlueColor];
+    }
 }
 
 @end
 
 @interface ChatCellViewModel ()
 
-@property (nonatomic) BOOL isMySentMessage;
-@property (nonatomic) NSString *message;
+@property (nonatomic) BOOL isDoctorMessage;
+@property (nonatomic) BOOL isMyMessage;
+@property (nonatomic) NSString *messageString;
 
 @end
 
 @implementation ChatCellViewModel
 
-+ (instancetype)viewModelWithMessage:(NSString *)message isMySentMessage:(BOOL)isMySentMessage {
++ (instancetype)viewModelFromMessage:(Message *)message {
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
-    viewModel.message = message;
-    viewModel.isMySentMessage = isMySentMessage;
+    viewModel.messageString = message.content;
     return viewModel;
 }
 

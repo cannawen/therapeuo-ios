@@ -8,23 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+@class Message;
+
 @interface ChatCellViewModel : NSObject
 
-@property (nonatomic, readonly) BOOL isMySentMessage;
-@property (nonatomic, readonly) NSString *message;
+@property (nonatomic, readonly) BOOL isDoctorMessage;
+@property (nonatomic, readonly) BOOL isMyMessage;
+@property (nonatomic, readonly) NSString *messageString;
 
-+ (instancetype)viewModelWithMessage:(NSString *)message
-                     isMySentMessage:(BOOL)isMySentMessage;
++ (instancetype)viewModelFromMessage:(Message *)message;
 
 @end
 
 @interface ChatTableViewCell : UITableViewCell
 
-+ (UINib *)partnerMessageNib;
-+ (NSString *)partnerMessageIdentifierString;
++ (UINib *)rightMessageNib;
++ (NSString *)rightMessageIdentifierString;
 
-+ (UINib *)myMessageNib;
-+ (NSString *)myMessageIdentifierString;
++ (UINib *)leftMessageNib;
++ (NSString *)leftMessageIdentifierString;
 
 + (instancetype)sizingCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel;
 
