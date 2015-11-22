@@ -29,8 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
-    [self.view addGestureRecognizer:tapGestureRecognizer];
+    [self setupTapToDismissKeboard];
     [[TDataModule sharedInstance] readDoctorSuccess:^(id result) {
         if (result) {
             [self moveToHome];
@@ -47,10 +46,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
-}
-
-- (void)backgroundTapped:(id)sender {
-    [self.view endEditing:YES];
 }
 
 - (void)moveToHome {

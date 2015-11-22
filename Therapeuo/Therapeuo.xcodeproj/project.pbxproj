@@ -20,6 +20,7 @@
 		1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1786DEE81C01138A002DE686 /* CaseListCell.xib */; };
 		1786DEEC1C012D51002DE686 /* VerboseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEEB1C012D51002DE686 /* VerboseCase.m */; };
 		1786DEEF1C013621002DE686 /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEEE1C013621002DE686 /* Recipient.m */; };
+		1786DEF21C015211002DE686 /* UIViewController+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEF11C015211002DE686 /* UIViewController+Helpers.m */; };
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
@@ -29,7 +30,7 @@
 		179E8AD21C00A995005E492F /* TherapeuoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AD11C00A995005E492F /* TherapeuoUITests.m */; };
 		179E8AEB1C00AA27005E492F /* CaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AE71C00AA27005E492F /* CaseListViewController.m */; };
 		179E8AEC1C00AA27005E492F /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AEA1C00AA27005E492F /* DoctorProfileViewController.m */; };
-		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B03B74E41C013E7A008D0383 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03B74E31C013E7A008D0383 /* ChatViewController.m */; };
 		B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED31C00BF5D008EDA02 /* LoginViewController.m */; };
 		B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662ED61C00BF6B008EDA02 /* RegistrationViewController.m */; };
 		B0662EDE1C00C7B7008EDA02 /* ThemedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */; };
@@ -90,6 +91,8 @@
 		1786DEEB1C012D51002DE686 /* VerboseCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerboseCase.m; path = Models/VerboseCase.m; sourceTree = "<group>"; };
 		1786DEED1C013621002DE686 /* Recipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipient.h; path = Models/Recipient.h; sourceTree = "<group>"; };
 		1786DEEE1C013621002DE686 /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipient.m; path = Models/Recipient.m; sourceTree = "<group>"; };
+		1786DEF01C015211002DE686 /* UIViewController+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Helpers.h"; path = "View Controllers/UIViewController+Helpers.h"; sourceTree = "<group>"; };
+		1786DEF11C015211002DE686 /* UIViewController+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Helpers.m"; path = "View Controllers/UIViewController+Helpers.m"; sourceTree = "<group>"; };
 		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				B0662EF41C010A0D008EDA02 /* Case */,
 				1786DEDF1C00F48B002DE686 /* TBaseViewController.h */,
 				1786DEE01C00F48B002DE686 /* TBaseViewController.m */,
+				1786DEF01C015211002DE686 /* UIViewController+Helpers.h */,
+				1786DEF11C015211002DE686 /* UIViewController+Helpers.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				1786DECD1C00C6A7002DE686 /* TNetworkManager.m in Sources */,
 				179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */,
 				D3796E141C00BBBA007E2888 /* Patient.m in Sources */,
+				1786DEF21C015211002DE686 /* UIViewController+Helpers.m in Sources */,
 				1786DEDE1C00F0FF002DE686 /* TAlertHelper.m in Sources */,
 				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
 				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,

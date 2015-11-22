@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+Helpers.h"
 
 @interface TBaseViewController : UIViewController <UITextFieldDelegate> // Must call super if child VC also implementing UITextFieldDelegate for keyboard scrolling to work
 

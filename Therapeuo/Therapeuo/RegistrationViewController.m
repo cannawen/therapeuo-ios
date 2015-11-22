@@ -30,12 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.originalFormBottomConstraintOriginalConstant = self.formBottomConstraint.constant;
-    UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
-    [self.view addGestureRecognizer:tapGestureRecognizer];
-}
-
-- (void)backgroundTapped:(id)sender {
-    [self.view endEditing:YES];
+    [self setupTapToDismissKeboard];
 }
 
 - (IBAction)registerButtonTapped:(id)sender {
