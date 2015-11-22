@@ -28,9 +28,11 @@
     [self.tableView registerNib:[ChatTableViewCell nib] forCellReuseIdentifier:NSStringFromClass([ChatTableViewCell class])];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:self.viewModels.count - 1
+                                                               inSection:0]
+                          atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {

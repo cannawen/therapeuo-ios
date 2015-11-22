@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="382" height="157"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-fr-nIf" userLabel="Message Border view">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-fr-nIf" userLabel="Message view">
                         <rect key="frame" x="10" y="10" width="322" height="136"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWe-sW-XMX" userLabel="Top Border View">
@@ -102,6 +102,7 @@
                 <outlet property="messageLabel" destination="TqO-Q7-JDy" id="AHg-z6-seB"/>
                 <outlet property="messageLeadingConstraint" destination="Drf-jL-VqD" id="r9M-DV-opS"/>
                 <outlet property="messageTrailingConstraint" destination="vWr-mH-yPm" id="9CC-mj-ESF"/>
+                <outlet property="messageView" destination="ge8-fr-nIf" id="0tF-x0-0Vf"/>
                 <outletCollection property="messageBorders" destination="jwt-sa-bAI" id="6X9-ok-BRm"/>
                 <outletCollection property="messageBorders" destination="TZn-OD-DeZ" id="Ob3-k1-1jW"/>
                 <outletCollection property="messageBorders" destination="Vcy-md-4V8" id="eet-M1-5nN"/>
