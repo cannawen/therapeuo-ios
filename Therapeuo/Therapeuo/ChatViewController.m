@@ -10,6 +10,8 @@
 #import "TConstants.h"
 #import "ChatTableViewCell.h"
 #import "VerboseCase.h"
+#import "TDataModule.h"
+#import "Doctor.h"
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -38,7 +40,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:self.verboseCase.messages[indexPath.row]];
+    Message *message = self.verboseCase.messages[indexPath.row];
+    id sender = [self.verboseCase senderForMessage:message];
+    Doctor *me = [[TDataModule sharedInstance] doctor];
+    BOOL isMyMessage;
+    if ([sender isKindOfClass:[Doctor class]] && ((Doctor *)sender).doctorId == me.doctorId) {
+        isMyMessage = YES;
+    } else {
+        isMyMessage = NO;
+    }
+    ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:message isMyMessage:isMyMessage];
     ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:viewModel.identifier];
     return cell;
 }

@@ -69,14 +69,16 @@
 @interface ChatCellViewModel ()
 
 @property (nonatomic) Message *message;
+@property (nonatomic) BOOL isMyMessage;
 
 @end
 
 @implementation ChatCellViewModel
 
-+ (instancetype)viewModelFromMessage:(Message *)message {
++ (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage {
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
     viewModel.message = message;
+    viewModel.isMyMessage = isMyMessage;
     return viewModel;
 }
 
@@ -93,10 +95,6 @@
 
 - (BOOL)isPatientMessage {
     return [self.message isSentByPatient];
-}
-
-- (BOOL)isMyMessage {
-    return NO;//TODO
 }
 
 - (BOOL)isDoctorMessage {
