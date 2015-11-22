@@ -6,8 +6,8 @@
 //  Copyright © 2015 Dumpling. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TBaseViewController.h"
 
-@interface CaseListViewController : UIViewController
+@interface CaseListViewController : TBaseViewController
 
 @end

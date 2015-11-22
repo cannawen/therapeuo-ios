@@ -15,6 +15,8 @@
 #import "Case.h"
 #import "VerboseCase.h"
 
+#import "TAlertHelper.h"
+
 #import "CaseListCell.h"
 #import "CaseViewController.h"
 
@@ -78,12 +80,6 @@
     Doctor *doctor = [TDataModule sharedInstance].doctor;
     __weak TDataModule *weakDataModule = [TDataModule sharedInstance];
     [[TDataModule sharedInstance] fetchCasesForDoctorWithId:doctor.doctorId success:^(NSArray *results) {
-//        Case *currentCase = [results firstObject];
-//        [weakDataModule fetchVerboseCaseWithId:currentCase.caseId
-//                                       success:
-//         ^(VerboseCase *result) {
-//             
-//         } failure:nil];
         self.cases = [TDataModule sharedInstance].cases;
         [self.collectionView reloadData];
     } failure:nil];
@@ -161,8 +157,18 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"CaseViewControllerSegue" sender:nil];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Case *currentCase = self.cases[indexPath.item];
+    [self spinnerShow];
+    [[TDataModule sharedInstance] fetchVerboseCaseWithId:currentCase.caseId
+                                   success:
+     ^(VerboseCase *result) {
+         [self spinnerHide];
+         [self performSegueWithIdentifier:@"CaseViewControllerSegue" sender:nil];
+     } failure:^(NSError *error) {
+         [self spinnerHide];
+         [TAlertHelper showDefaultError];
+     }];
 }
 
 #pragma mark - <UICollectionViewDelegateFlowLayout>
