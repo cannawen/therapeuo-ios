@@ -567,7 +567,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1786DEF71C019ED5002DE686 /* CaseListHeaderView.xib in Resources */,
-				B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */,
 				179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */,
 				D373491A1C01A3F100037C0A /* DoctorTableViewCell.xib in Resources */,
 				1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */,
@@ -830,7 +829,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.Therapeuo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1a6c1f01-0ec1-4314-b72b-6df9e0bd1c94";
+				PROVISIONING_PROFILE = "cdf588c1-c54a-4bb6-b8d2-c6033beb4c80";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -846,7 +845,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.dumpling.Therapeuo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1a6c1f01-0ec1-4314-b72b-6df9e0bd1c94";
+				PROVISIONING_PROFILE = "cdf588c1-c54a-4bb6-b8d2-c6033beb4c80";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

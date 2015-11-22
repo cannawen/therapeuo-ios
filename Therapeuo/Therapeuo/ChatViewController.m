@@ -36,9 +36,10 @@
     [super viewDidLoad];
     [self.tableView registerNib:[ChatTableViewCell nib] forCellReuseIdentifier:NSStringFromClass([ChatTableViewCell class])];
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(handlePullToRefresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
     self.refreshControl = refreshControl;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleInlineRefresh) name:@"recievedPush" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -46,8 +47,17 @@
     [self scrollToBottom];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)configureWithVerboseCase:(VerboseCase *)verboseCase {
     self.verboseCase = verboseCase;
+    self.viewModels = [self viewModelsWithVerboseCase:verboseCase];
+    [self.tableView reloadData];
+}
+
+- (NSMutableArray *)viewModelsWithVerboseCase:(VerboseCase *)verboseCase {
     NSString *myId = [TDataModule sharedInstance].doctor.doctorId;
     NSMutableArray *array = [NSMutableArray array];
     for (Message *message in verboseCase.messages) {
@@ -61,8 +71,7 @@
         ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMessage:message isMyMessage:isMyMessage];
         [array addObject:viewModel];
     }
-    self.viewModels = array;
-    [self.tableView reloadData];
+    return array;
 }
 
 #pragma mark -
@@ -73,26 +82,34 @@
                           atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
-- (void)handleRefresh:(id)sender {
-    [self handleRefreshShowingFeedback:YES];
-}
-
-- (void)handleRefreshShowingFeedback:(BOOL)showingFeedback {
-    if (showingFeedback) {
-        [self spinnerShow];
-    }
+- (void)handleInlineRefresh {
+    NSUInteger oldMessageCount = self.viewModels.count;
     [[TDataModule sharedInstance] fetchVerboseCaseWithId:self.verboseCase.theCase.caseId success:^(VerboseCase *result) {
         [self configureWithVerboseCase:result];
-        if (showingFeedback) {
-            [self spinnerHide];
-            [self.refreshControl endRefreshing];
+        [self scrollToBottom];
+        NSUInteger newMessageCount = self.viewModels.count;
+        for (NSInteger newMessageIndex = oldMessageCount; newMessageIndex < newMessageCount; newMessageIndex++) {
+            ChatCellViewModel *viewModel = self.viewModels[newMessageIndex];
+            viewModel.shouldFlash = YES;
         }
     } failure:^(NSError *error) {
-        if (showingFeedback) {
-            [self showErrorWithMessage:@"Unable to reload messages"];
-            [self spinnerHide];
-            [self.refreshControl endRefreshing];
-        }
+        [self scrollToBottom];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)handlePullToRefresh {
+    [self spinnerShow];
+    [[TDataModule sharedInstance] fetchVerboseCaseWithId:self.verboseCase.theCase.caseId success:^(VerboseCase *result) {
+        [self configureWithVerboseCase:result];
+        [self spinnerHide];
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        [self showErrorWithMessage:@"Unable to reload messages"];
+        [self spinnerHide];
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
     }];
 }
 
@@ -109,18 +126,14 @@
 
 - (IBAction)sendButtonTapped:(id)sender {
     NSString *message = self.messageTextField.text;
-    self.messageTextField.text = nil;
-    ChatCellViewModel *viewModel = [ChatCellViewModel viewModelFromMyMessage:message];
-    [self.viewModels addObject:viewModel];
-    [self.tableView reloadData];
     
     [[TDataModule sharedInstance] sendMessage:message
                                 forCaseWithId:self.verboseCase.theCase.caseId
                                       success:^(id result) {
+                                          self.messageTextField.text = nil;
                                           [self hideError];
-                                          [self handleRefreshShowingFeedback:NO];
+                                          [self handleInlineRefresh];
                                       } failure:^(NSError *error) {
-                                          self.messageTextField.text = message;
                                           [self showErrorWithMessage:@"Unable to send message"];
                                           [[self viewModels] removeLastObject];
                                           [self.tableView reloadData];
@@ -137,6 +150,10 @@
     ChatCellViewModel *viewModel = self.viewModels[indexPath.row];
     ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ChatTableViewCell class])];
     [cell configureWithViewModel:viewModel];
+    if (viewModel.shouldFlash) {
+        [cell flash];
+        viewModel.shouldFlash = NO;
+    }
     return cell;
 }
 

@@ -13,7 +13,8 @@
 @interface ChatCellViewModel : NSObject
 
 + (instancetype)viewModelFromMessage:(Message *)message isMyMessage:(BOOL)isMyMessage;
-+ (instancetype)viewModelFromMyMessage:(NSString *)message;
+
+@property (nonatomic) BOOL shouldFlash;
 
 - (NSString *)messageString;
 - (BOOL)isPatientMessage;
@@ -30,5 +31,6 @@
 + (CGFloat)heightForCellWithWidth:(CGFloat)width viewModel:(ChatCellViewModel *)viewModel;
 
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel;
+- (void)flash;
 
 @end

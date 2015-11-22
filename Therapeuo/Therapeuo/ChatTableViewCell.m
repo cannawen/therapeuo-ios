@@ -27,6 +27,7 @@ static CGFloat smallSpace = 25;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTrailingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLeadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *messageView;
+@property (weak, nonatomic) IBOutlet UIView *flashView;
 
 @end
 
@@ -64,6 +65,11 @@ static CGFloat smallSpace = 25;
     return size.height;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.flashView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.2];
+}
+
 - (void)configureWithViewModel:(ChatCellViewModel *)viewModel {
     self.messageLabel.text = viewModel.messageString;
     
@@ -84,6 +90,18 @@ static CGFloat smallSpace = 25;
     self.frame = CGRectMake(0, 0, width, 44);
     self.dividerWidthConstraint.constant = width;
     self.dividerWidthConstraint.active = YES;
+}
+
+#pragma mark - 
+
+- (void)flash {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.flashView.alpha = 1;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.flashView.alpha = 0;
+        }];
+    }];
 }
 
 #pragma mark -
@@ -167,6 +185,7 @@ static CGFloat smallSpace = 25;
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
     viewModel.message = message;
     viewModel.isMyMessage = isMyMessage;
+    viewModel.shouldFlash = NO;
     return viewModel;
 }
 
@@ -174,8 +193,11 @@ static CGFloat smallSpace = 25;
     ChatCellViewModel *viewModel = [ChatCellViewModel new];
     viewModel.myMessageString = message;
     viewModel.isMyMessage = YES;
+    viewModel.shouldFlash = NO;
     return viewModel;
 }
+
+#pragma mark -
 
 - (void)invalidateMessage {
     self.myMessageString = self.message.content;

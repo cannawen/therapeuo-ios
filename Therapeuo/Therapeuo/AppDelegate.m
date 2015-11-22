@@ -71,8 +71,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSString *userInfoString = [NSString stringWithFormat:@"%@", userInfo];
-    [[[UIAlertView alloc] initWithTitle:@"Push recieved" message:userInfoString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"recievedPush" object:nil];
 }
 
 @end
