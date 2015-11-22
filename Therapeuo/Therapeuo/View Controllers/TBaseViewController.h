@@ -15,8 +15,8 @@
 - (void)spinnerHide;
 
 #pragma mark - Keyboard Methods
+- (void)setupKeyboardHandlingForScrollView:(UIScrollView *)scrollView; //You must set textFields to be delegate of VC in order to use this
 - (void)keyboardWillShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField;
 - (void)keyboardWillHideWithHeight:(CGFloat)height;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView; //Connect IBOutlet for default behaviour
 
 @end

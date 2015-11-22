@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @property (nonatomic) UITextField *activeField;
+@property (weak, nonatomic) UIScrollView *scrollView;
 
 @end
 
@@ -79,6 +80,10 @@
 }
 
 #pragma mark - Methods to override for custom behaviour
+
+- (void)setupKeyboardHandlingForScrollView:(UIScrollView *)scrollView {
+    self.scrollView = scrollView;
+}
 
 - (void)keyboardWillShowWithHeight:(CGFloat)height activeTextField:(UITextField *)activeTextField {
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);

@@ -22,11 +22,11 @@
 }
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 25, 15);
+    return CGRectInset(bounds, 10, 15);
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 25, 15);
+    return CGRectInset(bounds, 10, 15);
 }
 
 @end
