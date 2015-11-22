@@ -21,6 +21,8 @@
 		1786DEEC1C012D51002DE686 /* VerboseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEEB1C012D51002DE686 /* VerboseCase.m */; };
 		1786DEEF1C013621002DE686 /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEEE1C013621002DE686 /* Recipient.m */; };
 		1786DEF21C015211002DE686 /* UIViewController+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEF11C015211002DE686 /* UIViewController+Helpers.m */; };
+		1786DEF51C019E8B002DE686 /* CaseListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786DEF41C019E8B002DE686 /* CaseListHeaderView.m */; };
+		1786DEF71C019ED5002DE686 /* CaseListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1786DEF61C019ED5002DE686 /* CaseListHeaderView.xib */; };
 		179E8AAB1C00A994005E492F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAA1C00A994005E492F /* main.m */; };
 		179E8AAE1C00A994005E492F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179E8AAD1C00A994005E492F /* AppDelegate.m */; };
 		179E8AB71C00A994005E492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E8AB51C00A994005E492F /* Main.storyboard */; };
@@ -97,6 +99,9 @@
 		1786DEEE1C013621002DE686 /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipient.m; path = Models/Recipient.m; sourceTree = "<group>"; };
 		1786DEF01C015211002DE686 /* UIViewController+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Helpers.h"; path = "View Controllers/UIViewController+Helpers.h"; sourceTree = "<group>"; };
 		1786DEF11C015211002DE686 /* UIViewController+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Helpers.m"; path = "View Controllers/UIViewController+Helpers.m"; sourceTree = "<group>"; };
+		1786DEF31C019E8B002DE686 /* CaseListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListHeaderView.h; sourceTree = "<group>"; };
+		1786DEF41C019E8B002DE686 /* CaseListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseListHeaderView.m; sourceTree = "<group>"; };
+		1786DEF61C019ED5002DE686 /* CaseListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaseListHeaderView.xib; sourceTree = "<group>"; };
 		179E8AA61C00A994005E492F /* Therapeuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Therapeuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		179E8AAA1C00A994005E492F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		179E8AAC1C00A994005E492F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -340,6 +345,9 @@
 				1786DEE51C011378002DE686 /* CaseListCell.h */,
 				1786DEE61C011378002DE686 /* CaseListCell.m */,
 				1786DEE81C01138A002DE686 /* CaseListCell.xib */,
+				1786DEF31C019E8B002DE686 /* CaseListHeaderView.h */,
+				1786DEF41C019E8B002DE686 /* CaseListHeaderView.m */,
+				1786DEF61C019ED5002DE686 /* CaseListHeaderView.xib */,
 				B0662EDC1C00C7B7008EDA02 /* ThemedButton.h */,
 				B0662EDD1C00C7B7008EDA02 /* ThemedButton.m */,
 				B0662EEE1C0107A3008EDA02 /* ThemedLabel.h */,
@@ -545,6 +553,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1786DEF71C019ED5002DE686 /* CaseListHeaderView.xib in Resources */,
+				B03B74E91C014A53008D0383 /* RightChatTableViewCell.xib in Resources */,
 				179E8ABC1C00A994005E492F /* LaunchScreen.storyboard in Resources */,
 				1786DEE91C01138A002DE686 /* CaseListCell.xib in Resources */,
 				179E8AB91C00A994005E492F /* Assets.xcassets in Resources */,
@@ -634,6 +644,7 @@
 				D3796E131C00BBBA007E2888 /* Doctor.m in Sources */,
 				B0662ED71C00BF6B008EDA02 /* RegistrationViewController.m in Sources */,
 				179E8AEB1C00AA27005E492F /* CaseListViewController.m in Sources */,
+				1786DEF51C019E8B002DE686 /* CaseListHeaderView.m in Sources */,
 				B0662EF01C0107A3008EDA02 /* ThemedLabel.m in Sources */,
 				B0662ED41C00BF5D008EDA02 /* LoginViewController.m in Sources */,
 				B0662EF31C0109FD008EDA02 /* CaseViewController.m in Sources */,

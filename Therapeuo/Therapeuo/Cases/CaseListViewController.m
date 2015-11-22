@@ -17,6 +17,7 @@
 
 #import "TAlertHelper.h"
 
+#import "CaseListHeaderView.h"
 #import "CaseListCell.h"
 #import "CaseViewController.h"
 
@@ -72,6 +73,8 @@
     self.collectionView.backgroundColor = [UIColor clearColor];
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([CaseListCell class]) bundle:[NSBundle bundleForClass:[self class]]];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([CaseListCell class])];
+    nib = [UINib nibWithNibName:NSStringFromClass([CaseListHeaderView class]) bundle:[NSBundle bundleForClass:[self class]]];
+    [self.collectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CaseListHeaderView class])];
 }
 
 #pragma mark - Cases
@@ -149,6 +152,42 @@
 
 #pragma mark - <UICollectionViewDelegate>
 
+- (NSString *)titleForSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"OPEN CASES";
+        case 1:
+            return @"ASSISTING CASES";
+        case 2:
+            return @"CLOSED CASES";
+        default:
+            return nil;
+    }
+}
+
+- (NSString *)iconNameForSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"case_open_icon";
+        case 1:
+            return @"case_proxy_icon";
+        case 2:
+            return @"case_closed_icon";
+        default:
+            return nil;
+    }
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        CaseListHeaderView *headerView = (CaseListHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CaseListHeaderView class]) forIndexPath:indexPath];
+        headerView.titleLabel.text = [self titleForSection:indexPath.section];
+        headerView.iconImageView.image = [UIImage imageNamed:[self iconNameForSection:indexPath.section]];
+        return headerView;
+    }
+    return nil;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CaseListCell *cell = (CaseListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CaseListCell class]) forIndexPath:indexPath];
     Case *caseAtIndexPath = [self caseForIndexPath:indexPath];
@@ -182,6 +221,14 @@
 }
 
 #pragma mark - <UICollectionViewDelegateFlowLayout>
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return [self casesForSection:section].count > 0 ? CGSizeMake(collectionView.bounds.size.width, 50.0f) : CGSizeZero;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeZero;
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(collectionView.bounds.size.width, 120.0f);

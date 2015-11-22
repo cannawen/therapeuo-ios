@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -11,51 +11,58 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch2-hb-lq2">
-                    <rect key="frame" x="8" y="8" width="304" height="27"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associate MDs:  Doctor1, Doctor2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-ef-l1U">
-                    <rect key="frame" x="8" y="90" width="304" height="22"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is a summary of what is happening on the case right now" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-Ve-rNt">
-                    <rect key="frame" x="8" y="37" width="304" height="36"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5R-I9-Pg7">
+                    <rect key="frame" x="5" y="5" width="310" height="110"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch2-hb-lq2">
+                            <rect key="frame" x="8" y="8" width="294" height="27"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associate MDs:  Doctor1, Doctor2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-ef-l1U">
+                            <rect key="frame" x="8" y="80" width="294" height="22"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is a summary of what is happening on the case right now" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXV-Ve-rNt">
+                            <rect key="frame" x="8" y="37" width="294" height="36"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="eGc-ef-l1U" firstAttribute="leading" secondItem="O5R-I9-Pg7" secondAttribute="leading" constant="8" id="0iM-5C-o8H"/>
+                        <constraint firstItem="Ch2-hb-lq2" firstAttribute="leading" secondItem="O5R-I9-Pg7" secondAttribute="leading" constant="8" id="28A-1B-S23"/>
+                        <constraint firstAttribute="trailing" secondItem="NXV-Ve-rNt" secondAttribute="trailing" constant="8" id="AfU-6N-dyQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Ch2-hb-lq2" secondAttribute="trailing" constant="8" id="B4N-rT-XKV"/>
+                        <constraint firstItem="Ch2-hb-lq2" firstAttribute="top" secondItem="O5R-I9-Pg7" secondAttribute="top" constant="8" id="XF6-NE-Ycb"/>
+                        <constraint firstItem="NXV-Ve-rNt" firstAttribute="leading" secondItem="O5R-I9-Pg7" secondAttribute="leading" constant="8" id="atx-Ry-kS9"/>
+                        <constraint firstAttribute="bottom" secondItem="eGc-ef-l1U" secondAttribute="bottom" constant="8" id="o3c-xo-ljg"/>
+                        <constraint firstAttribute="trailing" secondItem="eGc-ef-l1U" secondAttribute="trailing" constant="8" id="qAZ-Eb-FuG"/>
+                        <constraint firstItem="NXV-Ve-rNt" firstAttribute="top" secondItem="Ch2-hb-lq2" secondAttribute="bottom" constant="2" id="sYR-8S-mm5"/>
+                        <constraint firstItem="eGc-ef-l1U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NXV-Ve-rNt" secondAttribute="bottom" constant="2" id="u2e-Qu-Xfx"/>
+                    </constraints>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="eGc-ef-l1U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NXV-Ve-rNt" secondAttribute="bottom" constant="5" id="1OC-tn-UkD"/>
-                <constraint firstItem="Ch2-hb-lq2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="1Vz-3j-ZL7"/>
-                <constraint firstItem="NXV-Ve-rNt" firstAttribute="top" secondItem="Ch2-hb-lq2" secondAttribute="bottom" constant="2" id="2xG-Ud-F7k"/>
-                <constraint firstAttribute="trailing" secondItem="NXV-Ve-rNt" secondAttribute="trailing" constant="8" id="8xk-5s-XQ1"/>
-                <constraint firstAttribute="trailing" secondItem="eGc-ef-l1U" secondAttribute="trailing" constant="8" id="Fec-p1-SOS"/>
-                <constraint firstAttribute="trailing" secondItem="Ch2-hb-lq2" secondAttribute="trailing" constant="8" id="GVB-hX-ylO"/>
-                <constraint firstItem="Ch2-hb-lq2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="GoA-Fd-wWg"/>
-                <constraint firstItem="NXV-Ve-rNt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="P9W-3U-czX"/>
-                <constraint firstItem="eGc-ef-l1U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="jMR-j2-6Bw"/>
-                <constraint firstAttribute="bottom" secondItem="eGc-ef-l1U" secondAttribute="bottom" constant="8" id="slg-gP-rNJ"/>
-                <constraint firstItem="eGc-ef-l1U" firstAttribute="top" secondItem="NXV-Ve-rNt" secondAttribute="bottom" constant="17" id="vwo-UQ-qtJ"/>
+                <constraint firstAttribute="bottom" secondItem="O5R-I9-Pg7" secondAttribute="bottom" constant="5" id="3Qs-oQ-1vO"/>
+                <constraint firstItem="O5R-I9-Pg7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="E8k-2c-Wfb"/>
+                <constraint firstAttribute="trailing" secondItem="O5R-I9-Pg7" secondAttribute="trailing" constant="5" id="VAJ-Zi-o0x"/>
+                <constraint firstItem="O5R-I9-Pg7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Yzp-3F-c0l"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="1OC-tn-UkD"/>
-                </mask>
-            </variation>
             <connections>
+                <outlet property="containerView" destination="O5R-I9-Pg7" id="CVH-sV-Dob"/>
                 <outlet property="doctorNamesLabel" destination="eGc-ef-l1U" id="fbk-dY-dr9"/>
                 <outlet property="notesLabel" destination="NXV-Ve-rNt" id="OGr-gg-IXS"/>
                 <outlet property="patientNameLabel" destination="Ch2-hb-lq2" id="Ipl-yp-Mwf"/>

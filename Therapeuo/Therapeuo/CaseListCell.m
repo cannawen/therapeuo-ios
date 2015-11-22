@@ -10,6 +10,7 @@
 #import "ThemeTools.h"
 
 @interface CaseListCell ()
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *patientNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *doctorNamesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *notesLabel;
@@ -19,9 +20,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.layer.cornerRadius = 4.0f;
     
-    [ThemeTools applyBlueThemeBorderToView:self];
+    self.containerView.layer.cornerRadius = 4.0f;
+    [ThemeTools applyBlueThemeBorderToView:self.containerView];
     
 }
 
